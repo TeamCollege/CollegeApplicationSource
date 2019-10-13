@@ -4,6 +4,7 @@ import com.virtusa.view.UserView;
 
 public class UserClient {
 	public UserClient() {
+		
 	}
 
 	public static void main(String[] args) {
