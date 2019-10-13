@@ -11,7 +11,8 @@ public class AlumniController {
 
 	
 		private AlumniService alumniService;
-		public AlumniController(){
+		public AlumniController()
+		{
 			this.alumniService=FactoryAlumniService.createAlumniService();
 			
 		}

@@ -16,6 +16,7 @@ import com.virtusa.model.StudentModel;
 
 public class AdminServiceImpl implements AdminService
 {
+	AdminDAO adminDAO = new AdminDAOImpl();
 
 	@Override
 	public void approveApplicantService() 
@@ -50,9 +51,8 @@ public class AdminServiceImpl implements AdminService
 		student.setCourseName(studentModel.getCourseName());
 		student.setDepartmentName(studentModel.getDepartmentName());
 		studentList.add(student);
-		AdminDAO adminDAO = new AdminDAOImpl();
 		try {
-			adminDAO.storeStudentDetails(studentList);
+			adminDAO.storeStudentDetailsDAO(studentList);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,13 +61,34 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public void deleteStudentService() 
+	public void deleteStudentService(int studentId) 
 	{
 		List<Student> studentList = new ArrayList<Student>();
-		System.out.println("Enter Student Id to delete record:");
-		Scanner scanner = new Scanner(System.in);
-		int id= scanner.nextInt();
-		studentList.remove(id);
+		studentList.remove(studentId);
+		try {
+			adminDAO.deleteStudentDetailsDAO(studentId);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void updateStudentService(int id, String firstName) 
+	{
+		try {
+			adminDAO.updateStudentDetailsDAO(id, firstName);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
@@ -86,17 +107,136 @@ public class AdminServiceImpl implements AdminService
 		faculty.setSalary(facultyModel.getSalary());
 		facultyList.add(faculty);
 	}
-
+	
 	@Override
-	public void deleteFacultyService()
+	public void updateFacultyService(String phoneNumber,int id)
 	{
-		List<Faculty> facultyList = new ArrayList<Faculty>();
-		System.out.println("Enter faculty Id to delete record");
-		Scanner scanner = new Scanner(System.in);
-		int id= scanner.nextInt();
-		facultyList.remove(id);
+		try {
+			adminDAO.updateFacultyDetailsDAO(phoneNumber, id);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
+
+	@Override
+	public void deleteFacultyService(int facultyId)
+	{
+		List<Faculty> facultyList = new ArrayList<Faculty>();
+		facultyList.remove(facultyId);
+		try {
+			adminDAO.deleteFacultyDetailsDAO(facultyId);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void addEventsService(int id, String name, String date, String location)
+	{
+		try {
+			adminDAO.addEventsDAO(id, name, date, location);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void deleteEventsService(int eventId) 
+	{
+		try {
+			adminDAO.deleteEventsDAO(eventId);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void addPlacementsService(int id, String companyName, String date, double percentage)
+	{
+		try {
+			adminDAO.addPlacementsDAO(id, companyName, date, percentage);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void deletePlacementsService(int placementId)
+	{
+		
+		try {
+			adminDAO.deletePlacementsDAO(placementId);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void addCourseService(int id, String name)
+	{
+		try {
+			adminDAO.addCourseDAO(id, name);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void deleteCourseService(int courseId)
+	{
+		try {
+			adminDAO.deleteCourseDAO(courseId);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+
+	
+	
+	
+	
+	
 
 	
 	

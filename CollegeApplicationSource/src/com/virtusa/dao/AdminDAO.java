@@ -8,17 +8,17 @@ import com.virtusa.entities.Student;
 
 public interface AdminDAO 
 {
-	public boolean storeStudentDetails(List<Student> student)throws SQLException;
-	public boolean updateStudentDetails(Student student)throws ClassNotFoundException, SQLException;
-	public boolean deleteStudentDetails(Student student)throws ClassNotFoundException, SQLException;
-	public boolean storeFacultyDetails(Faculty faculty)throws ClassNotFoundException, SQLException;
-	public boolean updateFacultyDetails(Faculty faculty)throws ClassNotFoundException, SQLException;
-	public boolean deleteFacultyDetails(Faculty faculty)throws ClassNotFoundException, SQLException;
-	public boolean addEvents()throws ClassNotFoundException, SQLException;
-	public boolean deleteEvents()throws ClassNotFoundException, SQLException;
-	public boolean addPlacements()throws ClassNotFoundException, SQLException;
-	public boolean deletePlacements()throws ClassNotFoundException, SQLException;
-	public boolean addCourse()throws ClassNotFoundException, SQLException;
-	public boolean deleteCourse()throws ClassNotFoundException, SQLException;
+	public boolean storeStudentDetailsDAO(List<Student> student)throws SQLException;
+	public boolean updateStudentDetailsDAO(int id, String firstName)throws ClassNotFoundException, SQLException;
+	public boolean deleteStudentDetailsDAO(int studentId)throws ClassNotFoundException, SQLException;
+	public boolean storeFacultyDetailsDAO(Faculty faculty)throws ClassNotFoundException, SQLException;
+	public boolean updateFacultyDetailsDAO(String phoneNumber , int id)throws ClassNotFoundException, SQLException;
+	public boolean deleteFacultyDetailsDAO(int facultyId)throws ClassNotFoundException, SQLException;
+	public boolean addEventsDAO(int id, String name, String date, String location)throws ClassNotFoundException, SQLException;
+	public boolean deleteEventsDAO(int eventId)throws ClassNotFoundException, SQLException;
+	public boolean addPlacementsDAO(int id, String companyName, String date, double percentage)throws ClassNotFoundException, SQLException;
+	public boolean deletePlacementsDAO(int placementId)throws ClassNotFoundException, SQLException;
+	public boolean addCourseDAO(int id, String name)throws ClassNotFoundException, SQLException;
+	public boolean deleteCourseDAO(int courseId)throws ClassNotFoundException, SQLException;
 	
 }
