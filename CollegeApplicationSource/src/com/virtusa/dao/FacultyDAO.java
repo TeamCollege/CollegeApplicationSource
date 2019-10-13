@@ -9,3 +9,4 @@ public interface FacultyDAO {
 	public List<ClassSchedule> viewCLassSchedule(String departmentName) throws ClassNotFoundException, SQLException;	
 
 }
+ 

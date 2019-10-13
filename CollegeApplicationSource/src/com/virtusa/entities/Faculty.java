@@ -3,7 +3,7 @@ package com.virtusa.entities;
 public class Faculty extends User {
 	
 	private String facultyId;
-	private String courseName;
+	private String courseName; 
 	private String departmentName;
 	private int salary;
 	

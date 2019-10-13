@@ -1,7 +1,7 @@
 package com.virtusa.model;
 
 import java.sql.Date;
-
+ 
 public class FacultyModel 
 {
 	private String facultyId;

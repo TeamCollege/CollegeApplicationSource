@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.virtusa.entities.ClassSchedule;
 import com.virtusa.integrate.ConnectionManager;
-
+ 
 public class FacultyDAOImpl implements FacultyDAO {
 	
 	public List<ClassSchedule> viewCLassSchedule(String departmentName) throws ClassNotFoundException, SQLException{

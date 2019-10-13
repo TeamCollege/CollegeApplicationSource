@@ -7,7 +7,7 @@ import com.virtusa.controller.FacultyController;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
 
-public class FacultyView {
+public class FacultyView {  
 		
 	public void facultyMenu() {
 		System.out.println("\t\t =====Faculty View=====");

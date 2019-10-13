@@ -15,7 +15,7 @@ public class FacultyServiceImpl implements FacultyService {
 	public FacultyServiceImpl() {
 		this.facultyDAO=FactoryFacultyDAO.createFacultyDAO();
 	}
-
+ 
 	@Override
 	public List<ClassScheduleModel> retreiveClassSchedule(String departmentName) {
 		List<ClassScheduleModel> classScheduleModelList = new ArrayList<>();

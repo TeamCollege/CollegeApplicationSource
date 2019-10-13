@@ -1,5 +1,5 @@
 package com.virtusa.controller;
-
+ 
 import java.util.List;
 
 import com.virtusa.entities.ClassSchedule;
@@ -14,7 +14,7 @@ public class FacultyController {
 	
 	private FacultyService facultyService;
 	
-	public FacultyController() {
+	public FacultyController() { 
 		this.facultyService = FactoryFacultyService.createApplicantService();
 
 	}

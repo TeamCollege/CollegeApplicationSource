@@ -8,5 +8,5 @@ import com.virtusa.model.ClassScheduleModel;
 public interface FacultyService {
 
 	public List<ClassScheduleModel> retreiveClassSchedule(String departmentName);
-
+ 
 }
