@@ -94,7 +94,7 @@ public class AdminDAOImpl implements AdminDAO
 		Connection connection=ConnectionManager.openConnection();
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("insert into faculty values(?,?,?,?,?,?,?,?,?)");
-		preparedStatement.setInt(1, faculty.getFacultyId());
+		preparedStatement.setString(1, faculty.getFacultyId());
 		preparedStatement.setString(2, faculty.getFirstName());
 		preparedStatement.setString(3, faculty.getLastName());
 		preparedStatement.setString(4, faculty.getPhoneNumber());
@@ -147,7 +147,7 @@ public class AdminDAOImpl implements AdminDAO
 		System.out.println("Enter Event Name:");
 		String name = scanner.next();
 		System.out.println("Enter Event Date:");
-		Date date = scanner.nextda
+		//Date date = scanner.nextda
 		System.out.println("Enter Event Location:");
 		String location = scanner.next();
 				Connection connection=ConnectionManager.openConnection();
@@ -155,7 +155,7 @@ public class AdminDAOImpl implements AdminDAO
 				connection.prepareStatement("insert into  events values(?,?,?,?)");
 		preparedStatement.setInt(1, id);
 		preparedStatement.setString(2, name);
-		preparedStatement.setDate(3, date);
+		//preparedStatement.setDate(3, date);
 		preparedStatement.setString(4, location);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0)
@@ -188,7 +188,7 @@ public class AdminDAOImpl implements AdminDAO
 		System.out.println("Enter Company Name:");
 		String companyName = scanner.next();
 		System.out.println("Enter Event Date:");
-		Date date = scanner.nextd ;
+		//Date date = scanner.nextd ;
 		System.out.println("Enter Eligibility Percentage");
 		double percentage = scanner.nextDouble();
 		Connection connection=ConnectionManager.openConnection();
@@ -196,7 +196,7 @@ public class AdminDAOImpl implements AdminDAO
 				connection.prepareStatement("insert into  placements values(?,?,?,?)");
 		preparedStatement.setInt(1, id);
 		preparedStatement.setString(2, companyName);
-		preparedStatement.setDate(3, date);
+		//preparedStatement.setDate(3, date);
 		preparedStatement.setDouble(4, percentage);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0)
