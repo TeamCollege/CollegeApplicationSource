@@ -1,105 +1,230 @@
 package com.virtusa.view;
 
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 import com.virtusa.controller.AlumniController;
 import com.virtusa.model.AlumniModel;
+import com.virtusa.validation.AlumniModelValidator;
+
 
 public class AlumniView {
-public void mainMenu(){
+	public void mainMenu(){
 		  
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("1. Alumni Registraion");
-		System.out.println("2. View Alumni Details ");
-		System.out.print("Enter option:");
-		int option=scanner.nextInt();
-		AlumniView alumniview=new AlumniView();
-		
-		
-		if(option==1)
-		{
-			alumniview.registerAlumniForm();
+		public void alumniMenu() {
+			System.out.println("\t\t =====ALUMNI VIEW=====");
+			System.out.println("1.Alumni Registration Form");
+			System.out.println("2.View Alumni Details");
+			System.out.println("3.Exit");
+			System.out.println("Enter your choice:");
+			try(Scanner sc=new Scanner(System.in);){  
+			int choice=sc.nextInt();
+			
+			switch(choice) {
+			  
+			case 1:registrationForm();
+				break;
+			case 2:viewAlumniDetails();
+				break;
+			case 7:System.exit(0);
+			break;
+			default:System.out.println("[SELECT APPROPRIATE OPTION]");
+			alumniMenu();
 		}
-
-		if(option==2){
-	           AlumniController alumniController=new AlumniController();
-	           alumniController.viewAlumni();
-			}
-}
+		}catch(Exception e) {
+			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
+		}
+	}
 			
 
+			  
+	public void registrationForm() throws ClassNotFoundException, SQLException {
+			
+			AlumniModelValidator validator = new AlumniModelValidator();
+			AlumniView alumniView = new AlumniView();
+			
+			System.out.println("-------Registration Form-------");
 		
-		public void registerAlumniForm(){
-			Scanner scanner=new Scanner(System.in);
-			System.out.print("Alumni Id");
-			int rollNo=scanner.nextInt();
+			try(Scanner scanner=new Scanner(System.in);){
 			
-			System.out.print("First Name");
-			String firstName=scanner.next();
+			System.out.print("First Name: ");
+			String firstName = scanner.next();
+			boolean validFirstName=validator.validString(firstName);
+			if(!validFirstName)
+				try {
+				throw new ValidationException("[!ERROR:Invalid First Name]");	
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
 			
-			System.out.print("Last Name");
-			String lastName=scanner.next();
+			System.out.print("Last Name: ");
+			String lastName = scanner.next();
+			boolean validLastName=validator.validString(lastName);
+			if(!validLastName)
+				try {
+				throw new ValidationException("[!ERROR:Invalid Last Name]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
 			
-			System.out.print("Phone Number");
-			String phoneNumber=scanner.next();
+			System.out.print("Alumni Id:");
+			int alumniId=scanner.nextInt();
+			boolean validAlumniId=validator.validNumber(alumniId);
+			if(!validAlumniId)
+				try {
+				throw new ValidationException("[!ERROR:Invalid AlumniId]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
+			 
+			System.out.print("Email: ");
+			String email = scanner.next();
+			boolean validEmail=validator.validEmail(email);
+			if(!validEmail)
+				try {
+				throw new ValidationException("[!ERROR: Invalid Email]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
 			
-			System.out.print("Email");
-			String email=scanner.next();
+			System.out.print("Phone Number: ");
+			String phoneNumber = scanner.next();
+			boolean validPhone=validator.validPhone(phoneNumber);
+			if(!validPhone)
+				try {
+				throw new ValidationException("[!ERROR: Invalid Phone Number]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
 			
-			System.out.print("Date of Birth");
-			String dateOfBirth=scanner.next();
+			System.out.print("Date Of Birth (DD/MM/YYYY):");
+			String dateOfBirthValidate=scanner.next();
 			
-			System.out.print("Gender");
+			StringTokenizer tokens=new StringTokenizer(dateOfBirthValidate,"/");
+			
+			List<String> tokensList=new ArrayList<>();
+			while(tokens.hasMoreTokens()) {
+				tokensList.add(tokens.nextToken());
+			}
+			
+			int dayOfMonth=Integer.parseInt(tokensList.get(0));
+			int month=Integer.parseInt(tokensList.get(1));
+			int year=Integer.parseInt(tokensList.get(2));
+			try {
+				LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
+			}
+			catch (Exception e)
+				{
+				System.out.println(e.getMessage());
+				alumniView.registrationForm();
+			
+			
+			
+			System.out.print("Course Id:");
+			int courseId=scanner.nextInt();
+			boolean validCourseId=validator.validNumber(courseId); 
+			if(!validCourseId)
+				try {
+				throw new ValidationException("[!ERROR:Invalid Course Id specified]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
+			
+			System.out.print("Gender:");
 			String gender=scanner.next();
 			
-			System.out.print("Course Id");
-			int courseId=scanner.nextInt();
+			boolean validgender=validator.validString(gender);
+			if(!validgender)
+				try {
+				throw new ValidationException("[!ERROR:Invalid Gender]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
 			
-			System.out.print("Present Status");
+			System.out.print("Present Status:");
 			String presentStatus=scanner.next();
 			
+			boolean validpresentStatus=validator.validString(presentStatus);
+			if(!validpresentStatus)
+				try {
+				throw new ValidationException("[!ERROR:Invalid Present Status]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
 			
-		AlumniModel alumniModel=new AlumniModel();
-			alumniModel.setCourseId(courseId);
-			alumniModel.setEmail(email);
+			System.out.print("Year of Completition");
+			String yearOfCompletition=scanner.next();
+			boolean validyearOfCompletition=validator.validNumber(yearOfCompletition);
+			if(!validyearOfCompletition)
+				try {
+				throw new ValidationException("[!ERROR:Invalid Year Of Completition]");
+				}catch(ValidationException e) {
+					System.out.println(e.getMessage());
+					alumniView.registrationForm();
+				}
+						
+			
+			
+			AlumniModel alumniModel = new AlumniModel();
+			
 			alumniModel.setFirstName(firstName);
 			alumniModel.setLastName(lastName);
-		
-			alumniModel.setDateOfBirth(dateOfBirth);
-			alumniModel.setGender(gender);
+			alumniModel.setAlumniId(alumniId);
+			alumniModel.setEmail(email);
 			alumniModel.setPhoneNumber(phoneNumber);
+			alumniModel.setCourseId(courseId);
+			alumniModel.setGender(gender);
+			alumniModel.setPresentStatus(presentStatus);
+			alumniModel.setYearOfCompletition(yearOfCompletition);
 			
-			
-			AlumniController alumniController=new AlumniController();
-			alumniController.storeAlumni(alumniModel);
-			mainMenu();
-			
+			AlumniController alumniController = new AlumniController();
+			alumniController.handleRegisterAlumni(alumniModel);
+			UserView.mainMenu();
+				}
+			}
 		}
-			
-			
-			
-			
-			public void storeSuccessful(){
+		
+			public void viewAlumniDetails() throws ClassNotFoundException, SQLException {
+			{
 				
-				System.out.println("Alumni registered successful");
-			}
-			
-		    public void storeUnSuccessful(){
+					AlumniController alumniController =new AlumniController();
+					alumniController.handleRetrieveAlumni();
+				}
 				
-				System.out.println("Alumni registered unsuccessful");
-			}
-		    
-		    
-		    
-		    public void displayalumniDetails(List<AlumniModel> alumniModel){
-		    	
-		    	alumniModel.forEach(System.out::println);
-		    }
 
 			
+				
+			}
 			
+			public void showRegistrationSuccess() {
+				System.out.println("Register successfully!");
+			}
 			
+			public void showRegistrationUnsuccessful() {
+				System.out.println("Registration unsuccessful");
+			}
+			
+			public void validationFailedError() {
+				System.out.println("Data entered is not valid");
+				
+			}
+				
+				
+				
+	}
+	
 }
 
 
