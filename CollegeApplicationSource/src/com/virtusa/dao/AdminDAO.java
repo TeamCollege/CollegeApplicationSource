@@ -1,13 +1,14 @@
 package com.virtusa.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.Student;
 
 public interface AdminDAO 
 {
-	public boolean storeStudentDetails(Student student)throws ClassNotFoundException, SQLException;
+	public boolean storeStudentDetails(List<Student> student)throws SQLException;
 	public boolean updateStudentDetails(Student student)throws ClassNotFoundException, SQLException;
 	public boolean deleteStudentDetails(Student student)throws ClassNotFoundException, SQLException;
 	public boolean storeFacultyDetails(Faculty faculty)throws ClassNotFoundException, SQLException;

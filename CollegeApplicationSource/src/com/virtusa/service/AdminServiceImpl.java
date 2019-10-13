@@ -1,9 +1,12 @@
 package com.virtusa.service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.virtusa.dao.AdminDAO;
+import com.virtusa.dao.AdminDAOImpl;
 import com.virtusa.dao.ApplicantDAOImpl;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.Student;
@@ -47,6 +50,13 @@ public class AdminServiceImpl implements AdminService
 		student.setCourseName(studentModel.getCourseName());
 		student.setDepartmentName(studentModel.getDepartmentName());
 		studentList.add(student);
+		AdminDAO adminDAO = new AdminDAOImpl();
+		try {
+			adminDAO.storeStudentDetails(studentList);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
