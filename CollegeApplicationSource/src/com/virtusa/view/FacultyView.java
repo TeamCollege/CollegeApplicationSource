@@ -26,7 +26,8 @@ public class FacultyView {
 			case 1:
 				FacultyController facultyController = new FacultyController();
 				FacultyModel facultyModel = new FacultyModel();
-				facultyController.viewClassSchedule(facultyModel);
+				facultyController.viewClassSchedule(facultyModel.getDepartmentName());
+				break;
 				
 			}
 		}
