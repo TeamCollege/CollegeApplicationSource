@@ -34,7 +34,7 @@ public class AlumniServiceImpl implements AlumniService {
 		
 		String result="fail";
 		try {
-			boolean stored=alumniDAO.persistAlumni(alumni);
+			boolean stored=alumniDAO.registerAlumni(alumni);
 			if(stored)
 				result="success";
 			

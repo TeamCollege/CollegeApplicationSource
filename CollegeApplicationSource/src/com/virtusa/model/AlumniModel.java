@@ -1,5 +1,7 @@
 package com.virtusa.model;
 
+import java.sql.Date;
+
 public class AlumniModel {
 
 	private String firstName;
@@ -8,21 +10,12 @@ public class AlumniModel {
 	private String phoneNumber;
 	private int courseId;
 	private int alumniId;
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	private String gender;
 	private String presentStatus;
-	private String yearOfCompletition;
-	
-	 
+	private int yearOfCompletition;
 	
 	
-
-	public String getYearOfCompletition() {
-		return yearOfCompletition;
-	}
-	public void setYearOfCompletition(String yearOfCompletition) {
-		this.yearOfCompletition = yearOfCompletition;
-	}
 	public String getPresentStatus() {
 		return presentStatus;
 	}
@@ -71,24 +64,33 @@ public class AlumniModel {
 	public void setAlumniId(int alumniId) {
 		this.alumniId = alumniId;
 	}
-	public String getDateOfBirth() {
+	
+	public int getYearOfCompletition() {
+		return yearOfCompletition;
+	}
+	public void setYearOfCompletition(int yearOfCompletition) {
+		this.yearOfCompletition = yearOfCompletition;
+	}
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
 	@Override
 	public String toString() {
 		return "AlumniModel [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber="
 				+ phoneNumber + ", courseId=" + courseId + ", alumniId=" + alumniId + ", dateOfBirth=" + dateOfBirth
 				+ ", gender=" + gender + ", presentStatus=" + presentStatus + ", yearOfCompletition="
-				+ yearOfCompletition + ", getYearOfCompletition()=" + getYearOfCompletition() + ", getPresentStatus()="
-				+ getPresentStatus() + ", getGender()=" + getGender() + ", getFirstName()=" + getFirstName()
-				+ ", getLastName()=" + getLastName() + ", getEmail()=" + getEmail() + ", getPhoneNumber()="
-				+ getPhoneNumber() + ", getCourseId()=" + getCourseId() + ", getAlumniId()=" + getAlumniId()
+				+ yearOfCompletition + ", getPresentStatus()=" + getPresentStatus() + ", getGender()=" + getGender()
+				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()="
+				+ getEmail() + ", getPhoneNumber()=" + getPhoneNumber() + ", getCourseId()=" + getCourseId()
+				+ ", getAlumniId()=" + getAlumniId() + ", getYearOfCompletition()=" + getYearOfCompletition()
 				+ ", getDateOfBirth()=" + getDateOfBirth() + "]";
 	}
+	
+	
+	
 	
 	
 	

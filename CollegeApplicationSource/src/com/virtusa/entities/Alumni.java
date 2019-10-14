@@ -1,6 +1,6 @@
 package com.virtusa.entities;
 
-public class Alumni 
+public class Alumni extends User
 {
 	private int alumniId;
 	private int courseId;
@@ -39,21 +39,10 @@ public class Alumni
 	}
 	@Override
 	public String toString() {
-	return &quot;Alumni [alumniId=&quot; + alumniId + &quot;, courseId=&quot; + courseId + &quot;, yearOfCompletition=&quot;
-
-	+ yearOfCompletition
-
-	+ &quot;, presentStatus=&quot; + presentStatus + &quot;, gender=&quot; + gender + &quot;,
-
-	getAlumniId()=&quot; + getAlumniId()
-
-	+ &quot;, getCourseId()=&quot; + getCourseId() + &quot;, getYearOfCompletition()=&quot; +
-
-	getYearOfCompletition()
-
-	+ &quot;, getPresentStatus()=&quot; + getPresentStatus() + &quot;, getGender()=&quot; +
-
-	getGender() + &quot;]&quot;;
+		return "Alumni [alumniId=" + alumniId + ", courseId=" + courseId + ", yearOfCompletition=" + yearOfCompletition
+				+ ", presentStatus=" + presentStatus + ", gender=" + gender + ", getAlumniId()=" + getAlumniId()
+				+ ", getCourseId()=" + getCourseId() + ", getYearOfCompletition()=" + getYearOfCompletition()
+				+ ", getPresentStatus()=" + getPresentStatus() + ", getGender()=" + getGender() + "]";
+	}
 	
-}
 }

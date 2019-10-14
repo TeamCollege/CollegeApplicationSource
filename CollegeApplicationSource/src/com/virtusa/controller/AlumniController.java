@@ -12,34 +12,12 @@ import com.virtusa.view.AlumniView;
 public class AlumniController { 
 
 	
-<<<<<<< HEAD
-		private AlumniService alumniService;
-		public AlumniController()
-		{
-			this.alumniService=FactoryAlumniService.createAlumniService();
-			
-		}
 
-	public void storeAlumni(AlumniModel alumniModel){
-			
-			boolean result=alumniService.storeAlumniService(alumniModel);
-			AlumniView alumniView=new AlumniView();
-			if(result){
-				alumniView.storeSuccessful();
-			}else{
-				
-				alumniView.storeUnSuccessful();
-			}
-			
-		}
-
-	public void viewAlumni(){
-=======
 	private AlumniService alumniService;       
 	AlumniView alumniview=new AlumniView();
 	public AlumniController(){
 		this.alumniService=FactoryAlumniService.createAlumniService();
->>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
+
 		
 	}
 

@@ -142,31 +142,16 @@ public class AdminDAOImpl implements AdminDAO
 	@Override
 	public boolean addEventsDAO(int id, String name, String date, String location) throws ClassNotFoundException, SQLException
 	{
-<<<<<<< HEAD
-		
-		Connection connection=ConnectionManager.openConnection();
-=======
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter Event ID:");
-		int id = scanner.nextInt();
-		System.out.println("Enter Event Name:");
-		String name = scanner.next();
-		System.out.println("Enter Event Date:");
-		//Date date = scanner.nextda
-		System.out.println("Enter Event Location:");
-		String location = scanner.next();
+
 				Connection connection=ConnectionManager.openConnection();
->>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
+
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("insert into  events values(?,?,?,?)");
 		preparedStatement.setInt(1, id);
 		preparedStatement.setString(2, name);
-<<<<<<< HEAD
-		preparedStatement.setString(3, date);
-=======
-		//preparedStatement.setDate(3, date);
->>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
-		preparedStatement.setString(4, location);
+	preparedStatement.setString(3, date);
+
+			preparedStatement.setString(4, location);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0)
 			return true;
@@ -189,28 +174,15 @@ public class AdminDAOImpl implements AdminDAO
 	@Override
 	public boolean addPlacementsDAO(int id, String companyName, String date, double percentage) throws ClassNotFoundException, SQLException
 	{
-<<<<<<< HEAD
-=======
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter Placements ID:");
-		int id = scanner.nextInt();
-		System.out.println("Enter Company Name:");
-		String companyName = scanner.next();
-		System.out.println("Enter Event Date:");
-		//Date date = scanner.nextd ;
-		System.out.println("Enter Eligibility Percentage");
-		double percentage = scanner.nextDouble();
->>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
+
 		Connection connection=ConnectionManager.openConnection();
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("insert into  placements values(?,?,?,?)");
 		preparedStatement.setInt(1, id);
 		preparedStatement.setString(2, companyName);
-<<<<<<< HEAD
+
 		preparedStatement.setString(3, date);
-=======
-		//preparedStatement.setDate(3, date);
->>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
+
 		preparedStatement.setDouble(4, percentage);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0)

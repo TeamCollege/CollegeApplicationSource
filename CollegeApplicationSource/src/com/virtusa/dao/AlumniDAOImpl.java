@@ -37,6 +37,7 @@ public class AlumniDAOImpl implements AlumniDAO {
 			alumni.setGender(resultSet.getString("gender"));
 			alumni.setPresentStatus(resultSet.getString("present_status"));
 			alumni.setYearOfCompletition(resultSet.getInt("year_of_completition"));
+			alumni.setDateOfBirth(resultSet.getDate("Date_of_Birth"));
 			
 			alumniList.add(alumni);
 		}
@@ -47,7 +48,7 @@ public class AlumniDAOImpl implements AlumniDAO {
 		
 		
 		@Override
-	public boolean persistAlumni(Alumni alumni) throws ClassNotFoundException, SQLException {
+	public boolean registerAlumni(Alumni alumni) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		
 		Connection conn=ConnectionManager.openConnection();
@@ -81,4 +82,4 @@ public class AlumniDAOImpl implements AlumniDAO {
 	
 	
 
-}
+

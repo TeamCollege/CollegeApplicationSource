@@ -8,12 +8,13 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import com.virtusa.controller.AlumniController;
+import com.virtusa.exception.ValidationException;
 import com.virtusa.model.AlumniModel;
 import com.virtusa.validation.AlumniModelValidator;
 
 
 public class AlumniView {
-	public void mainMenu(){
+	
 		  
 		public void alumniMenu() {
 			System.out.println("\t\t =====ALUMNI VIEW=====");
@@ -30,7 +31,7 @@ public class AlumniView {
 				break;
 			case 2:viewAlumniDetails();
 				break;
-			case 7:System.exit(0);
+			case 3:System.exit(0);
 			break;
 			default:System.out.println("[SELECT APPROPRIATE OPTION]");
 			alumniMenu();
@@ -40,10 +41,19 @@ public class AlumniView {
 		}
 	}
 			
+private void viewAlumniDetails() {
+	// TODO Auto-generated method stub
+		
+		AlumniController alumniController =new AlumniController();
+		alumniController.handleRetrieveAlumni();
+	}
+	
+		
+	
 
-			  
-	public void registrationForm() throws ClassNotFoundException, SQLException {
-			
+	private void registrationForm() {
+		// TODO Auto-generated method stub
+		
 			AlumniModelValidator validator = new AlumniModelValidator();
 			AlumniView alumniView = new AlumniView();
 			
@@ -135,7 +145,7 @@ public class AlumniView {
 			if(!validCourseId)
 				try {
 				throw new ValidationException("[!ERROR:Invalid Course Id specified]");
-				}catch(ValidationException e) {
+				}catch(ValidationException er) {
 					System.out.println(e.getMessage());
 					alumniView.registrationForm();
 				}
@@ -147,7 +157,7 @@ public class AlumniView {
 			if(!validgender)
 				try {
 				throw new ValidationException("[!ERROR:Invalid Gender]");
-				}catch(ValidationException e) {
+				}catch(ValidationException er) {
 					System.out.println(e.getMessage());
 					alumniView.registrationForm();
 				}
@@ -159,18 +169,18 @@ public class AlumniView {
 			if(!validpresentStatus)
 				try {
 				throw new ValidationException("[!ERROR:Invalid Present Status]");
-				}catch(ValidationException e) {
+				}catch(ValidationException er) {
 					System.out.println(e.getMessage());
 					alumniView.registrationForm();
 				}
 			
 			System.out.print("Year of Completition");
-			String yearOfCompletition=scanner.next();
+			int yearOfCompletition=scanner.nextInt();
 			boolean validyearOfCompletition=validator.validNumber(yearOfCompletition);
 			if(!validyearOfCompletition)
 				try {
 				throw new ValidationException("[!ERROR:Invalid Year Of Completition]");
-				}catch(ValidationException e) {
+				}catch(ValidationException er) {
 					System.out.println(e.getMessage());
 					alumniView.registrationForm();
 				}
@@ -195,37 +205,27 @@ public class AlumniView {
 				}
 			}
 		}
-		
-			public void viewAlumniDetails() throws ClassNotFoundException, SQLException {
-			{
-				
-					AlumniController alumniController =new AlumniController();
-					alumniController.handleRetrieveAlumni();
-				}
-				
-
-			
-				
-			}
-			
-			public void showRegistrationSuccess() {
-				System.out.println("Register successfully!");
-			}
-			
-			public void showRegistrationUnsuccessful() {
-				System.out.println("Registration unsuccessful");
-			}
-			
-			public void validationFailedError() {
-				System.out.println("Data entered is not valid");
-				
-			}
-				
-				
-				
+	public void showRegistrationSuccess() {
+		System.out.println("Register successfully!");
 	}
 	
+	public void showRegistrationUnsuccessful() {
+		System.out.println("Registration unsuccessful");
+	}
+	
+	public void validationFailedError() {
+		System.out.println("Data entered is not valid");
+		
+	}
+		
+		
+		
 }
+		
+	
+
+	
+
 
 
 
