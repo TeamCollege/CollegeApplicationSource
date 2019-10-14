@@ -71,9 +71,9 @@ public class AdminView
 			 * 2.retrieve model from method in any service
 			 * 
 			 */
-		
-		AdminController adminController = new AdminController();
-		adminController.approveApplicantController();
+			System.out.println("Enter Applicant Number To Approve Applicant:");
+			int applicantNumber = scan.nextInt();
+			adminController.approveApplicantController(applicantNumber);
 		
 		}
 		
@@ -165,13 +165,13 @@ public class AdminView
 					System.out.println("Enter Event Location:");
 					String location = scan.next();
 					adminController.addEventsController(id, name, date, location);
-					
+					break;
 					
 			case 2: 
 					System.out.println("Enter Event ID:");
 					int eventId = scan.nextInt();
 					adminController.deleteEventsController(eventId);
-	
+						break;
 			}	
 		}
 		
@@ -190,11 +190,12 @@ public class AdminView
 					System.out.println("Enter Course Name:");
 					String name = scan.next();
 					adminController.addCourseController(id, name);
-			
+					break;
 			case 2: 
 					System.out.println("Enter Course ID to delete");
 					int courseId = scan.nextInt();
 					adminController.deleteCourse(courseId);
+					break;
 			}		
 		}
 		
@@ -231,11 +232,13 @@ public class AdminView
 					System.out.println("Enter Eligibility Percentage");
 					double percentage = scan.nextDouble();
 					adminController.addPlacementsController(id,companyName,date, percentage);
-				
+					break;
+					
 			case 2: Scanner scanner = new Scanner(System.in);
 					System.out.println("Enter Placements ID:");
 					int placementId = scanner.nextInt();
-					adminController.deletePlacementController(placementId);		
+					adminController.deletePlacementController(placementId);
+					break;
 			}	
 		}
 		

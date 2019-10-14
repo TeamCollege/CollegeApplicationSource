@@ -1,4 +1,4 @@
-package com.virtusa.service;
+ package com.virtusa.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,8 +19,17 @@ public class AdminServiceImpl implements AdminService
 	AdminDAO adminDAO = new AdminDAOImpl();
 
 	@Override
-	public void approveApplicantService() 
+	public void approveApplicantService(int applicantNumber) 
 	{
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		ApplicantDAOImpl applicantDAOImpl = new ApplicantDAOImpl();
 		ApplicantModel applicantModel = new ApplicantModel();
 		applicantModel=applicantDAOImpl.retrieveApplicant();
