@@ -101,7 +101,7 @@ public class ApplicantView
 				applicantView.applicationForm();
 			} 
 		
-		System.out.print("Date Of Birth (DD/MM/YYYY):");
+		System.out.print("Date Of Birth (YYYY/MM/DD):");
 		String dateOfBirthValidate=scanner.next();
 		
 		StringTokenizer tokens=new StringTokenizer(dateOfBirthValidate,"/");
@@ -111,17 +111,15 @@ public class ApplicantView
 			tokensList.add(tokens.nextToken());
 		}
 		
-		int dayOfMonth=Integer.parseInt(tokensList.get(0));
+		int year=Integer.parseInt(tokensList.get(0));
 		int month=Integer.parseInt(tokensList.get(1));
-		int year=Integer.parseInt(tokensList.get(2));
-		try {
+		int dayOfMonth=Integer.parseInt(tokensList.get(2));
+		
 			LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
-		}
-		catch (Exception e)
-			{
-			System.out.println(e.getMessage());
-			applicantView.applicationForm();
-		}
+			System.out.println(dateOfBirth);
+			
+			
+			
 		
 		System.out.print("Course Name: ");
 		String courseName=scanner.next();
@@ -134,6 +132,7 @@ public class ApplicantView
 		applicantModel.setFirstName(firstName);
 		applicantModel.setLastName(lastName);
 		applicantModel.setEmail(email);
+		applicantModel.setDateOfBirth(dateOfBirth);
 		applicantModel.setPhoneNumber(phoneNumber);
 		applicantModel.setTenthPercentage(tenthPercentage);
 		applicantModel.setInterPercentage(interPercentage);
@@ -146,7 +145,8 @@ public class ApplicantView
 		UserView.mainMenu();
 	}
 	catch(Exception e) {
-		System.out.println(e);
+		//System.out.println(e);
+		e.printStackTrace();
 	}
 		
 	}

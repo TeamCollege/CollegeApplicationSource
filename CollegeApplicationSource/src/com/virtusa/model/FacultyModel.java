@@ -1,6 +1,7 @@
 package com.virtusa.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
  
 public class FacultyModel 
 {
@@ -11,7 +12,7 @@ public class FacultyModel
 	private String phoneNumber;
 	private String courseName;
 	private String departmentName;
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	private int salary;
 	
 	public String getFacultyId() {
@@ -56,10 +57,11 @@ public class FacultyModel
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
 	}
-	public Date getDateOfBirth() {
+	
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public int getSalary() {

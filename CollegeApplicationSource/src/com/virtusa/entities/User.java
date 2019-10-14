@@ -1,6 +1,7 @@
 package com.virtusa.entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class User {
 
@@ -9,7 +10,7 @@ public class User {
 	
 	protected String firstName;
 	protected String lastName;
-	protected Date dateOfBirth;
+	protected LocalDate dateOfBirth;
 	protected String emailAddress;
 	protected String phoneNumber;
 	
@@ -25,9 +26,7 @@ public class User {
 	public String getLastName() {
 		return lastName;
 	}
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
+	
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -47,7 +46,11 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public void setEmailAddress(String emailAddress) {

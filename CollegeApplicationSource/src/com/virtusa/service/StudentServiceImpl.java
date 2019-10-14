@@ -35,7 +35,7 @@ public class StudentServiceImpl implements StudentService {
 		studentModel.setClassScheduleModel(classScheduleModel);
 	
 	} catch (ClassNotFoundException | SQLException e) {
-		// TODO Auto-generated catch block
+		
 		e.printStackTrace();
 	}
 	

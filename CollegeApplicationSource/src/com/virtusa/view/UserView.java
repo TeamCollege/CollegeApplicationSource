@@ -1,10 +1,6 @@
 package com.virtusa.view;
 
-import java.sql.SQLException;
 import java.util.Scanner;
-
-import com.virtusa.controller.ApplicantController;
-import com.virtusa.model.ApplicantModel;
 
 public class UserView
 {
@@ -38,7 +34,7 @@ public class UserView
 			System.out.println("!ERROR[Enter an appropriate option]");
 		}
 		
-		mainMenu();
+		//mainMenu();
 		
 	}
 	
