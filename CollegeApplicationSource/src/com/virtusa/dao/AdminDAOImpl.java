@@ -153,10 +153,14 @@ public class AdminDAOImpl implements AdminDAO
 
 			preparedStatement.setString(4, location);
 		int rows = preparedStatement.executeUpdate();
-		if(rows>0)
-			return true;
-		else
+		if(rows>0) {
+			System.out.println("Events data is stored Successfully");
+			return true;}
+			
+		else {
+			System.out.println("Events data is stored Successfully");
 			return false;
+		}     
 				
 	}
 

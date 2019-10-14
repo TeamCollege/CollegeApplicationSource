@@ -8,10 +8,10 @@ import com.virtusa.service.AdminServiceImpl;
 public class AdminController 
 {
 	AdminService adminServiceImpl = new AdminServiceImpl();
-	public void approveApplicantController()
+	public void approveApplicantController(int applicantNumber)
 	{   
-		 
-		 adminServiceImpl.approveApplicantService();
+		   
+		 adminServiceImpl.approveApplicantService(applicantNumber);
 	}
 	
 	public void addStudentController(StudentModel studentModel)

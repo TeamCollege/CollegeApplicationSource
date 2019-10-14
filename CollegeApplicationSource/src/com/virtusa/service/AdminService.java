@@ -5,7 +5,7 @@ import com.virtusa.model.StudentModel;
 
 public interface AdminService 
 {
-	public void approveApplicantService();
+	public void approveApplicantService(int applicantNumber);
 	public void addStudentService(StudentModel studentModel);
 	public void deleteStudentService(int studentId);
 	public void updateStudentService(int id, String firstName);
@@ -20,5 +20,5 @@ public interface AdminService
 	public void deleteCourseService(int courseId);
 	     
 	
-
+    
 }
