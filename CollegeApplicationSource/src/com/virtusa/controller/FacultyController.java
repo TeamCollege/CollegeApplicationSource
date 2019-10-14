@@ -19,7 +19,7 @@ public class FacultyController {
 
 	}
 
-	public void viewClassSchedule(String DepartmentName) {
+	public void viewClassSchedule(String departmentName) {
 		List<ClassScheduleModel> model = facultyService.retreiveClassSchedule(departmentName);
 		FacultyView facultyView = new FacultyView();
 		facultyView.displayClassSchedule(model);

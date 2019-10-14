@@ -23,7 +23,8 @@ public class ApplicantDAOImpl implements ApplicantDAO
 		}*/
 		
 		Connection conn=ConnectionManager.openConnection();
-		PreparedStatement preparedStatement = conn.prepareStatement("insert into application_form values(APPLICATIONSEQ.nextval,?,?,?,?,?,?,?,?,?,?)");
+		PreparedStatement preparedStatement = conn.prepareStatement("insert into application_form values(?,?,?,?,?,?,?,?,?,?,?)");
+		preparedStatement.setInt(1,applicant.getApplicantNumber());
 		preparedStatement.setString(2, applicant.getFirstName());
 		preparedStatement.setString(3, applicant.getLastName());
 		preparedStatement.setString(4, applicant.getEmailAddress());
