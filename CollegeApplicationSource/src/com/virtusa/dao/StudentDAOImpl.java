@@ -19,13 +19,13 @@ public class StudentDAOImpl implements StudentDAO {
 	  public Student getClassSchedule(String departmentName)throws
 	  ClassNotFoundException, SQLException{ Connection
 	  connection=ConnectionManager.openConnection(); 
-	  PreparedStatement statement=connection.prepareStatement("select * from ClassSchedule");
+	  PreparedStatement statement=connection.prepareStatement("select * from cse_schedule");
 	 // statement.setString(1,departmentName); 
 	  ResultSet resultSet=statement.executeQuery();
 	  Student students=new Student();
 	  while(resultSet.next()) {
 	  
-	  students.setDepartmentName(resultSet.getString("department_name"));
+	  //students.setDepartmentName(resultSet.getString("department_name"));
 	  ClassSchedule classSchedule=new ClassSchedule();
 	  classSchedule.setDay(resultSet.getString("day"));
 	  classSchedule.setFirst_hour(resultSet.getString("first_hour"));

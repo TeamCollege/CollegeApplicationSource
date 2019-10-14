@@ -9,7 +9,7 @@ public class AdminController
 {
 	AdminService adminServiceImpl = new AdminServiceImpl();
 	public void approveApplicantController()
-	{
+	{   
 		 
 		 adminServiceImpl.approveApplicantService();
 	}

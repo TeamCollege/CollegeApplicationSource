@@ -1,13 +1,14 @@
 package com.virtusa.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.virtusa.entities.Alumni;
 
+
 public interface AlumniDAO {  
 
-	public boolean persistStudent(Alumni alumni);
-	public List<Alumni> viewAlumni();
-
-
+	public List<Alumni> getAlumni() throws ClassNotFoundException, SQLException;
+	public boolean persistAlumni(Alumni alumni) throws ClassNotFoundException, SQLException;
+	
 }

@@ -18,7 +18,7 @@ public interface AdminService
 	public void deletePlacementsService(int placementId);
 	public void addCourseService(int id, String name);
 	public void deleteCourseService(int courseId);
-	 
+	     
 	
 
 }

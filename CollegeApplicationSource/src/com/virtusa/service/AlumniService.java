@@ -7,8 +7,7 @@ import com.virtusa.model.AlumniModel;
 public interface AlumniService {
 
 
-	public boolean storeAlumniService(AlumniModel alumnimodel);
-	public List<AlumniModel> retrieveAlumniService();
+	public List<AlumniModel> retrieveAlumni();
+	public String registerAlumni(AlumniModel model);
 
-  
 }

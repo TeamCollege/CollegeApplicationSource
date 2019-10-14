@@ -108,7 +108,7 @@ public class AdminView
 		}
 		AdminController adminController = new AdminController();
 		public void manageFaculty()
-		{
+		{   
 			System.out.println("1.Add Faculty");
 			System.out.println("2.Delete Faculty");
 			System.out.println("3.Update Faculty Details");
