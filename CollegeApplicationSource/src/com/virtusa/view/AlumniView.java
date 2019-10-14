@@ -132,7 +132,7 @@ private void viewAlumniDetails() {
 			
 				LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
 				System.out.println(dateOfBirth);
-			
+			    
 			
 			
 			System.out.print("Course Id:");

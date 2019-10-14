@@ -16,7 +16,7 @@ import com.virtusa.integrate.ConnectionManager;
 
 
 public class AlumniDAOImpl implements AlumniDAO {
-	  
+	     
 
 	@Override
 	public List<Alumni> getAlumni() throws ClassNotFoundException, SQLException {
@@ -27,7 +27,7 @@ public class AlumniDAOImpl implements AlumniDAO {
 		ResultSet resultSet=
 				statement.executeQuery("select * from alumni");
 		
-		List<Alumni> alumniList=new ArrayList<Alumni>();
+		List<Alumni> alumniList=new ArrayList<>();
 		while(resultSet.next()) {
 			Alumni alumni=new Alumni();
 			alumni.setAlumniId(resultSet.getInt("alumni_id"));
