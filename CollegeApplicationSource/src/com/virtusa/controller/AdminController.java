@@ -10,7 +10,7 @@ public class AdminController
 	AdminService adminServiceImpl = new AdminServiceImpl();
 	public void approveApplicantController(int applicantNumber)
 	{   
-		 
+		   
 		 adminServiceImpl.approveApplicantService(applicantNumber);
 	}
 	

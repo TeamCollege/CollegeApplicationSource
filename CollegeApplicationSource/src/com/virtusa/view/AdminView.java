@@ -129,7 +129,7 @@ public class AdminView
 					String phoneNumber=scan.next();
 					adminController.updateFacultyController(phoneNumber, id);
 					break;
-				
+				 
 			}
 			
 		}

@@ -20,5 +20,5 @@ public interface AdminService
 	public void deleteCourseService(int courseId);
 	     
 	
-
+    
 }
