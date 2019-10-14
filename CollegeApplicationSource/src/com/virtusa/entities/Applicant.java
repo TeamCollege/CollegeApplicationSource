@@ -1,6 +1,7 @@
 package com.virtusa.entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Applicant extends User {
 	
@@ -10,7 +11,7 @@ public class Applicant extends User {
 	private String courseName;
 	private String departmentName;
 	private String aadharNumber;
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	
 	public int getApplicantNumber() {
 		return applicantNumber;
@@ -49,10 +50,12 @@ public class Applicant extends User {
 		this.aadharNumber = aadharNumber;
 	}
 	
-	public Date getDateOfBirth() {
+	
+	
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	@Override

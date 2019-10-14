@@ -1,6 +1,7 @@
 package com.virtusa.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class ApplicantModel {
 	
@@ -13,7 +14,7 @@ public class ApplicantModel {
 	private double interPercentage;
 	private String courseName;
 	private String departmentName;
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	private String aadharNumber;
 	
 	public String getFirstName()
@@ -51,10 +52,11 @@ public class ApplicantModel {
 	public void setAadharNumber(String aadharNumber) {
 		this.aadharNumber = aadharNumber;
 	}
-	public Date getDateOfBirth() {
+	
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public void setApplicantNumber(int applicantNumber) {
@@ -161,5 +163,6 @@ public class ApplicantModel {
 			return false;
 		return true;
 	}
+	
 	
 }

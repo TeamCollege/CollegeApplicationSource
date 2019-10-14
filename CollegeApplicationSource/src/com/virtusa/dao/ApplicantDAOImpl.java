@@ -1,7 +1,7 @@
 package com.virtusa.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
@@ -32,7 +32,9 @@ public class ApplicantDAOImpl implements ApplicantDAO
 		preparedStatement.setDouble(6, applicant.getTenthPercentage());
 		preparedStatement.setDouble(7, applicant.getInterPercentage());
 		preparedStatement.setString(8, applicant.getAadharNumber());
-		preparedStatement.setDate(9, applicant.getDateOfBirth());
+		System.out.println("********applicant date:"+applicant.getDateOfBirth());
+		preparedStatement.setDate(9, Date.valueOf(applicant.getDateOfBirth()));
+		
 		preparedStatement.setString(10, applicant.getCourseName());
 		preparedStatement.setString(11, applicant.getDepartmentName());
 		int rows=preparedStatement.executeUpdate();

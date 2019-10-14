@@ -1,10 +1,12 @@
 package com.virtusa.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +39,9 @@ public class AlumniDAOImpl implements AlumniDAO {
 			alumni.setGender(resultSet.getString("gender"));
 			alumni.setPresentStatus(resultSet.getString("present_status"));
 			alumni.setYearOfCompletition(resultSet.getInt("year_of_completition"));
-			alumni.setDateOfBirth(resultSet.getDate("Date_of_Birth"));
-			
+			java.sql.Date sqlDate=resultSet.getDate("dateOfBirth");
+			LocalDate dateOfBirth=LocalDate.of(sqlDate.getYear(), sqlDate.getMonth(), sqlDate.getDay());
+			alumni.setDateOfBirth(dateOfBirth);
 			alumniList.add(alumni);
 		}
 		ConnectionManager.closeConnection();
@@ -52,7 +55,7 @@ public class AlumniDAOImpl implements AlumniDAO {
 		// TODO Auto-generated method stub
 		
 		Connection conn=ConnectionManager.openConnection();
-		PreparedStatement preparedStatement = conn.prepareStatement("insert into alumni values(?,?,?,?,?,?,?,?,?,?)");
+		PreparedStatement preparedStatement = conn.prepareStatement("insert into alumni values(?,?,?,?,?,?,?,?,?,?,?)");
 		preparedStatement.setString(2, alumni.getFirstName());
 		preparedStatement.setString(3,  alumni.getLastName());
 		preparedStatement.setString(4,  alumni.getEmailAddress());
@@ -60,7 +63,7 @@ public class AlumniDAOImpl implements AlumniDAO {
 		preparedStatement.setInt(6,  alumni.getAlumniId());
 		preparedStatement.setInt(7,  alumni.getCourseId());
 		preparedStatement.setString(8,  alumni.getGender());
-		preparedStatement.setDate(9,  alumni.getDateOfBirth());
+		preparedStatement.setDate(9,  Date.valueOf( alumni.getDateOfBirth()));
 		preparedStatement.setInt(10,  alumni.getYearOfCompletition());
 		preparedStatement.setString(11,  alumni.getPresentStatus());
 		int rows=preparedStatement.executeUpdate();

@@ -30,7 +30,7 @@ public class AdminDAOImpl implements AdminDAO
 		preparedStatement.setString(3, object.getLastName());
 		preparedStatement.setString(4, object.getPhoneNumber());
 		preparedStatement.setString(5, object.getEmailAddress());
-		preparedStatement.setDate(6, object.getDateOfBirth());
+		preparedStatement.setDate(6,  Date.valueOf(object.getDateOfBirth()));
 		preparedStatement.setDouble(7, object.getInterPercentage());
 		preparedStatement.setDouble(8, object.getTenthPercentage());
 		preparedStatement.setString(9, object.getCourseName());
@@ -96,7 +96,7 @@ public class AdminDAOImpl implements AdminDAO
 		preparedStatement.setString(3, faculty.getLastName());
 		preparedStatement.setString(4, faculty.getPhoneNumber());
 		preparedStatement.setString(5, faculty.getEmailAddress());
-		preparedStatement.setDate(6, faculty.getDateOfBirth());
+		preparedStatement.setDate(6, Date.valueOf( faculty.getDateOfBirth()));
 		preparedStatement.setString(7, faculty.getCourseName());
 		preparedStatement.setString(8, faculty.getDepartmentName());
 		preparedStatement.setDouble(9, faculty.getSalary());
