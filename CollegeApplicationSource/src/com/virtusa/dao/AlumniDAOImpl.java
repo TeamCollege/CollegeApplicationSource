@@ -60,12 +60,12 @@ public class AlumniDAOImpl implements AlumniDAO {
 		preparedStatement.setString(3,  alumni.getLastName());
 		preparedStatement.setString(4,  alumni.getEmailAddress());
 		preparedStatement.setString(5, alumni.getPhoneNumber());
-		preparedStatement.setInt(6,  alumni.getAlumniId());
-		preparedStatement.setInt(7,  alumni.getCourseId());
-		preparedStatement.setString(8,  alumni.getGender());
-		preparedStatement.setDate(9,  Date.valueOf( alumni.getDateOfBirth()));
-		preparedStatement.setInt(10,  alumni.getYearOfCompletition());
-		preparedStatement.setString(11,  alumni.getPresentStatus());
+		preparedStatement.setInt(1,  alumni.getAlumniId());
+		preparedStatement.setInt(6,  alumni.getCourseId());
+		preparedStatement.setString(10,  alumni.getGender());
+		preparedStatement.setDate(7,  Date.valueOf( alumni.getDateOfBirth()));
+		preparedStatement.setInt(9,  alumni.getYearOfCompletition());
+		preparedStatement.setString(8,  alumni.getPresentStatus());
 		int rows=preparedStatement.executeUpdate();
 		ConnectionManager.closeConnection();
 		

@@ -25,9 +25,16 @@ public class UserView
 				ApplicantView applicantView = new ApplicantView();
 				applicantView.applicationForm();
 				break;
+				
+			case 4:AlumniView alumniView=new AlumniView();
+					alumniView.alumniMenu();
+				
+				
 			default: 
 				System.out.println("!ERROR[Enter an appropriate option]");
 				mainMenu();
+				
+			
 			}
 		}
 		catch(Exception e) {

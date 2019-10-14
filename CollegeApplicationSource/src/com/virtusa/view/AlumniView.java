@@ -116,7 +116,7 @@ private void viewAlumniDetails() {
 					alumniView.registrationForm();
 				}
 			
-			System.out.print("Date Of Birth (DD/MM/YYYY):");
+			System.out.print("Date Of Birth (YYYY/MM/DD):");
 			String dateOfBirthValidate=scanner.next();
 			
 			StringTokenizer tokens=new StringTokenizer(dateOfBirthValidate,"/");
@@ -126,16 +126,12 @@ private void viewAlumniDetails() {
 				tokensList.add(tokens.nextToken());
 			}
 			
-			int dayOfMonth=Integer.parseInt(tokensList.get(0));
+			int year=Integer.parseInt(tokensList.get(0));
 			int month=Integer.parseInt(tokensList.get(1));
-			int year=Integer.parseInt(tokensList.get(2));
-			try {
+			int dayOfMonth=Integer.parseInt(tokensList.get(2));
+			
 				LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
-			}
-			catch (Exception e)
-				{
-				System.out.println(e.getMessage());
-				alumniView.registrationForm();
+				System.out.println(dateOfBirth);
 			
 			
 			
@@ -146,7 +142,7 @@ private void viewAlumniDetails() {
 				try {
 				throw new ValidationException("[!ERROR:Invalid Course Id specified]");
 				}catch(ValidationException er) {
-					System.out.println(e.getMessage());
+					System.out.println(er.getMessage());
 					alumniView.registrationForm();
 				}
 			
@@ -158,7 +154,7 @@ private void viewAlumniDetails() {
 				try {
 				throw new ValidationException("[!ERROR:Invalid Gender]");
 				}catch(ValidationException er) {
-					System.out.println(e.getMessage());
+					System.out.println(er.getMessage());
 					alumniView.registrationForm();
 				}
 			
@@ -170,7 +166,7 @@ private void viewAlumniDetails() {
 				try {
 				throw new ValidationException("[!ERROR:Invalid Present Status]");
 				}catch(ValidationException er) {
-					System.out.println(e.getMessage());
+					System.out.println(er.getMessage());
 					alumniView.registrationForm();
 				}
 			
@@ -181,7 +177,7 @@ private void viewAlumniDetails() {
 				try {
 				throw new ValidationException("[!ERROR:Invalid Year Of Completition]");
 				}catch(ValidationException er) {
-					System.out.println(e.getMessage());
+					System.out.println(er.getMessage());
 					alumniView.registrationForm();
 				}
 						
@@ -204,7 +200,7 @@ private void viewAlumniDetails() {
 			UserView.mainMenu();
 				}
 			}
-		}
+		
 	public void showRegistrationSuccess() {
 		System.out.println("Register successfully!");
 	}
