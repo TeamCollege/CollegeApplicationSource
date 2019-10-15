@@ -32,13 +32,13 @@ public class AlumniView {
 			case 2:viewAlumniDetails();
 				break;
 			case 3:System.exit(0);
-			break;
+				break;
 			default:System.out.println("[SELECT APPROPRIATE OPTION]");
-			alumniMenu();
+		
 		}
 		}catch(Exception e) {
 			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
-		}
+		}	//alumniMenu();
 	}
 			
 private void viewAlumniDetails() {
@@ -83,7 +83,7 @@ private void viewAlumniDetails() {
 					alumniView.registrationForm();
 				}
 			
-			System.out.print("Alumni Id:");
+			System.out.print("Student Id:");
 			int alumniId=scanner.nextInt();
 			boolean validAlumniId=validator.validNumber(alumniId);
 			if(!validAlumniId)
@@ -146,10 +146,10 @@ private void viewAlumniDetails() {
 					alumniView.registrationForm();
 				}
 			
-			System.out.print("Gender:");
-			String gender=scanner.next();
+			System.out.print("Gender (Female/Male):");
+			String gender=scanner.next().toLowerCase();
 			
-			boolean validgender=validator.validString(gender);
+			boolean validgender=validator.validGender(gender);
 			if(!validgender)
 				try {
 				throw new ValidationException("[!ERROR:Invalid Gender]");
@@ -158,10 +158,10 @@ private void viewAlumniDetails() {
 					alumniView.registrationForm();
 				}
 			
-			System.out.print("Present Status:");
-			String presentStatus=scanner.next();
+			System.out.print("Present Working Status (Employed/Unemployed):");
+			String presentStatus=scanner.next().toLowerCase();
 			
-			boolean validpresentStatus=validator.validString(presentStatus);
+			boolean validpresentStatus=validator.validPresentStatus(presentStatus);
 			if(!validpresentStatus)
 				try {
 				throw new ValidationException("[!ERROR:Invalid Present Status]");

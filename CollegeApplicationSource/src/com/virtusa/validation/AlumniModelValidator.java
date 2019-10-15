@@ -15,7 +15,7 @@ public boolean validate(AlumniModel model) {
 		boolean result=false;
 		
 		if(validString(model.getFirstName()) && validString(model.getLastName()) && validNumber(model.getAlumniId()) 
-				 && validEmail(model.getEmail())&& validString(model.getGender())&& validString(model.getPresentStatus())
+				 && validEmail(model.getEmail())&& validGender(model.getGender())&& validPresentStatus(model.getPresentStatus())
 				 && validNumber(model.getYearOfCompletition())){
 			result=true;
 		}
@@ -27,9 +27,13 @@ public boolean validString(String val) {
 	boolean result=false;
 	char chars[]=val.toCharArray();
 	List<Character> alphabets=new ArrayList<>();
+	for(int i=65;i<=90;i++) {
+		alphabets.add((char)i);
+	}
 	for(int i=97;i<=122;i++) {
 		alphabets.add((char)i);
 	}
+	
 
 	for(char ch:chars) {
 		if(alphabets.contains(ch)) 
@@ -59,5 +63,26 @@ public boolean validEmail(String email) {
 	String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
     return email.matches(regex);
 }
+
+public boolean validGender(String gender) {
+    
+    boolean result=false;
+    if(gender.contentEquals("female")||gender.contentEquals("male"))
+    {
+        result=true;
+    }
+    return result;
+    }
+
+public boolean validPresentStatus(String presentStatus) {
+    
+    boolean result=false;
+    if(presentStatus.equals("employed") || presentStatus.equals("unemployed"))
+    {
+        result=true;
+    }
+   
+    return result;
+    }    
 
 }

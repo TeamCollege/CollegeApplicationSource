@@ -28,7 +28,7 @@ public class UserView
 				
 			case 4:AlumniView alumniView=new AlumniView();
 					alumniView.alumniMenu();
-				
+					break;
 				
 			default: 
 				System.out.println("!ERROR[Enter an appropriate option]");
