@@ -1,6 +1,4 @@
-
 package com.virtusa.view;
-
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,9 +24,7 @@ public class AdminView
 		System.out.println("4.Manage Events");
 		System.out.println("5.Manage Course");
 		System.out.println("6.Manage Placements");
-		System.out.println("7.View Students");
-		System.out.println("8.View Faculty");
-		System.out.println("9.LogOut\n");
+		System.out.println("7.LogOut\n");
 		System.out.println("Enter your choice");
 		int choice= scan.nextInt();
 		try {
@@ -47,19 +43,13 @@ public class AdminView
 		case 4 : manageEvents();
 					break;
 			
-		case 5 : manageCourse();
+		case 5 : manageDepartment();
 					break;
 		
 		case 6 : managePlacements();
 					break;
-			
-		case 7 : viewStudentsData();
-					break;
-	
-		case 8 : viewFacultyData();
-					break;
 					
-		case 9 :
+		case 7 :
 					break;
 		default:
 			throw new InvalidUserChoiceException();
@@ -93,6 +83,7 @@ public class AdminView
 			System.out.println("1. Add Student");
 			System.out.println("2. Delete Student");
 			System.out.println("3. Update Student Details");
+			System.out.println("4. View student Data based on Student Id");
 		
 			int choice = scan.nextInt();
 			AdminController adminController = new AdminController();
@@ -105,17 +96,50 @@ public class AdminView
 			
 			case 1 :adminController.addStudentController(studentModel);
 					break;
-			case 2 :System.out.println("Enter Student ID:");
-					int studentId = scan.nextInt();
-					adminController.deleteStudentController(studentId);
 					
+			case 2 :String passIdString="";
+					boolean validStudentId=false;
+					do {
+				    try {
+				    	System.out.println("Enter Student Id to delete:");
+				    	passIdString=scan.next();
+				    	validStudentId=validator.validNumber1(passIdString);
+				    	}
+				    	catch(Exception w) { 
+				    	}
+					}while(validStudentId);
+					adminController.deleteStudentController(passIdString);
 					break;
-			case 3 :System.out.println("Enter Student id to update:");
-					int id=scan.nextInt();
+			case 3 :
+					int studentId=0;
+					String passIdString1="";
+					boolean validStudentId1=false;
+				do {
+			    try {
+			    	System.out.println("Enter Student Id to Update details:");
+			    	passIdString1=scan.next();
+			    	validStudentId1=validator.validNumber1(passIdString1);
+			    	studentId=Integer.parseInt(passIdString1);
+			    	}
+			    	catch(Exception w) {
+			    	}
+				}while(validStudentId1);
+				///////////////////////////
+					String firstName="";
+					boolean validFirstName=false;
+					do {
 					System.out.println("Enter New First name");
-					String firstName = scan.next();
-					adminController.updateStudentController(id, firstName);
+					firstName = scan.next();
+					validFirstName=validator.validString1(firstName);
+					if(validFirstName==false)
+						System.out.println("----Enter Name in Alphabets only");
+					}while(!validFirstName);
+					adminController.updateStudentController(studentId, firstName);
 					break;
+					
+			case 4:	System.out.println("Enter Student Id:");
+					int studentId1 = scan.nextInt();
+			
 			default:
 				throw new InvalidUserChoiceException();
 			}
@@ -134,6 +158,7 @@ public class AdminView
 			System.out.println("1.Add Faculty");
 			System.out.println("2.Delete Faculty");
 			System.out.println("3.Update Faculty Details");
+			System.out.println("4.View Faculty data based on faculty id");
 			int choice = scan.nextInt();
 			FacultyModel facultyModel = new FacultyModel();
 			try
@@ -152,6 +177,9 @@ public class AdminView
 					String phoneNumber=scan.next();
 					adminController.updateFacultyController(phoneNumber, id);
 					break;
+					
+			case 4:System.out.println("Enter Faculty Id:");
+					int facultyId1 = scan.nextInt();
 			default:
 				throw new InvalidUserChoiceException();
 			}
@@ -218,25 +246,25 @@ public class AdminView
 		}
 		
 		
-		public void manageCourse()
+		public void manageDepartment()
 		{
-			System.out.println("1.Add Course");
-			System.out.println("2.Delete Course");
+			System.out.println("1.Add Department");
+			System.out.println("2.Delete Department");
 			int choice = scan.nextInt();
 			
 			switch(choice)
 			{
 			case 1: 
-					System.out.println("Enter Course ID:");
+					System.out.println("Enter Department ID:");
 					int id = scan.nextInt();
-					System.out.println("Enter Course Name:");
+					System.out.println("Enter Department Name:");
 					String name = scan.next();
 					adminController.addCourseController(id, name);
 					break;
 			case 2: 
-					System.out.println("Enter Course ID to delete");
-					int courseId = scan.nextInt();
-					adminController.deleteCourse(courseId);
+					System.out.println("Enter Department ID to delete");
+					int departmentId = scan.nextInt();
+					adminController.deleteCourse(departmentId);
 					break;
 			}		
 		}
@@ -296,17 +324,8 @@ public class AdminView
 		}
 		
 		
-		
-		public void viewStudentsData()
-		{
-			
-			
-		}
-		
-		public void viewFacultyData()
-		{
-			
-		}
+	
+	
 		
 		
 		

@@ -71,12 +71,12 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean deleteStudentDetailsDAO(int studentId) throws ClassNotFoundException, SQLException
+	public boolean deleteStudentDetailsDAO(String studentId) throws ClassNotFoundException, SQLException
 	{
 		Connection connection=ConnectionManager.openConnection();
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("delete from students where student_id=?");
-		preparedStatement.setInt(1, studentId);
+		preparedStatement.setString(1, studentId);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0)
 			return true;

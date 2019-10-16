@@ -70,7 +70,7 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public void deleteStudentService(int studentId) 
+	public void deleteStudentService(String studentId) 
 	{
 		List<Student> studentList = new ArrayList<Student>();
 		studentList.remove(studentId);

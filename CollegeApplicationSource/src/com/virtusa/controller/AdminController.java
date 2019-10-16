@@ -23,7 +23,7 @@ public class AdminController
 		adminServiceImpl.updateStudentService(id, firstName);
 	}
 	
-	public void deleteStudentController(int studentId)
+	public void deleteStudentController(String studentId)
 	{
 		adminServiceImpl.deleteStudentService(studentId);
 		

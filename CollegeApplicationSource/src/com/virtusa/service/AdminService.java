@@ -7,7 +7,7 @@ public interface AdminService
 {
 	public void approveApplicantService(int applicantNumber);
 	public void addStudentService(StudentModel studentModel);
-	public void deleteStudentService(int studentId);
+	public void deleteStudentService(String studentId);
 	public void updateStudentService(int id, String firstName);
 	public void addFacultyService(FacultyModel facultyModel);
 	public void deleteFacultyService(int facultyId);
