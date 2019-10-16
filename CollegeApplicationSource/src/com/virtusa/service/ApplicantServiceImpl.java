@@ -28,7 +28,7 @@ public class ApplicantServiceImpl implements ApplicantService
 		applicant.setDateOfBirth(applicantModel.getDateOfBirth());
 		applicant.setTenthPercentage(applicantModel.getTenthPercentage());
 		applicant.setInterPercentage(applicantModel.getInterPercentage());
-		applicant.setCourseName(applicantModel.getCourseName());
+		//applicant.setCourseName(applicantModel.getCourseName());
 		applicant.setDepartmentName(applicantModel.getDepartmentName());
 		
 		String result = "failed";
@@ -65,7 +65,7 @@ public class ApplicantServiceImpl implements ApplicantService
 				applicantModel.setEmail(applicant.getEmailAddress());
 				applicantModel.setTenthPercentage(applicant.getTenthPercentage());
 				applicantModel.setInterPercentage(applicant.getInterPercentage());
-				applicantModel.setCourseName(applicant.getCourseName());
+				//applicantModel.setCourseName(applicant.getCourseName());
 				applicantModel.setDepartmentName(applicant.getDepartmentName());
 				
 				applicantModelList.add(applicantModel);

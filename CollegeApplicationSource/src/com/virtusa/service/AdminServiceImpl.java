@@ -57,7 +57,7 @@ public class AdminServiceImpl implements AdminService
 		student.setDateOfBirth(studentModel.getDateOfBirth());
 		student.setInterPercentage(studentModel.getInterPercentage());
 		student.setTenthPercentage(studentModel.getTenthPercentage());
-		student.setCourseName(studentModel.getCourseName());
+		//student.setCourseName(studentModel.getCourseName());
 		student.setDepartmentName(studentModel.getDepartmentName());
 		studentList.add(student);
 		try {

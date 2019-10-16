@@ -115,17 +115,22 @@ public class ApplicantView
 		int month=Integer.parseInt(tokensList.get(1));
 		int dayOfMonth=Integer.parseInt(tokensList.get(2));
 		
-			LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
-			System.out.println(dateOfBirth);
-			
-			
-			
+		LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
+						
 		
-		System.out.print("Course Name: ");
-		String courseName=scanner.next();
+		//System.out.print("Course Name: ");
+		//String courseName=scanner.next();
 		
 		System.out.println("Department Name (CSE,ECE,EEE): ");
-		String departmentName = scanner.next();
+		String departmentName = scanner.next().toLowerCase();
+		boolean validDepartment = validator.validDepartment(departmentName);
+		if(!validDepartment)
+			try {
+			throw new ValidationException("[!ERROR: Invalid Department Name]");
+			}catch(ValidationException e) {
+				System.out.println(e.getMessage());
+				applicantView.applicationForm();
+			} 
 		
 		ApplicantModel applicantModel = new ApplicantModel();
 		
@@ -137,7 +142,7 @@ public class ApplicantView
 		applicantModel.setTenthPercentage(tenthPercentage);
 		applicantModel.setInterPercentage(interPercentage);
 		applicantModel.setAadharNumber(aadharNumber);
-		applicantModel.setCourseName(courseName);
+		//applicantModel.setCourseName(courseName);
 		applicantModel.setDepartmentName(departmentName);
 		
 		ApplicantController applicantController = new ApplicantController();

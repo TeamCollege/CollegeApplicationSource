@@ -32,7 +32,6 @@ public boolean validate(ApplicantModel model) {
 		boolean result=false;
 		char chars[]=val.toCharArray();
 		List<Character> alphabets=new ArrayList<>();
-		
 		for(int i=97;i<=122;i++) {
 			alphabets.add((char)i);
 		}
@@ -75,6 +74,14 @@ public boolean validate(ApplicantModel model) {
 	public boolean validEmail(String email) {
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 	    return email.matches(regex);
+	}
+
+	public boolean validDepartment(String departmentName) {
+		boolean result=false;
+
+		if(departmentName.equals("cse")|| departmentName.equals("ece") || departmentName.equals("eee"))
+			result=true;
+		return result;
 	}
 	public boolean validNumber(int number) {
 		boolean result=false;

@@ -10,6 +10,9 @@ import com.virtusa.model.FacultyModel;
 public class FacultyView {  
 		
 	public void facultyMenu() {
+		FacultyController facultyController = new FacultyController();
+		FacultyModel facultyModel = new FacultyModel();
+
 		System.out.println("\t\t =====Faculty View=====");
 		System.out.println("1. View Class Schedule");
 		System.out.println("2. View Staff Meeting Details");
@@ -22,29 +25,34 @@ public class FacultyView {
 		
 		try(Scanner scanner = new Scanner(System.in);){
 			int option = scanner.nextInt();
-			
 			switch(option) {
 			case 1:
-				FacultyController facultyController = new FacultyController();
-				FacultyModel facultyModel = new FacultyModel();
 				facultyController.viewClassSchedule(facultyModel.getDepartmentName());
 				break;
-			
-			default:System.out.println("[SELECT APPROPRIATE OPTION]");
-			facultyMenu();
+			case 2:
+				facultyController.handleStaffMeeting(facultyModel.getFacultyId());
+				break;
 				
 			}
-		}catch(Exception e) {
-			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
-		
 		}
 	}
 	
 	public void displayClassSchedule(List<ClassScheduleModel> model) {
 		for(ClassScheduleModel classSchedule:model) {
-			System.out.println(classSchedule.getDay()+" "+classSchedule.getFirstHour()+" "+classSchedule.getSecondHour()+" "+classSchedule.getThirdHour()+" "+classSchedule.getFirstHour());
+			System.out.println(classSchedule.getDay()+" "+classSchedule.getFirstHour()+" "+classSchedule.getSecondHour()+" "+classSchedule.getThirdHour()+" "+classSchedule.getFourthHour());
 		}
 		
+	}
+
+	public void showStaffMeetingDetails(FacultyModel staffMeeting) {
+
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%15s%25s%45s\n","Faculty ID","Staff Meeting ID","Staff Meeting Agenda","Location");
+		System.out.println("=====================================================================================================================");
+		System.out.format("%9s%12d%45s%30s\n",staffMeeting.getStaffMeetingModel().getFacultyId(),staffMeeting.getStaffMeetingModel().getStaffMeetingId(), staffMeeting.getStaffMeetingModel().getStaffMeetingAgenda(),staffMeeting.getStaffMeetingModel().getLocation());
+		StudentView studentView=new StudentView();
+		studentView.studentMenu();
+
 	}
 
 

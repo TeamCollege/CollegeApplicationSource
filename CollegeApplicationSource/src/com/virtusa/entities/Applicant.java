@@ -8,7 +8,7 @@ public class Applicant extends User {
 	private int applicantNumber;
 	private double tenthPercentage;
 	private double interPercentage;
-	private String courseName;
+	//private String courseName;
 	private String departmentName;
 	private String aadharNumber;
 	private LocalDate dateOfBirth;
@@ -31,12 +31,12 @@ public class Applicant extends User {
 	public void setInterPercentage(double interPercentage) {
 		this.interPercentage = interPercentage;
 	}
-	public String getCourseName() {
+	/*public String getCourseName() {
 		return courseName;
 	}
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
-	}
+	}*/
 	public String getDepartmentName() {
 		return departmentName;
 	}
@@ -61,7 +61,7 @@ public class Applicant extends User {
 	@Override
 	public String toString() {
 		return "Applicant [applicantNumber=" + applicantNumber + ", tenthPercentage=" + tenthPercentage
-				+ ", interPercentage=" + interPercentage + ", courseName=" + courseName + ", departmentName="
+				+ ", interPercentage=" + interPercentage + ", departmentName="
 				+ departmentName + ", aadharNumber=" + aadharNumber + ", dateOfBirth=" + dateOfBirth + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", emailAddress=" + emailAddress + ", phoneNumber="
 				+ phoneNumber + "]";

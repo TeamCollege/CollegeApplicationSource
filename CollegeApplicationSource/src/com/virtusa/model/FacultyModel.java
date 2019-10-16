@@ -14,6 +14,7 @@ public class FacultyModel
 	private String departmentName;
 	private LocalDate dateOfBirth;
 	private int salary;
+	private StaffMeetingModel staffMeetingModel;
 	
 	public String getFacultyId() {
 		return facultyId;
@@ -70,11 +71,19 @@ public class FacultyModel
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+	
+	public StaffMeetingModel getStaffMeetingModel() {
+		return staffMeetingModel;
+	}
+	public void setStaffMeetingModel(StaffMeetingModel staffMeetingModel) {
+		this.staffMeetingModel = staffMeetingModel;
+	}
 	@Override
 	public String toString() {
 		return "FacultyModel [facultyId=" + facultyId + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", courseName=" + courseName
-				+ ", departmentName=" + departmentName + ", dateOfBirth=" + dateOfBirth + ", salary=" + salary + "]";
+				+ ", departmentName=" + departmentName + ", dateOfBirth=" + dateOfBirth + ", salary=" + salary
+				+ ", staffMeetingModel=" + staffMeetingModel + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -89,6 +98,7 @@ public class FacultyModel
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
 		result = prime * result + salary;
+		result = prime * result + ((staffMeetingModel == null) ? 0 : staffMeetingModel.hashCode());
 		return result;
 	}
 	@Override
@@ -142,9 +152,12 @@ public class FacultyModel
 			return false;
 		if (salary != other.salary)
 			return false;
+		if (staffMeetingModel == null) {
+			if (other.staffMeetingModel != null)
+				return false;
+		} else if (!staffMeetingModel.equals(other.staffMeetingModel))
+			return false;
 		return true;
-	}
-	
-	
+	}	
 	
 }
