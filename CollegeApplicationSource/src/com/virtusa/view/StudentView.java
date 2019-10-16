@@ -37,8 +37,9 @@ public class StudentView {
 			break;
 		case 6:viewGeneralExams();
 			break;
-		case 7:System.exit(0);
-			break;
+		case 7:UserView userView=new UserView();
+				userView.mainMenu();
+				break;
 		default:System.out.println("[SELECT APPROPRIATE OPTION]");
 			studentMenu();
 		}

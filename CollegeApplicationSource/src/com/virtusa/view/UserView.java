@@ -26,6 +26,10 @@ public class UserView
 				applicantView.applicationForm();
 				break;
 				
+			case 3: 
+				LoginView loginView=new LoginView();
+				loginView.loginMenu();
+				
 			case 4:AlumniView alumniView=new AlumniView();
 					alumniView.alumniMenu();
 					break;
