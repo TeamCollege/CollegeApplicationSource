@@ -22,20 +22,27 @@ public class FacultyView {
 		
 		try(Scanner scanner = new Scanner(System.in);){
 			int option = scanner.nextInt();
+			
 			switch(option) {
 			case 1:
 				FacultyController facultyController = new FacultyController();
 				FacultyModel facultyModel = new FacultyModel();
 				facultyController.viewClassSchedule(facultyModel.getDepartmentName());
 				break;
+			
+			default:System.out.println("[SELECT APPROPRIATE OPTION]");
+			facultyMenu();
 				
 			}
+		}catch(Exception e) {
+			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
+		
 		}
 	}
 	
 	public void displayClassSchedule(List<ClassScheduleModel> model) {
 		for(ClassScheduleModel classSchedule:model) {
-			System.out.println(classSchedule.getDay()+" "+classSchedule.getFirst_hour()+" "+classSchedule.getSecond_hour()+" "+classSchedule.getThird_hour()+" "+classSchedule.getFourth_hour());
+			System.out.println(classSchedule.getDay()+" "+classSchedule.getFirstHour()+" "+classSchedule.getSecondHour()+" "+classSchedule.getThirdHour()+" "+classSchedule.getFirstHour());
 		}
 		
 	}

@@ -39,10 +39,10 @@ public class FacultyDAOImpl implements FacultyDAO {
 		while(resultSet.next()) {
 			ClassSchedule classSchedule = new ClassSchedule();
 			classSchedule.setDay(resultSet.getString("day"));
-			classSchedule.setFirst_hour(resultSet.getString("first_hour"));
-			classSchedule.setSecond_hour(resultSet.getString("second_hour"));
-			classSchedule.setThird_hour(resultSet.getString("third_hour"));
-			classSchedule.setFourth_hour(resultSet.getString("fourth_hour"));
+			classSchedule.setFirstHour(resultSet.getString("first_hour"));
+			classSchedule.setSecondHour(resultSet.getString("second_hour"));
+			classSchedule.setThirdHour(resultSet.getString("third_hour"));
+			classSchedule.setFirstHour(resultSet.getString("fourth_hour"));
 			classScheduleList.add(classSchedule);
 		}
 		ConnectionManager.closeConnection();

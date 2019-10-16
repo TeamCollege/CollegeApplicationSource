@@ -24,10 +24,10 @@ public class FacultyServiceImpl implements FacultyService {
 				for(ClassSchedule classSchedule:classScheduleList) {
 					ClassScheduleModel classScheduleModel = new ClassScheduleModel();
 					classScheduleModel.setDay(classSchedule.getDay());
-					classScheduleModel.setFirst_hour(classSchedule.getFirst_hour());
-					classScheduleModel.setSecond_hour(classSchedule.getSecond_hour());
-					classScheduleModel.setThird_hour(classSchedule.getThird_hour());
-					classScheduleModel.setFourth_hour(classSchedule.getFourth_hour());
+					classScheduleModel.setFirstHour(classSchedule.getFirstHour());
+					classScheduleModel.setSecondHour(classSchedule.getSecondHour());
+					classScheduleModel.setThirdHour(classSchedule.getThirdHour());
+					classScheduleModel.setFourthHour(classSchedule.getFourthHour());
 					classScheduleModelList.add(classScheduleModel);
 				}
 				

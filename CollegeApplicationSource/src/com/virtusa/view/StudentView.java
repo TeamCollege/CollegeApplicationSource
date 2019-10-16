@@ -11,7 +11,7 @@ public class StudentView {
 	
 	
 	public void studentMenu() {
-		System.out.println("\t\t =====STUDENT VIEW=====");
+		System.out.println("\t\t ======================STUDENT VIEW=======================");
 		System.out.println("1.View Class Schedule");
 		System.out.println("2.View Examination Schedule");
 		System.out.println("3.View Results");
@@ -20,6 +20,8 @@ public class StudentView {
 		System.out.println("6.General Exams");
 		System.out.println("7.Exit");
 		System.out.println("Enter your choice:");
+		
+		
 		try(Scanner sc=new Scanner(System.in);){
 		int choice=sc.nextInt();
 		
@@ -52,9 +54,10 @@ public class StudentView {
 	public void viewClassSchedule() {
 		StudentController studentController =new StudentController();
 		try(Scanner scanner=new Scanner(System.in);){
-		System.out.println("Please Enter Department Name:");
-		String departmentName=scanner.nextLine();
-		studentController.retrieveClassSchedule(departmentName);
+		//System.out.println("Please Enter Department Name:");
+		//String departmentName=scanner.nextLine();
+		StudentModel studentModel=new StudentModel();
+		studentController.retrieveClassSchedule(studentModel.getDepartmentName());
 	}catch(Exception e) {
 		e.printStackTrace();
 	}	
@@ -62,9 +65,11 @@ public class StudentView {
 	
 	public void showClassSchedule(StudentModel students) {
 	System.out.println("=====================================================================================================================");
-	System.out.format("%10s%15s%25s%45s\n","Day","First Hour","Second Hour","Third Hour","Fourth Hour");
+	System.out.format("%10s%15s%15s%15s%15s \n","Day", "10:00-11:00",  "11:00-12:00", "1:00-2:00", "2:00-3:00");
 	System.out.println("=====================================================================================================================");
-	System.out.format("%9s%12d%45s%30s\n",students.getClassScheduleModel().getDay(),students.getClassScheduleModel().getFirst_hour(),students.getClassScheduleModel().getSecond_hour(),students.getClassScheduleModel().getThird_hour(),students.getClassScheduleModel().getFourth_hour());
+	System.out.format("%10s%15s%15s%15s%15s \n",students.getClassScheduleModel().getDay(),students.getClassScheduleModel().getFirstHour(),students.getClassScheduleModel().getSecondHour(),students.getClassScheduleModel().getThirdHour(),students.getClassScheduleModel().getFourthHour());
+	System.out.println("----------------------------------------------------------------------------------------------------------------------");
+	System.out.println("\n");
 	StudentView studentView=new StudentView();
 	studentView.studentMenu();
 	}
