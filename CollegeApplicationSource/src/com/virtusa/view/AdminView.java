@@ -1,3 +1,4 @@
+
 package com.virtusa.view;
 
 import java.util.Date;
@@ -6,17 +7,19 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import com.virtusa.controller.AdminController;
-
+import com.virtusa.exception.InvalidUserChoiceException;
+import com.virtusa.exception.ValidationException;
 import com.virtusa.model.FacultyModel;
 import com.virtusa.model.StudentModel;
+import com.virtusa.validation.ApplicantModelValidator;
 
 public class AdminView 
 {
 	Scanner scan = new Scanner(System.in);
+	ApplicantModelValidator validator = new ApplicantModelValidator();
 	public void adminView()
 	{
 		System.out.println("\t\t =====ADMIN VIEW=====");
-		System.out.println("Admin LogIn is Successful\n\n");
 		System.out.println("1.Approve Applicant");
 		System.out.println("2.Manage Students");
 		System.out.println("3.Manage Faculty");
@@ -28,7 +31,7 @@ public class AdminView
 		System.out.println("9.LogOut\n");
 		System.out.println("Enter your choice");
 		int choice= scan.nextInt();
-		
+		try {
 		switch(choice)
 		{
 		
@@ -58,11 +61,19 @@ public class AdminView
 					
 		case 9 :
 					break;
+		default:
+			throw new InvalidUserChoiceException();
 			
-				
-		
+		}		
+			}
+		catch(Exception e)
+			{
+				System.out.println(e);
+				System.out.println("Enter a Valid Number");
+				adminView();
+			}
 		}
-	}
+
 
 		public void approveApplicant() 
 		{
@@ -86,6 +97,9 @@ public class AdminView
 			int choice = scan.nextInt();
 			AdminController adminController = new AdminController();
 			StudentModel studentModel = new StudentModel();
+			
+			try
+			{
 			switch(choice)
 			{
 			
@@ -94,6 +108,7 @@ public class AdminView
 			case 2 :System.out.println("Enter Student ID:");
 					int studentId = scan.nextInt();
 					adminController.deleteStudentController(studentId);
+					
 					break;
 			case 3 :System.out.println("Enter Student id to update:");
 					int id=scan.nextInt();
@@ -101,7 +116,14 @@ public class AdminView
 					String firstName = scan.next();
 					adminController.updateStudentController(id, firstName);
 					break;
-				
+			default:
+				throw new InvalidUserChoiceException();
+			}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				System.out.println("Enter a Valid Number");
 			}
 			
 			
@@ -113,8 +135,9 @@ public class AdminView
 			System.out.println("2.Delete Faculty");
 			System.out.println("3.Update Faculty Details");
 			int choice = scan.nextInt();
-			
 			FacultyModel facultyModel = new FacultyModel();
+			try
+			{
 			switch(choice)
 			{
 			case 1 : adminController.addFacultyController(facultyModel);
@@ -129,7 +152,14 @@ public class AdminView
 					String phoneNumber=scan.next();
 					adminController.updateFacultyController(phoneNumber, id);
 					break;
-				 
+			default:
+				throw new InvalidUserChoiceException();
+			}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				System.out.println("Enter a Valid Number");
 			}
 			
 		}
@@ -140,6 +170,7 @@ public class AdminView
 			System.out.println("1.Add Events");
 			System.out.println("2.Delete Events");
 			int choice = scan.nextInt();
+			try {
 			switch(choice)
 			{
 			case 1: 
@@ -172,7 +203,18 @@ public class AdminView
 					int eventId = scan.nextInt();
 					adminController.deleteEventsController(eventId);
 						break;
+			default:
+				throw new InvalidUserChoiceException();	
+			
 			}	
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				System.out.println("Enter a Valid Number");
+				manageEvents();
+			}
+			
 		}
 		
 		
@@ -206,6 +248,7 @@ public class AdminView
 			System.out.println("1.Add Placements");
 			System.out.println("2.Delete Placements");
 			int choice = scan.nextInt();
+			try {
 			switch(choice)
 			{
 			case 1: 
@@ -239,7 +282,17 @@ public class AdminView
 					int placementId = scanner.nextInt();
 					adminController.deletePlacementController(placementId);
 					break;
+					
+			default:
+				throw new InvalidUserChoiceException();
 			}	
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				System.out.println("Enter a Valid Number");
+			}
+			
 		}
 		
 		

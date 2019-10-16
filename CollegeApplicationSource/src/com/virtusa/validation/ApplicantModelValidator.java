@@ -72,6 +72,14 @@ public boolean validate(ApplicantModel model) {
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 	    return email.matches(regex);
 	}
+	public boolean validNumber(int number) {
+		boolean result=false;
+		String data=String.valueOf(number);
+		if(data.matches(".*[0-9]")) {
+			result=true;
+		}
+		return result;
+	}
 	
 	
 }
