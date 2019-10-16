@@ -18,7 +18,7 @@ public class StaffMeeting {
 	public void setStaffMeetingAgenda(String staffMeetingAgenda) {
 		this.staffMeetingAgenda = staffMeetingAgenda;
 	}
-	public String getFacultyId() { 
+	public String getFacultyId() {  
 		return facultyId;
 	}
 	public void setFacultyId(String facultyId) {
