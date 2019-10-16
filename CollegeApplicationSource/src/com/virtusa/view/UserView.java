@@ -26,11 +26,17 @@ public class UserView
 				applicantView.applicationForm();
 				break;
 				
+			case 3: 
+				LoginView loginView=new LoginView();
+				loginView.loginMenu();
+				break;
+				
 			case 4:AlumniView alumniView=new AlumniView();
 					alumniView.alumniMenu();
 					break;
 				
 			default: 
+				//System.out.println("abc");
 				System.out.println("!ERROR[Enter an appropriate option]");
 				mainMenu();
 				
@@ -39,6 +45,7 @@ public class UserView
 		}
 		catch(Exception e) {
 			System.out.println("!ERROR[Enter an appropriate option]");
+			//System.out.println("abcdef");
 		}
 		
 		//mainMenu();

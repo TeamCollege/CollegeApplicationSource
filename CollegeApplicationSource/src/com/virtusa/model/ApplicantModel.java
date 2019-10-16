@@ -12,7 +12,7 @@ public class ApplicantModel {
 	private String phoneNumber;
 	private double tenthPercentage;
 	private double interPercentage;
-	private String courseName;
+	//private String courseName;
 	private String departmentName;
 	private LocalDate dateOfBirth;
 	private String aadharNumber;
@@ -36,9 +36,9 @@ public class ApplicantModel {
 	public double getInterPercentage() {
 		return interPercentage;
 	}
-	public String getCourseName() {
+	/*public String getCourseName() {
 		return courseName;
-	}
+	}*/
 	public String getDepartmentName() {
 		return departmentName;
 	}
@@ -80,11 +80,18 @@ public class ApplicantModel {
 	public void setInterPercentage(double interPercentage) {
 		this.interPercentage = interPercentage;
 	}
-	public void setCourseName(String courseName) {
+	/*public void setCourseName(String courseName) {
 		this.courseName = courseName;
-	}
+	}*/
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
+	}
+	@Override
+	public String toString() {
+		return "ApplicantModel [applicantNumber=" + applicantNumber + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", tenthPercentage="
+				+ tenthPercentage + ", interPercentage=" + interPercentage + ", departmentName=" + departmentName
+				+ ", dateOfBirth=" + dateOfBirth + ", aadharNumber=" + aadharNumber + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -92,7 +99,6 @@ public class ApplicantModel {
 		int result = 1;
 		result = prime * result + ((aadharNumber == null) ? 0 : aadharNumber.hashCode());
 		result = prime * result + applicantNumber;
-		result = prime * result + ((courseName == null) ? 0 : courseName.hashCode());
 		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
 		result = prime * result + ((departmentName == null) ? 0 : departmentName.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
@@ -121,11 +127,6 @@ public class ApplicantModel {
 		} else if (!aadharNumber.equals(other.aadharNumber))
 			return false;
 		if (applicantNumber != other.applicantNumber)
-			return false;
-		if (courseName == null) {
-			if (other.courseName != null)
-				return false;
-		} else if (!courseName.equals(other.courseName))
 			return false;
 		if (dateOfBirth == null) {
 			if (other.dateOfBirth != null)
@@ -163,6 +164,5 @@ public class ApplicantModel {
 			return false;
 		return true;
 	}
-	
 	
 }

@@ -77,7 +77,7 @@ public boolean validGender(String gender) {
 public boolean validPresentStatus(String presentStatus) {
     
     boolean result=false;
-    if(presentStatus.equals("employed") || presentStatus.equals("unemployed"))
+    if(presentStatus.equals("employed") || presentStatus.equals("higher studies"))
     {
         result=true;
     }

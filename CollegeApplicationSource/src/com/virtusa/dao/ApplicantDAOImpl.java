@@ -23,7 +23,7 @@ public class ApplicantDAOImpl implements ApplicantDAO
 		}*/
 		
 		Connection conn=ConnectionManager.openConnection();
-		PreparedStatement preparedStatement = conn.prepareStatement("insert into application_form values(?,?,?,?,?,?,?,?,?,?,?)");
+		PreparedStatement preparedStatement = conn.prepareStatement("insert into application_form values(?,?,?,?,?,?,?,?,?,?)");
 		preparedStatement.setInt(1,applicant.getApplicantNumber());
 		preparedStatement.setString(2, applicant.getFirstName());
 		preparedStatement.setString(3, applicant.getLastName());
@@ -32,11 +32,10 @@ public class ApplicantDAOImpl implements ApplicantDAO
 		preparedStatement.setDouble(6, applicant.getTenthPercentage());
 		preparedStatement.setDouble(7, applicant.getInterPercentage());
 		preparedStatement.setString(8, applicant.getAadharNumber());
-		System.out.println("********applicant date:"+applicant.getDateOfBirth());
 		preparedStatement.setDate(9, Date.valueOf(applicant.getDateOfBirth()));
 		
-		preparedStatement.setString(10, applicant.getCourseName());
-		preparedStatement.setString(11, applicant.getDepartmentName());
+		//preparedStatement.setString(10, applicant.getCourseName());
+		preparedStatement.setString(10, applicant.getDepartmentName());
 		int rows=preparedStatement.executeUpdate();
 		ConnectionManager.closeConnection();
 		

@@ -20,7 +20,7 @@ public class StudentDAOImpl implements StudentDAO {
 	  ClassNotFoundException, SQLException{ Connection
 	  connection=ConnectionManager.openConnection(); 
 	  PreparedStatement statement=connection.prepareStatement("select * from cse_schedule");
-	 // statement.setString(1,departmentName); 
+	  //statement.setString(1,departmentName); 
 	  ResultSet resultSet=statement.executeQuery();
 	  Student students=new Student();
 	  while(resultSet.next()) {
@@ -28,10 +28,10 @@ public class StudentDAOImpl implements StudentDAO {
 	  //students.setDepartmentName(resultSet.getString("department_name"));
 	  ClassSchedule classSchedule=new ClassSchedule();
 	  classSchedule.setDay(resultSet.getString("day"));
-	  classSchedule.setFirst_hour(resultSet.getString("first_hour"));
-	  classSchedule.setSecond_hour(resultSet.getString("second_hour"));
-	  classSchedule.setThird_hour(resultSet.getString("third_hour"));
-	  classSchedule.setFourth_hour(resultSet.getString("fourth_hour"));
+	  classSchedule.setFirstHour(resultSet.getString("first_hour"));
+	  classSchedule.setSecondHour(resultSet.getString("second_hour"));
+	  classSchedule.setThirdHour(resultSet.getString("third_hour"));
+	  classSchedule.setFourthHour(resultSet.getString("fourth_hour"));
 	  
 	  students.setClassSchedule(classSchedule);
 	  

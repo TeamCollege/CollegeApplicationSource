@@ -6,6 +6,7 @@ public class Faculty extends User {
 	private String courseName; 
 	private String departmentName;
 	private int salary;
+	private StaffMeeting staffMeeting;
 	
 	public String getFacultyId() {
 		return facultyId;
@@ -32,11 +33,18 @@ public class Faculty extends User {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+	
+	public StaffMeeting getStaffMeeting() {
+		return staffMeeting;
+	}
+	public void setStaffMeeting(StaffMeeting staffMeeting) {
+		this.staffMeeting = staffMeeting;
+	}
 	@Override
 	public String toString() {
 		return "Faculty [facultyId=" + facultyId + ", courseName=" + courseName + ", departmentName=" + departmentName
-				+ ", salary=" + salary + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
-				+ dateOfBirth + ", emailAddress=" + emailAddress + ", phoneNumber=" + phoneNumber + "]";
+				+ ", salary=" + salary + ", staffMeeting=" + staffMeeting + "]";
 	}
+	
 	
 }

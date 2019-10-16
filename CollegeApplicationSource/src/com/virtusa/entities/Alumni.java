@@ -3,28 +3,28 @@ package com.virtusa.entities;
 public class Alumni extends User
 {
 	private int alumniId;
-	private int courseId;
 	private int yearOfCompletition;
 	private String presentStatus;
 	private String gender;
+	
+	public Alumni() {}
 	public int getAlumniId() {
 	return alumniId;
 	}
+	
+	
 	public void setAlumniId(int alumniId) {
 	this.alumniId = alumniId;
 	}
-	public int getCourseId() {
-	return courseId;
-	}
-	public void setCourseId(int courseId) {
-	this.courseId = courseId;
-	}
+	
+	public void setYearOfCompletition(int yearOfCompletition) {
+		this.yearOfCompletition = yearOfCompletition;
+		}
+	
 	public int getYearOfCompletition() {
 	return yearOfCompletition;
 	}
-	public void setYearOfCompletition(int yearOfCompletition) {
-	this.yearOfCompletition = yearOfCompletition;
-	}
+	
 	public String getPresentStatus() {
 	return presentStatus;
 	}
@@ -39,10 +39,13 @@ public class Alumni extends User
 	}
 	@Override
 	public String toString() {
-		return "Alumni [alumniId=" + alumniId + ", courseId=" + courseId + ", yearOfCompletition=" + yearOfCompletition
-				+ ", presentStatus=" + presentStatus + ", gender=" + gender + ", getAlumniId()=" + getAlumniId()
-				+ ", getCourseId()=" + getCourseId() + ", getYearOfCompletition()=" + getYearOfCompletition()
-				+ ", getPresentStatus()=" + getPresentStatus() + ", getGender()=" + getGender() + "]";
+		return "Alumni [alumniId=" + alumniId + ", yearOfCompletition=" + yearOfCompletition + ", presentStatus="
+				+ presentStatus + ", gender=" + gender + ", getAlumniId()=" + getAlumniId()
+				+ ", getYearOfCompletition()=" + getYearOfCompletition() + ", getPresentStatus()=" + getPresentStatus()
+				+ ", getGender()=" + getGender() + "]";
 	}
+
+
+	
 	
 }

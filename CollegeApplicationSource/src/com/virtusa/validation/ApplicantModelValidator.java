@@ -35,6 +35,9 @@ public boolean validate(ApplicantModel model) {
 		for(int i=97;i<=122;i++) {
 			alphabets.add((char)i);
 		}
+		for(int i=65;i<=90;i++) {
+			alphabets.add((char)i);
+		}
 	
 		for(char ch:chars) {
 			if(alphabets.contains(ch)) 
@@ -72,8 +75,19 @@ public boolean validate(ApplicantModel model) {
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 	    return email.matches(regex);
 	}
+
 	
 	/*@SuppressWarnings("ununsed")
+=======
+
+	public boolean validDepartment(String departmentName) {
+		boolean result=false;
+
+		if(departmentName.equals("cse")|| departmentName.equals("ece") || departmentName.equals("eee"))
+			result=true;
+		return result;
+	}
+>>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
 	public boolean validNumber(int number) {
 		boolean result=false;
 		String data=String.valueOf(number);

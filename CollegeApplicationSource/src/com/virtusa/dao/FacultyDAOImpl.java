@@ -1,6 +1,7 @@
 package com.virtusa.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.virtusa.entities.ClassSchedule;
+import com.virtusa.entities.Faculty;
+import com.virtusa.entities.StaffMeeting;
+import com.virtusa.entities.Student;
 import com.virtusa.integrate.ConnectionManager;
  
 public class FacultyDAOImpl implements FacultyDAO {
@@ -39,14 +43,36 @@ public class FacultyDAOImpl implements FacultyDAO {
 		while(resultSet.next()) {
 			ClassSchedule classSchedule = new ClassSchedule();
 			classSchedule.setDay(resultSet.getString("day"));
-			classSchedule.setFirst_hour(resultSet.getString("first_hour"));
-			classSchedule.setSecond_hour(resultSet.getString("second_hour"));
-			classSchedule.setThird_hour(resultSet.getString("third_hour"));
-			classSchedule.setFourth_hour(resultSet.getString("fourth_hour"));
+			classSchedule.setFirstHour(resultSet.getString("first_hour"));
+			classSchedule.setSecondHour(resultSet.getString("second_hour"));
+			classSchedule.setThirdHour(resultSet.getString("third_hour"));
+			classSchedule.setFourthHour(resultSet.getString("fourth_hour"));
 			classScheduleList.add(classSchedule);
 		}
 		ConnectionManager.closeConnection();
 		return classScheduleList;
+	}
+
+	@Override
+	public Faculty getStaffMeetingDetails(String facultyId) throws ClassNotFoundException, SQLException {
+		
+		Connection connection=ConnectionManager.openConnection(); 
+		PreparedStatement statement=connection.prepareStatement("select * from staff_meeting_details where faculty_Id=?");
+		statement.setString(1, facultyId);
+		ResultSet resultSet=statement.executeQuery();
+		Faculty faculty = new Faculty();
+		while(resultSet.next()) {
+			StaffMeeting staffMeeting = new StaffMeeting();
+			//staffMeeting.setFacultyId(resultSet.getString("faculty_id"));
+			staffMeeting.setStaffMeetingId(resultSet.getInt("staff_meeting_id"));
+			staffMeeting.setStaffMeetingAgenda(resultSet.getString("staff_meeting_agenda"));
+			staffMeeting.setLocation(resultSet.getString("location"));
+			
+			faculty.setStaffMeeting(staffMeeting);
+		}
+		
+		ConnectionManager.closeConnection();
+		return faculty;
 	}
 
 }

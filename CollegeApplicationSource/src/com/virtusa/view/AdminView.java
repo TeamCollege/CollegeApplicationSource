@@ -112,9 +112,9 @@ public class AdminView
 					break;
 			case 3 :
 					int studentId=0;
-					String passIdString1="";
+					String passIdString1="";  
 					boolean validStudentId1=false;
-				do {
+				do {  
 			    try {
 			    	System.out.println("Enter Student Id to Update details:");
 			    	passIdString1=scan.next();

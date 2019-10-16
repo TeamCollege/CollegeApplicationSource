@@ -6,8 +6,14 @@ import java.util.List;
 
 import com.virtusa.dao.FacultyDAO;
 import com.virtusa.entities.ClassSchedule;
+import com.virtusa.entities.Faculty;
+import com.virtusa.entities.StaffMeeting;
+import com.virtusa.entities.Student;
 import com.virtusa.helper.FactoryFacultyDAO;
 import com.virtusa.model.ClassScheduleModel;
+import com.virtusa.model.FacultyModel;
+import com.virtusa.model.StaffMeetingModel;
+import com.virtusa.model.StudentModel;
 
 public class FacultyServiceImpl implements FacultyService {
 	
@@ -24,10 +30,10 @@ public class FacultyServiceImpl implements FacultyService {
 				for(ClassSchedule classSchedule:classScheduleList) {
 					ClassScheduleModel classScheduleModel = new ClassScheduleModel();
 					classScheduleModel.setDay(classSchedule.getDay());
-					classScheduleModel.setFirst_hour(classSchedule.getFirst_hour());
-					classScheduleModel.setSecond_hour(classSchedule.getSecond_hour());
-					classScheduleModel.setThird_hour(classSchedule.getThird_hour());
-					classScheduleModel.setFourth_hour(classSchedule.getFourth_hour());
+					classScheduleModel.setFirstHour(classSchedule.getFirstHour());
+					classScheduleModel.setSecondHour(classSchedule.getSecondHour());
+					classScheduleModel.setThirdHour(classSchedule.getThirdHour());
+					classScheduleModel.setFourthHour(classSchedule.getFourthHour());
 					classScheduleModelList.add(classScheduleModel);
 				}
 				
@@ -36,6 +42,29 @@ public class FacultyServiceImpl implements FacultyService {
 			}
 	
 		return classScheduleModelList;
+	}
+
+	@Override
+	public FacultyModel handleRetrieveStaffMeeting(String facultyId) {
+		Faculty faculty=null;
+		FacultyModel facultyModel=new FacultyModel();
+		try {
+			faculty = facultyDAO.getStaffMeetingDetails(facultyId);
+			StaffMeeting staffMeeting=faculty.getStaffMeeting();
+			StaffMeetingModel staffMeetingModel=new StaffMeetingModel();
+			
+			staffMeetingModel.setFacultyId(facultyId);
+			staffMeetingModel.setStaffMeetingId(staffMeeting.getStaffMeetingId());
+			staffMeetingModel.setStaffMeetingAgenda(staffMeeting.getStaffMeetingAgenda());
+			staffMeetingModel.setLocation(staffMeeting.getLocation());
+			
+			facultyModel.setStaffMeetingModel(staffMeetingModel);
+		}
+		catch (ClassNotFoundException | SQLException e) {
+			
+			e.printStackTrace();
+		}		
+		return facultyModel;
 	}
 
 }

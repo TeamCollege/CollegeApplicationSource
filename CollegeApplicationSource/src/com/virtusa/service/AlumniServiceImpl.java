@@ -6,8 +6,12 @@ import java.util.List;
 
 import com.virtusa.dao.AlumniDAO;
 import com.virtusa.entities.Alumni;
+import com.virtusa.entities.Departments;
 import com.virtusa.helper.FactoryAlumniDAO;
 import com.virtusa.model.AlumniModel;
+import com.virtusa.model.DepartmentsModel;
+
+
 
 public class AlumniServiceImpl implements AlumniService {
 	
@@ -26,8 +30,6 @@ public class AlumniServiceImpl implements AlumniService {
 		alumni.setLastName(model.getLastName());
 		alumni.setEmailAddress(model.getEmail());
 		alumni.setPhoneNumber(model.getPhoneNumber());
-		alumni.setDateOfBirth(model.getDateOfBirth());
-		alumni.setCourseId(model.getCourseId());
 		alumni.setGender(model.getGender());
 		alumni.setPresentStatus(model.getPresentStatus());
 		alumni.setYearOfCompletition(model.getYearOfCompletition());
@@ -46,16 +48,41 @@ public class AlumniServiceImpl implements AlumniService {
 		return result;
 		
 	}
-
+	
+	
 	@Override
-	public List<AlumniModel> retrieveAlumni() {
+	public AlumniModel retrieveAlumniDetails(String firstName) { 
 		// TODO Auto-generated method stub
 		
+		Alumni alumni=null;
+		AlumniModel alumniModel=new AlumniModel();
+		try {
+				alumni=alumniDAO.getAlumniDetails(firstName);
+				alumniModel.setAlumniId(alumni.getAlumniId());
+				alumniModel.setFirstName(alumni.getFirstName());
+				alumniModel.setLastName(alumni.getLastName());
+				alumniModel.setPresentStatus(alumni.getPresentStatus());				
+				alumniModel.setPhoneNumber(alumni.getPhoneNumber());
+				alumniModel.setEmail(alumni.getEmailAddress());
+				alumniModel.setGender(alumni.getGender());
+				alumniModel.setYearOfCompletition(alumni.getYearOfCompletition());
+	} catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return alumniModel;
+}
+				
+	
+			
+		
+	@Override
+	public List<AlumniModel> retrieveAlumni() {
+
 		List<AlumniModel> alumniModelList=new ArrayList<>();
 		try {
 			List<Alumni> alumniList=alumniDAO.getAlumni();
 			for(Alumni alumni:alumniList) {
-				
 				AlumniModel alumniModel=new AlumniModel();
 				alumniModel.setAlumniId(alumni.getAlumniId());
 				alumniModel.setFirstName(alumni.getFirstName());
@@ -63,20 +90,18 @@ public class AlumniServiceImpl implements AlumniService {
 				alumniModel.setPresentStatus(alumni.getPresentStatus());				
 				alumniModel.setPhoneNumber(alumni.getPhoneNumber());
 				alumniModel.setEmail(alumni.getEmailAddress());
-				alumniModel.setCourseId(alumni.getCourseId());
-				alumniModel.setDateOfBirth(alumni.getDateOfBirth());
 				alumniModel.setGender(alumni.getGender());
 				alumniModelList.add(alumniModel);
-				
 			}
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("!ERROR[Retrieval of Departments failed!!!]");
 		}
-		
 		return alumniModelList;
 	}
 
-
 }
+
+
+

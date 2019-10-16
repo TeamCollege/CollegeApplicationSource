@@ -4,14 +4,13 @@ import java.util.List;
 
 import com.virtusa.helper.FactoryAlumniService;
 import com.virtusa.model.AlumniModel;
+
 import com.virtusa.service.AlumniService;
 import com.virtusa.validation.AlumniModelValidator;
 import com.virtusa.view.AlumniView;
   
 
 public class AlumniController { 
-
-	
 
 	private AlumniService alumniService;       
 	AlumniView alumniview=new AlumniView();
@@ -38,17 +37,21 @@ public class AlumniController {
 	}
 	}
 
-	public void handleRetrieveAlumni() {
+	public void handleRetrieveAlumniDetails(String firstName) {
 		
-		AlumniView alumniView=new AlumniView();
-		List<AlumniModel> models=alumniService.retrieveAlumni();
-		AlumniView alumniview=new AlumniView();
-		
-		
+		AlumniModel alumni=alumniService.retrieveAlumniDetails(firstName);
+        alumniview.showAlumniDetails(alumni);
+				
 	}
 
 		
 	}
+	
+
+
+
+		
+	
 
 
 
