@@ -4,7 +4,7 @@ public class InvalidUserChoiceException extends RuntimeException
 {
 	public String toString()
 	{
-		return "Entered Choice is Invalid";
+		return "---------Entered Choice is Invalid---------------";
 	}
 
 }

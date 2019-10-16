@@ -10,13 +10,18 @@ import com.virtusa.dao.AdminDAOImpl;
 import com.virtusa.dao.ApplicantDAOImpl;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.Student;
+import com.virtusa.helper.FactoryAdminDAO;
 import com.virtusa.model.ApplicantModel;
 import com.virtusa.model.FacultyModel;
 import com.virtusa.model.StudentModel;
 
 public class AdminServiceImpl implements AdminService
 {
-	AdminDAO adminDAO = new AdminDAOImpl();
+	AdminDAO adminDAO;
+	public AdminServiceImpl()
+	{
+		this.adminDAO=FactoryAdminDAO.createAdminDAO();
+	}
 
 	@Override
 	public void approveApplicantService(int applicantNumber) 
@@ -111,7 +116,7 @@ public class AdminServiceImpl implements AdminService
 		faculty.setPhoneNumber(facultyModel.getPhoneNumber());
 		faculty.setEmailAddress(facultyModel.getEmail());
 		faculty.setDateOfBirth(facultyModel.getDateOfBirth());
-		faculty.setCourseName(facultyModel.getCourseName());
+		//faculty.setCourseName(facultyModel.getCourseName());
 		faculty.setDepartmentName(facultyModel.getDepartmentName());
 		faculty.setSalary(facultyModel.getSalary());
 		facultyList.add(faculty);
@@ -210,10 +215,10 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public void addCourseService(int id, String name)
+	public void addDepartmentService(int id, String name)
 	{
 		try {
-			adminDAO.addCourseDAO(id, name);
+			adminDAO.addDepartmentDAO(id, name);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -225,10 +230,10 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public void deleteCourseService(int courseId)
+	public void deleteDepartmentService(int courseId)
 	{
 		try {
-			adminDAO.deleteCourseDAO(courseId);
+			adminDAO.deleteDepartmentDAO(courseId);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

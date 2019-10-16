@@ -10,7 +10,6 @@ public class FacultyModel
 	private String lastName;
 	private String email;
 	private String phoneNumber;
-	private String courseName;
 	private String departmentName;
 	private LocalDate dateOfBirth;
 	private int salary;
@@ -46,12 +45,6 @@ public class FacultyModel
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getCourseName() {
-		return courseName;
-	}
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
 	public String getDepartmentName() {
 		return departmentName;
 	}
@@ -81,15 +74,14 @@ public class FacultyModel
 	@Override
 	public String toString() {
 		return "FacultyModel [facultyId=" + facultyId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", courseName=" + courseName
-				+ ", departmentName=" + departmentName + ", dateOfBirth=" + dateOfBirth + ", salary=" + salary
-				+ ", staffMeetingModel=" + staffMeetingModel + "]";
+				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", departmentName=" + departmentName
+				+ ", dateOfBirth=" + dateOfBirth + ", salary=" + salary + ", staffMeetingModel=" + staffMeetingModel
+				+ "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((courseName == null) ? 0 : courseName.hashCode());
 		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
 		result = prime * result + ((departmentName == null) ? 0 : departmentName.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
@@ -110,11 +102,6 @@ public class FacultyModel
 		if (getClass() != obj.getClass())
 			return false;
 		FacultyModel other = (FacultyModel) obj;
-		if (courseName == null) {
-			if (other.courseName != null)
-				return false;
-		} else if (!courseName.equals(other.courseName))
-			return false;
 		if (dateOfBirth == null) {
 			if (other.dateOfBirth != null)
 				return false;
@@ -158,6 +145,7 @@ public class FacultyModel
 		} else if (!staffMeetingModel.equals(other.staffMeetingModel))
 			return false;
 		return true;
-	}	
+	}
+	
 	
 }

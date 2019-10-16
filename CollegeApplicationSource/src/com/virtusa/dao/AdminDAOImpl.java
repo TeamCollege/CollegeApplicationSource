@@ -212,7 +212,7 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean addCourseDAO(int id, String name) throws ClassNotFoundException, SQLException 
+	public boolean addDepartmentDAO(int id, String name) throws ClassNotFoundException, SQLException 
 	{
 		
 		Connection connection=ConnectionManager.openConnection();
@@ -229,7 +229,7 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean deleteCourseDAO(int courseId) throws ClassNotFoundException, SQLException 
+	public boolean deleteDepartmentDAO(int courseId) throws ClassNotFoundException, SQLException 
 	{
 	
 		Connection connection=ConnectionManager.openConnection();
