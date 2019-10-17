@@ -67,7 +67,7 @@ public class AdminServiceImpl implements AdminService
 			{
 				System.out.println("------Applicant Number Not Found------");
 			}
-		}
+		}    
 	}	
 		//applicantModel=applicantDAOImpl.retrieveApplicant();
 		/*if(applicantModel.getTenthPercentage()>60.00 && applicantModel.getInterPercentage()>60.00)

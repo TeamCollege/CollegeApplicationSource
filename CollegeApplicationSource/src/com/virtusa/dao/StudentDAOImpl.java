@@ -1,5 +1,7 @@
 package com.virtusa.dao;
 
+import java.io.FileReader;
+import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,23 +40,11 @@ public class StudentDAOImpl implements StudentDAO {
 	  } ConnectionManager.closeConnection(); return students;
 	  
  }
+	  
+
+	
 	 
 
-	/*public Student getClassSchedule(String departmentName)throws ClassNotFoundException, SQLException{ 
-		Connection connection=ConnectionManager.openConnection();
-		Statement statement=connection.createStatement();
-		ResultSet resultSet=
-				statement.executeQuery("select * from ClassSchedule");
-		
-		while(resultSet.next()) {
-			Departments departments=new Departments();
-			departments.setDepartmentId(resultSet.getInt("department_id"));
-			departments.setDepartmentName(resultSet.getString("department_name"));
-			departmentList.add(departments);
-		}
-		ConnectionManager.closeConnection();
-		return departmentList;
-	}*/
-	
+
 	
 }

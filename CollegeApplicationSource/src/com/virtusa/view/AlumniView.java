@@ -36,8 +36,9 @@ public class AlumniView {
 				
 				viewAlumniDetails();
 				break;
-			case 3:System.exit(0);
-			break;
+			case 3:UserView.mainMenu();
+				break;
+		
 			default:System.out.println("[SELECT APPROPRIATE OPTION]");
 			alumniMenu();
 		}

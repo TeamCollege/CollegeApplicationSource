@@ -27,7 +27,7 @@ public class AdminView
 		System.out.println("7.LogOut\n");
 		System.out.println("Enter your choice");
 		int choice= scan.nextInt();
-		try {
+		try {   
 		switch(choice)
 		{
 		

@@ -1,5 +1,7 @@
 package com.virtusa.service;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +11,7 @@ import com.virtusa.entities.ClassSchedule;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.StaffMeeting;
 import com.virtusa.entities.Student;
+import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.helper.FactoryFacultyDAO;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
@@ -35,6 +38,7 @@ public class FacultyServiceImpl implements FacultyService {
 					classScheduleModel.setThirdHour(classSchedule.getThirdHour());
 					classScheduleModel.setFourthHour(classSchedule.getFourthHour());
 					classScheduleModelList.add(classScheduleModel);
+					System.out.println("sda");
 				}
 				
 			} catch (ClassNotFoundException | SQLException e) {
@@ -67,4 +71,24 @@ public class FacultyServiceImpl implements FacultyService {
 		return facultyModel;
 	}
 
-}
+	@Override
+	public String uploadAssignments(String fileName, String path) {
+		File file=new File(path);
+		UploadDownloadAssignments uploadDownloadAssignments=null;
+		String result = "failed";
+		try{
+			boolean stored = facultyDAO.uploadDownloadAssignments(path, file, fileName);
+			if(stored)
+				result = "success";
+		}
+		catch (ClassNotFoundException | SQLException | FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("!ERROR[Registration failed due to some internal issue]");
+		}
+		
+		return result;
+		}
+		
+	}
+
+

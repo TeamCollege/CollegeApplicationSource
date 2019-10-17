@@ -1,5 +1,6 @@
 package com.virtusa.view;
 
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class StudentView {
 		System.out.println("1.View Class Schedule");
 		System.out.println("2.View Examination Schedule");
 		System.out.println("3.View Results");
-		System.out.println("4.View Assignments");
+		System.out.println("4.Upload and Download Assignments");
 		System.out.println("5.View Placement Calender");
 		System.out.println("6.General Exams");
 		System.out.println("7.Exit");
@@ -33,7 +34,7 @@ public class StudentView {
 			break;
 		case 3:viewResults();
 			break;
-		case 4:viewAssignments();
+		case 4:uploadDownloadAssignments();
 			break;
 		case 5:viewPlacementCalender();
 			break;
@@ -50,6 +51,8 @@ public class StudentView {
 		}
 	}
 	
+	
+
 	//12.10.19
 	public void viewClassSchedule() {
 		StudentController studentController =new StudentController();
@@ -84,10 +87,37 @@ public class StudentView {
 		StudentController studentController =new StudentController();
 		studentController.retrieveResults();
 	}
-	public void viewAssignments() {
-		StudentController studentController =new StudentController();
-		studentController.retrieveAssignments();
+	
+	private void uploadDownloadAssignments() {
+		// TODO Auto-generated method stub
+		System.out.println("=====ASSIGNMENTS=====");
+		System.out.println("1.Upload Assignment");
+		System.out.println("2.Download Assignment");
+		System.out.print("Enter Option:");
+
+		Scanner scanner=new Scanner(System.in);
+		int option=scanner.nextInt();
+		if(option==1) {
+			System.out.print("File Name:");
+			String fileName=scanner.next();
+			System.out.print("File path:");
+			String path=scanner.next();
+			//File file=new File(path);
+			StudentController studentController =new StudentController();
+			studentController.uploadAssignments(path);
+		}
+		
+		
+         if(option==2) {
+			
+			System.out.print("File Id:");
+			int fileId=scanner.nextInt();
+			
+         }
 	}
+	
+	
+	
 	public void viewPlacementCalender() {
 		StudentController studentController =new StudentController();
 		studentController.retrievePlacementCalender();

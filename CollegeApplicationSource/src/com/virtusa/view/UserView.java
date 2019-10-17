@@ -13,12 +13,13 @@ public class UserView
 		System.out.println("5. Feedback");
 		System.out.println("Enter option: ");		
 		UserView userView = new UserView(); 
-		
+		   
 		try(Scanner scanner = new Scanner(System.in);){
 			int option = scanner.nextInt();
 			switch(option) {
 			case 1: 
 				userView.displayCollegeDetails();
+				mainMenu();
 				break;
 			
 			case 2:
@@ -27,8 +28,10 @@ public class UserView
 				break;
 				
 			case 3: 
+				System.out.println("abc");
 				LoginView loginView=new LoginView();
 				loginView.loginMenu();
+				System.out.println("going in");
 				break;
 				
 			case 4:AlumniView alumniView=new AlumniView();

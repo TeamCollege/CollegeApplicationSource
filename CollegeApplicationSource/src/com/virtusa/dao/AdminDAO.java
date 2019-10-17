@@ -24,5 +24,5 @@ public interface AdminDAO
 	public boolean deletePlacementsDAO(int placementId)throws ClassNotFoundException, SQLException;
 	public boolean addDepartmentDAO(int id, String name)throws ClassNotFoundException, SQLException;
 	public boolean deleteDepartmentDAO(int courseId)throws ClassNotFoundException, SQLException;
-	   
+	      
 }
