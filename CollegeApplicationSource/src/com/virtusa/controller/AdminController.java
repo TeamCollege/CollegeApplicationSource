@@ -32,9 +32,9 @@ public class AdminController
 		adminService.deleteStudentService(studentId);
 		
 	}
-	public void viewStudentController(int studentId)
+	public void viewStudentController(int studentId2)
 	{
-		
+		adminService.viewStudentService(studentId2);
 	}
 	public void addFacultyController(FacultyModel facultyModel)
 	{
@@ -48,6 +48,10 @@ public class AdminController
 	public void deleteFacultyController(int facultyId)
 	{
 		adminService.deleteFacultyService(facultyId); 
+	}
+	public void viewFacultyController(int facultyId2)
+	{
+		adminService.viewFacultyService(facultyId2);
 	}
 	
 	public void addEventsController(int id, String name, String date, String location)

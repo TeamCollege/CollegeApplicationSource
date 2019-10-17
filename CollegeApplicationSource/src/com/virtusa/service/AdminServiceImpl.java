@@ -104,13 +104,26 @@ public class AdminServiceImpl implements AdminService
 		}
 		
 	}
+	@Override
+	public void viewStudentService(int studentId2)
+	{
+		try {
+			adminDAO.viewStudentDetailsDAO(studentId2);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	@Override
-	public void addFacultyService(FacultyModel facultyModel)
+	public String addFacultyService(FacultyModel facultyModel)
 	{
-		List<Faculty> facultyList = new ArrayList<Faculty>();
 		Faculty faculty = new Faculty();
-		faculty.setFacultyId(faculty.getFacultyId());
+		faculty.setFacultyId(facultyModel.getFacultyId());
 		faculty.setFirstName(facultyModel.getFirstName());
 		faculty.setLastName(facultyModel.getLastName());
 		faculty.setPhoneNumber(facultyModel.getPhoneNumber());
@@ -119,7 +132,20 @@ public class AdminServiceImpl implements AdminService
 		//faculty.setCourseName(facultyModel.getCourseName());
 		faculty.setDepartmentName(facultyModel.getDepartmentName());
 		faculty.setSalary(facultyModel.getSalary());
-		facultyList.add(faculty);
+		
+		String result = "failed";
+		try {
+			boolean stored = adminDAO.storeFacultyDetailsDAO(faculty);
+			if(stored)
+				result = "success";
+		}
+		catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			System.out.println("!ERROR[Storing data failed due to some internal issue]");
+		}
+		
+		return result;
+		
 	}
 	
 	@Override
@@ -153,6 +179,23 @@ public class AdminServiceImpl implements AdminService
 		}
 		
 	}
+	
+	
+	@Override
+	public void viewFacultyService(int facultyId2)
+	{
+		try {
+			adminDAO.viewFacultyDetailsDAO(facultyId2);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 	@Override
 	public void addEventsService(int id, String name, String date, String location)
@@ -243,6 +286,10 @@ public class AdminServiceImpl implements AdminService
 		}
 		
 	}
+
+	
+
+	
 
 	
 

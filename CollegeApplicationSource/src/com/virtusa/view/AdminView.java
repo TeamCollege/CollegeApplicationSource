@@ -194,7 +194,7 @@ public class AdminView
 					 String DOB=scan.next();
 					 System.out.println("Enter Salary:");
 					 int salary=scan.nextInt();
-					 
+					
 					 facultyModel.setFacultyId(id);
 					 facultyModel.setFirstName(firstName);
 					 facultyModel.setLastName(lastName);
@@ -262,6 +262,8 @@ public class AdminView
 						catch(Exception w) { 
 						}
 					}while(validFacultyId2);
+					adminController.viewFacultyController(facultyId2);
+					break;
 		default:
 				throw new InvalidUserChoiceException();
 			}
