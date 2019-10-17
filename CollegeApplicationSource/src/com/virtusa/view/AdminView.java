@@ -49,7 +49,7 @@ public class AdminView
 		case 6 : managePlacements();
 					break;
 					
-		case 7 :
+		case 7 : UserView.mainMenu();
 					break;
 		default:
 			throw new InvalidUserChoiceException();
@@ -75,6 +75,7 @@ public class AdminView
 			System.out.println("Enter Applicant Number To Approve Applicant:");
 			int applicantNumber = scan.nextInt();
 			adminController.approveApplicantController(applicantNumber);
+			adminView();
 		
 		}
 		
@@ -162,7 +163,7 @@ public class AdminView
 				System.out.println(e);
 				System.out.println("----------------Enter a Valid Number------------------");
 			}
-			
+			adminView();
 			
 		}
 		AdminController adminController = new AdminController();
@@ -273,7 +274,7 @@ public class AdminView
 				System.out.println(e);
 				System.out.println("Enter a Valid Number");
 			}
-			
+			adminView();
 		}
 		
 		public void manageEvents()
@@ -363,7 +364,7 @@ public class AdminView
 				System.out.println("------Enter a Valid Number--------");
 				manageEvents();
 			}
-			
+			adminView();
 		}
 		
 		
@@ -428,6 +429,7 @@ public class AdminView
 				System.out.println("----------Enter a Valid Number------------");
 				manageDepartment();
 			}
+			adminView();
 		}
 		
 		
@@ -512,6 +514,7 @@ public class AdminView
 				System.out.println("------Enter a Valid Number----------");
 				managePlacements();
 			}
+			adminView();
 			
 		}
 		

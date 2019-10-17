@@ -8,12 +8,36 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
+import com.virtusa.entities.Applicant;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.Student;
 import com.virtusa.integrate.ConnectionManager;
 
 public class AdminDAOImpl implements AdminDAO 
 {
+	@Override
+	public boolean storeApprovedApplicantDetailsDAO(Applicant app)throws ClassNotFoundException, SQLException 
+	{
+		Connection connection=ConnectionManager.openConnection();
+		PreparedStatement statement=
+				connection.prepareStatement("insert into students values(?,?,?,?,?,?,?,?,?,?");
+		statement.setInt(1, app.getApplicantNumber());
+		statement.setString(2, app.getFirstName());
+		statement.setString(3, app.getLastName());
+		statement.setDate(4, Date.valueOf(app.getDateOfBirth()));
+		statement.setString(5, app.getEmailAddress());
+		statement.setString(6, app.getPhoneNumber());
+		statement.setDouble(7, app.getTenthPercentage());
+		statement.setDouble(8, app.getInterPercentage());
+		statement.setString(9, app.getDepartmentName());
+		statement.setString(10, app.getAadharNumber());
+		int rows=statement.executeUpdate();
+		ConnectionManager.closeConnection();
+		if(rows>0)
+			return true;
+		else
+			return false;
+	}
 
 	@Override
 	public boolean storeStudentDetailsDAO(List<Student> student) throws SQLException
@@ -263,6 +287,7 @@ public class AdminDAOImpl implements AdminDAO
 		else
 			return false;
 	}
+	
 	
 	
 

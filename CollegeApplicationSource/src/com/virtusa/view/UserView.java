@@ -52,8 +52,19 @@ public class UserView
 		
 	}
 	
-	public void displayCollegeDetails() {
+	public void displayCollegeDetails()
+	{
 		System.out.println(" ******************* College Details *********************");
+		System.out.println("Welcome to your College");
+		System.out.println("Courses Offered: Engineering(CSE,ECE,EEE)");
+		System.out.println("Courses Duration: 4 Years");
+		System.out.println("Fee Structure:1.25L/Year");
+		System.out.println("NAAC A+ Grade College");
+		System.out.println("24/7 Free access to digital library");
+		System.out.println("Free bus serviceses");
+		System.out.println("100% Placement (or) your 4years fee will be returned");
+		
+		
 	}
 	
 }

@@ -2,12 +2,14 @@
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 import com.virtusa.dao.AdminDAO;
 import com.virtusa.dao.AdminDAOImpl;
 import com.virtusa.dao.ApplicantDAOImpl;
+import com.virtusa.entities.Applicant;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.Student;
 import com.virtusa.helper.FactoryAdminDAO;
@@ -26,19 +28,49 @@ public class AdminServiceImpl implements AdminService
 	@Override
 	public void approveApplicantService(int applicantNumber) 
 	{
-		
-		
-		
-		
-		  
-		
-		
-		
-		
-		ApplicantDAOImpl applicantDAOImpl = new ApplicantDAOImpl();
-		ApplicantModel applicantModel = new ApplicantModel();
-		applicantModel=applicantDAOImpl.retrieveApplicant();
-		if(applicantModel.getTenthPercentage()>60.00 && applicantModel.getInterPercentage()>60.00)
+		Applicant applicant = new Applicant();
+		ArrayList<Applicant> applicants = new ArrayList<Applicant>();
+		applicant.getApplicantNumber();
+		applicant.getFirstName();
+		applicant.getLastName();
+		applicant.getEmailAddress();
+		applicant.getPhoneNumber();
+		applicant.getTenthPercentage();
+		applicant.getInterPercentage();
+		applicant.getDepartmentName();
+		applicant.getAadharNumber();
+		applicants.add(applicant);
+		Iterator<Applicant> iterator = applicants.iterator();
+		while(iterator.hasNext())
+		{
+			Applicant app = (Applicant)iterator.next();
+			if(app.getApplicantNumber()==applicantNumber)
+			{
+				if(app.getTenthPercentage()>=60.00 && app.getInterPercentage()>=60.00)
+				{
+					try {
+						adminDAO.storeApprovedApplicantDetailsDAO(app);
+					} catch (ClassNotFoundException | SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					System.out.println("-----Applicant is Eligible to take Admissions and has been Approve-----");
+					
+					
+				}
+				else
+				{
+					System.out.println("------Applicant is Not Eligible to take Admissions and has been rejected------");
+				}
+			}
+			else
+			{
+				System.out.println("------Applicant Number Not Found------");
+			}
+		}
+	}	
+		//applicantModel=applicantDAOImpl.retrieveApplicant();
+		/*if(applicantModel.getTenthPercentage()>60.00 && applicantModel.getInterPercentage()>60.00)
 		{
 			System.out.println("Applicant is eligible for the admission");
 			System.out.println("Applicant Approved Successful ");
@@ -47,7 +79,7 @@ public class AdminServiceImpl implements AdminService
 		{
 			System.out.println("Applicant not eligible");
 		}
-	}
+	}*/
        
 	@Override
 	public void addStudentService(StudentModel studentModel)
