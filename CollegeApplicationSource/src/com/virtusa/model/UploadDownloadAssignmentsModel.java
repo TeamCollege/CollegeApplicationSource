@@ -1,6 +1,6 @@
 package com.virtusa.model;
 
-public class UploadDownloadDocuments {
+public class UploadDownloadAssignmentsModel {
 	
 	 private String fileId;
 	 private String fileName;
@@ -36,7 +36,7 @@ public class UploadDownloadDocuments {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UploadDownloadDocuments other = (UploadDownloadDocuments) obj;
+		UploadDownloadAssignmentsModel other = (UploadDownloadAssignmentsModel) obj;
 		if (fileId == null) {
 			if (other.fileId != null)
 				return false;

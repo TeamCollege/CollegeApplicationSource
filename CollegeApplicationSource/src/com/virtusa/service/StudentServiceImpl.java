@@ -1,6 +1,7 @@
 package com.virtusa.service;
 
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 import com.virtusa.dao.StudentDAO;
 import com.virtusa.entities.ClassSchedule;
 import com.virtusa.entities.Student;
+import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.helper.FactoryStudentDAO;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.StudentModel;
@@ -42,9 +44,14 @@ public class StudentServiceImpl implements StudentService {
 	
 	return studentModel;
 	}
-	@Override
-	public void handleUploadAssignments(String path) {
-		// TODO Auto-generated method stub
+	
+	
+	public UploadDownloadAssignments handleUploadAssignments(String path) {
+		UploadDownloadAssignments uploadDownloadAssignments=null;
+		File file=new File(path);
+		return null;
+		
+		
 		
 	}
 }
