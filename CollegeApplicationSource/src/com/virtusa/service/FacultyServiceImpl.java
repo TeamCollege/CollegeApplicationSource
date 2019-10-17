@@ -1,6 +1,7 @@
 package com.virtusa.service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,10 +72,23 @@ public class FacultyServiceImpl implements FacultyService {
 	}
 
 	@Override
-	public void uploadAssignments(String fileName, String path) {
+	public String uploadAssignments(String fileName, String path) {
 		File file=new File(path);
 		UploadDownloadAssignments uploadDownloadAssignments=null;
-		uploadDownloadAssignments = facultyDAO.uploadDownloadAssignments(path);
+		String result = "failed";
+		try{
+			boolean stored = facultyDAO.uploadDownloadAssignments(path, file, fileName);
+			if(stored)
+				result = "success";
+		}
+		catch (ClassNotFoundException | SQLException | FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("!ERROR[Registration failed due to some internal issue]");
+		}
+		
+		return result;
+		}
+		
 	}
 
-}
+

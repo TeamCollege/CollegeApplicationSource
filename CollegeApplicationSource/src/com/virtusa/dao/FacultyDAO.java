@@ -1,5 +1,7 @@
 package com.virtusa.dao;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public interface FacultyDAO {
 
 	public Faculty getStaffMeetingDetails(String facultyId) throws ClassNotFoundException, SQLException;
 
-	public UploadDownloadAssignments uploadDownloadAssignments(String path);	
+	public boolean uploadDownloadAssignments(String path, File file, String fileName) throws SQLException, ClassNotFoundException, FileNotFoundException;	
 
 }
  

@@ -1,5 +1,9 @@
 package com.virtusa.dao;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +16,7 @@ import com.virtusa.entities.ClassSchedule;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.StaffMeeting;
 import com.virtusa.entities.Student;
+import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.integrate.ConnectionManager;
  
 public class FacultyDAOImpl implements FacultyDAO {
@@ -75,4 +80,29 @@ public class FacultyDAOImpl implements FacultyDAO {
 		return faculty;
 	}
 
+
+	@Override
+	public boolean uploadDownloadAssignments(String path, File file, String fileName) throws SQLException, ClassNotFoundException, FileNotFoundException {
+		
+			Reader reader=new FileReader(file);
+			Connection connection=ConnectionManager.openConnection(); 
+
+			PreparedStatement statement=
+					connection.prepareStatement("insert into FileTable values(?,?,?)");
+			statement.setInt(1, 2);
+			statement.setString(2, fileName);
+			statement.setCharacterStream(3, reader);
+			ConnectionManager.closeConnection();
+
+
+			int rows=statement.executeUpdate();
+			if(rows>0)
+				return true;
+			else
+				return false;
+			
+			
+	}
 }
+
+

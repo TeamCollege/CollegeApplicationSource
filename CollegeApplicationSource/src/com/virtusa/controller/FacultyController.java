@@ -34,7 +34,11 @@ public class FacultyController {
 
 	public void handleUploadAssignments(String fileName, String path) {
 
-		facultyService.uploadAssignments(fileName, path);
+		String result = facultyService.uploadAssignments(fileName, path);
+		if(result.contentEquals("success"))
+			facultyView.uploadSuccess();
+		else
+			facultyView.uploadUnsuccessful();
 		
 	}
 

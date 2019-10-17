@@ -12,7 +12,7 @@ public interface FacultyService {
 
 	public FacultyModel handleRetrieveStaffMeeting(String facultyId);
 
-	public void uploadAssignments(String fileName, String path);
+	public String uploadAssignments(String fileName, String path);
 
  
 }

@@ -65,10 +65,16 @@ public class FacultyView {
 				break;
 			case 2:
 				facultyController.handleDownloadAssignments();
-			
-
-
-		
+				break;
+			default:
+				System.out.println("!ERROR[Enter an appropriate option]");
+				facultyMenu();
+			}
+		}
+		catch(Exception e) {
+			System.out.println("!ERROR[Enter an appropriate option]");
+		}
+				
 	}
 
 	public void displayClassSchedule(List<ClassScheduleModel> model) {
@@ -87,6 +93,15 @@ public class FacultyView {
 		StudentView studentView=new StudentView();
 		studentView.studentMenu();
 
+	}
+
+	public void uploadSuccess() {
+		System.out.println("File uploaded successfully");
+	}
+
+	public void uploadUnsuccessful() {
+		System.out.println("File upload unsuccessful");
+		
 	}
 
 
