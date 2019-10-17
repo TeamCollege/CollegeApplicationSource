@@ -31,5 +31,16 @@ public class FacultyController {
 		facultyView.showStaffMeetingDetails(staffMeeting);
 		
 	}
+
+	public void handleUploadAssignments(String fileName, String path) {
+
+		facultyService.uploadAssignments(fileName, path);
+		
+	}
+
+	public void handleDownloadAssignments() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

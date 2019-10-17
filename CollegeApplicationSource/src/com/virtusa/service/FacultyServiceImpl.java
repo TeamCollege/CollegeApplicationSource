@@ -1,5 +1,6 @@
 package com.virtusa.service;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import com.virtusa.entities.ClassSchedule;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.StaffMeeting;
 import com.virtusa.entities.Student;
+import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.helper.FactoryFacultyDAO;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
@@ -35,6 +37,7 @@ public class FacultyServiceImpl implements FacultyService {
 					classScheduleModel.setThirdHour(classSchedule.getThirdHour());
 					classScheduleModel.setFourthHour(classSchedule.getFourthHour());
 					classScheduleModelList.add(classScheduleModel);
+					System.out.println("sda");
 				}
 				
 			} catch (ClassNotFoundException | SQLException e) {
@@ -65,6 +68,13 @@ public class FacultyServiceImpl implements FacultyService {
 			e.printStackTrace();
 		}		
 		return facultyModel;
+	}
+
+	@Override
+	public void uploadAssignments(String fileName, String path) {
+		File file=new File(path);
+		UploadDownloadAssignments uploadDownloadAssignments=null;
+		uploadDownloadAssignments = facultyDAO.uploadDownloadAssignments(path);
 	}
 
 }

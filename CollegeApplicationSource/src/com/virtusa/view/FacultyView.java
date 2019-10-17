@@ -9,15 +9,18 @@ import com.virtusa.model.FacultyModel;
 
 public class FacultyView {  
 		
+	FacultyController facultyController = new FacultyController();
+
+	
 	public void facultyMenu() {
-		FacultyController facultyController = new FacultyController();
 		FacultyModel facultyModel = new FacultyModel();
+		//facultyModel.setFacultyId(facultyId);
 
 		System.out.println("\t\t =====Faculty View=====");
 		System.out.println("1. View Class Schedule");
 		System.out.println("2. View Staff Meeting Details");
 		System.out.println("3. View Events");
-		System.out.println("4. Upload Assignments");
+		System.out.println("4. Upload and Download Assignments");
 		System.out.println("5. View Exam Scheduler");
 		System.out.println("6. Alumni Search");
 		System.out.println("7. Logout");
@@ -27,12 +30,14 @@ public class FacultyView {
 			int option = scanner.nextInt();
 			switch(option) {
 			case 1:
-				//System.out.println("aa");
+				//System.out.println(facultyModel.getDepartmentName());
 				facultyController.viewClassSchedule(facultyModel.getDepartmentName());
 				break;
 			case 2:
 				facultyController.handleStaffMeeting(facultyModel.getFacultyId());
 				break;
+			case 4: 
+				uploadDownloadMenu();
 			default:
 				System.out.println("!ERROR[Enter an appropriate option]");
 				facultyMenu();
@@ -43,6 +48,29 @@ public class FacultyView {
 		}
 	}
 	
+	private void uploadDownloadMenu() {
+		System.out.println("=====Upload and Download Assignments=====");
+		System.out.println("1. Upload Assignment");
+		System.out.println("2. Download Assignment");
+		System.out.println("Enter your choice: ");
+		try(Scanner scanner = new Scanner(System.in);){
+			int option = scanner.nextInt();
+			switch(option) {
+			case 1:
+				System.out.print("File Name:");
+				String fileName=scanner.next();
+				System.out.print("File path:");
+				String path=scanner.next();
+				facultyController.handleUploadAssignments(fileName, path);
+				break;
+			case 2:
+				facultyController.handleDownloadAssignments();
+			
+
+
+		
+	}
+
 	public void displayClassSchedule(List<ClassScheduleModel> model) {
 		for(ClassScheduleModel classSchedule:model) {
 			System.out.println(classSchedule.getDay()+" "+classSchedule.getFirstHour()+" "+classSchedule.getSecondHour()+" "+classSchedule.getThirdHour()+" "+classSchedule.getFourthHour());
