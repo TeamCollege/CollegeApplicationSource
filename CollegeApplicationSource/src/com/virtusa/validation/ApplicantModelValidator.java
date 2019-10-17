@@ -76,6 +76,10 @@ public boolean validate(ApplicantModel model) {
 	    return email.matches(regex);
 	}
 
+	
+	/*@SuppressWarnings("ununsed")
+=======
+
 	public boolean validDepartment(String departmentName) {
 		boolean result=false;
 
@@ -83,14 +87,37 @@ public boolean validate(ApplicantModel model) {
 			result=true;
 		return result;
 	}
+>>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
 	public boolean validNumber(int number) {
 		boolean result=false;
 		String data=String.valueOf(number);
-		if(data.matches(".*[0-9]")) {
-			result=true;
+		if(data.matches(".*[0-9]")) 
+		{
+			return true;
 		}
-		return result;
-	}
+		else
+		{
+		return false;
+	}*/
+		/*public boolean validNumber(String number) {
+			 boolean result=false;
+			try {
+				int data = Integer.parseInt(number);
+				result =false;
+				} 
+			catch (NumberFormatException e) {
+				return false;
+				}
+			return true;
+		}*/
+		
+		
+		
+		
+		
+		
+		
+		
 	
 	
 }

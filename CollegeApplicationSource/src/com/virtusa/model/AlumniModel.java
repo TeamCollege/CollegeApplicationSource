@@ -9,12 +9,12 @@ public class AlumniModel {
 	private String lastName;
 	private String email;
 	private String phoneNumber;
-	private int courseId;
 	private int alumniId;
-	private LocalDate dateOfBirth;
 	private String gender;
 	private String presentStatus;
 	private int yearOfCompletition;
+	
+	private AlumniModel alumniModel;
 	
 	
 	public String getPresentStatus() {
@@ -53,12 +53,7 @@ public class AlumniModel {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public int getCourseId() {
-		return courseId;
-	}
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
+	
 	public int getAlumniId() {
 		return alumniId;
 	}
@@ -72,32 +67,27 @@ public class AlumniModel {
 	public void setYearOfCompletition(int yearOfCompletition) {
 		this.yearOfCompletition = yearOfCompletition;
 	}
-
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
+	
+	public AlumniModel getAlumniModel() {
+		return alumniModel;
 	}
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setAlumniModel(AlumniModel alumniModel) {
+		this.alumniModel = alumniModel;
 	}
 	@Override
 	public String toString() {
 		return "AlumniModel [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", courseId=" + courseId + ", alumniId=" + alumniId + ", dateOfBirth=" + dateOfBirth
-				+ ", gender=" + gender + ", presentStatus=" + presentStatus + ", yearOfCompletition="
-				+ yearOfCompletition + ", getPresentStatus()=" + getPresentStatus() + ", getGender()=" + getGender()
-				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()="
-				+ getEmail() + ", getPhoneNumber()=" + getPhoneNumber() + ", getCourseId()=" + getCourseId()
-				+ ", getAlumniId()=" + getAlumniId() + ", getYearOfCompletition()=" + getYearOfCompletition()
-				+ ", getDateOfBirth()=" + getDateOfBirth() + "]";
+				+ phoneNumber + ", alumniId=" + alumniId + ", gender=" + gender + ", presentStatus=" + presentStatus
+				+ ", yearOfCompletition=" + yearOfCompletition + ", alumniModel=" + alumniModel
+				+ ", getPresentStatus()=" + getPresentStatus() + ", getGender()=" + getGender() + ", getFirstName()="
+				+ getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()=" + getEmail()
+				+ ", getPhoneNumber()=" + getPhoneNumber() + ", getAlumniId()=" + getAlumniId()
+				+ ", getYearOfCompletition()=" + getYearOfCompletition() + ", getAlumniModel()=" + getAlumniModel()
+				+ "]";
 	}
 	
 	
-	
-	
-	
-	
-	
 
-}
+	}
 
 

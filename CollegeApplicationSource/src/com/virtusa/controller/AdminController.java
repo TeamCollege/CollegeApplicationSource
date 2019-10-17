@@ -1,76 +1,88 @@
 package com.virtusa.controller;
 
+import com.virtusa.helper.FactoryAdminService;
 import com.virtusa.model.FacultyModel;
 import com.virtusa.model.StudentModel;
 import com.virtusa.service.AdminService;
-import com.virtusa.service.AdminServiceImpl;
 
 public class AdminController 
 {
-	AdminService adminServiceImpl = new AdminServiceImpl();
+	private AdminService adminService;
+	public AdminController()
+	{
+		this.adminService=FactoryAdminService.createAdminService();
+	}
 	public void approveApplicantController(int applicantNumber)
 	{   
 		   
-		 adminServiceImpl.approveApplicantService(applicantNumber);
+		 adminService.approveApplicantService(applicantNumber);
 	}
 	
 	public void addStudentController(StudentModel studentModel)
 	{
-		adminServiceImpl.addStudentService(studentModel);
+		adminService.addStudentService(studentModel);
 	}
 	public void updateStudentController(int id, String firstName)
 	{
-		adminServiceImpl.updateStudentService(id, firstName);
+		adminService.updateStudentService(id, firstName);
 	}
 	
-	public void deleteStudentController(int studentId)
+	public void deleteStudentController(String studentId)
 	{
-		adminServiceImpl.deleteStudentService(studentId);
+		adminService.deleteStudentService(studentId);
 		
+	}
+	public void viewStudentController(int studentId2)
+	{
+		adminService.viewStudentService(studentId2);
 	}
 	public void addFacultyController(FacultyModel facultyModel)
 	{
-		adminServiceImpl.addFacultyService(facultyModel);
+		adminService.addFacultyService(facultyModel);
 		
 	}
 	public void updateFacultyController( String phoneNumber, int id)
 	{
-		adminServiceImpl.updateFacultyService( phoneNumber, id);
+		adminService.updateFacultyService( phoneNumber, id);
 	}
 	public void deleteFacultyController(int facultyId)
 	{
-		adminServiceImpl.deleteFacultyService(facultyId); 
+		adminService.deleteFacultyService(facultyId); 
+	}
+	public void viewFacultyController(int facultyId2)
+	{
+		adminService.viewFacultyService(facultyId2);
 	}
 	
 	public void addEventsController(int id, String name, String date, String location)
 	{
-		adminServiceImpl.addEventsService(id, name, date, location);
+		adminService.addEventsService(id, name, date, location);
 		
 	}
 	
 	public void deleteEventsController(int eventId)
 	{
-		adminServiceImpl.deleteEventsService(eventId);
+		adminService.deleteEventsService(eventId);
 	}
 	
-	public void addCourseController(int id, String name)
+	public void addDepartmentController(int id, String name)
 	{
-		adminServiceImpl.addCourseService(id, name);
+		adminService.addDepartmentService(id, name);
 	}
 	
-	public void deleteCourse(int courseId)
+	public void deleteDepartmentController(int courseId)
 	{
-		adminServiceImpl.deleteCourseService(courseId);
+		adminService.deleteDepartmentService(courseId);
 	}
 	
 	public void addPlacementsController(int id, String companyName, String date, double percentage)
 	{
-		adminServiceImpl.addPlacementsService(id, companyName, date, percentage);
+		adminService.addPlacementsService(id, companyName, date, percentage);
 	}
 	
 	public void deletePlacementController(int placementId)
 	{
-		adminServiceImpl.deletePlacementsService(placementId);
+		adminService.deletePlacementsService(placementId);
 		
 	}
 	

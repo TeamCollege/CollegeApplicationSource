@@ -8,13 +8,14 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import com.virtusa.controller.AlumniController;
+
 import com.virtusa.exception.ValidationException;
 import com.virtusa.model.AlumniModel;
+
 import com.virtusa.validation.AlumniModelValidator;
 
 
 public class AlumniView {
-	
 		  
 		public void alumniMenu() {
 			System.out.println("\t\t =====ALUMNI VIEW=====");
@@ -22,31 +23,36 @@ public class AlumniView {
 			System.out.println("2.View Alumni Details");
 			System.out.println("3.Exit");
 			System.out.println("Enter your choice:");
+			
 			try(Scanner sc=new Scanner(System.in);){  
-			int choice=sc.nextInt();
+				int choice=sc.nextInt();
+				
 			
 			switch(choice) {
 			  
 			case 1:registrationForm();
-				break;
-			case 2:viewAlumniDetails();
+			       break;
+			case 2:
+				
+				viewAlumniDetails();
 				break;
 			case 3:UserView.mainMenu();
 				break;
-			default:System.out.println("[SELECT APPROPRIATE OPTION]");
 		
+			default:System.out.println("[SELECT APPROPRIATE OPTION]");
+			alumniMenu();
 		}
 		}catch(Exception e) {
 			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
-		}	//alumniMenu();
+		}
 	}
 			
-private void viewAlumniDetails() {
+/*private void viewAlumniDetails() {
 	// TODO Auto-generated method stub
 		
 		AlumniController alumniController =new AlumniController();
 		alumniController.handleRetrieveAlumni();
-	}
+	}*/
 	
 		
 	
@@ -83,7 +89,7 @@ private void viewAlumniDetails() {
 					alumniView.registrationForm();
 				}
 			
-			System.out.print("Student Id:");
+			System.out.print("Alumni Id:");
 			int alumniId=scanner.nextInt();
 			boolean validAlumniId=validator.validNumber(alumniId);
 			if(!validAlumniId)
@@ -116,38 +122,9 @@ private void viewAlumniDetails() {
 					alumniView.registrationForm();
 				}
 			
-			System.out.print("Date Of Birth (YYYY/MM/DD):");
-			String dateOfBirthValidate=scanner.next();
 			
-			StringTokenizer tokens=new StringTokenizer(dateOfBirthValidate,"/");
-			
-			List<String> tokensList=new ArrayList<>();
-			while(tokens.hasMoreTokens()) {
-				tokensList.add(tokens.nextToken());
-			}
-			
-			int year=Integer.parseInt(tokensList.get(0));
-			int month=Integer.parseInt(tokensList.get(1));
-			int dayOfMonth=Integer.parseInt(tokensList.get(2));
-			
-				LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
-				System.out.println(dateOfBirth);
-			    
-			
-			
-			System.out.print("Course Id:");
-			int courseId=scanner.nextInt();
-			boolean validCourseId=validator.validNumber(courseId); 
-			if(!validCourseId)
-				try {
-				throw new ValidationException("[!ERROR:Invalid Course Id specified]");
-				}catch(ValidationException er) {
-					System.out.println(er.getMessage());
-					alumniView.registrationForm();
-				}
-			
-			System.out.print("Gender (Female/Male):");
-			String gender=scanner.next().toLowerCase();
+			System.out.print("Gender(Female/Male):");
+			String gender=scanner.next();
 			
 			boolean validgender=validator.validGender(gender);
 			if(!validgender)
@@ -158,8 +135,8 @@ private void viewAlumniDetails() {
 					alumniView.registrationForm();
 				}
 			
-			System.out.print("Present Working Status (Employed/Unemployed):");
-			String presentStatus=scanner.next().toLowerCase();
+			System.out.print("Present Status(Employed/Higher Studies):");
+			String presentStatus=scanner.next();
 			
 			boolean validpresentStatus=validator.validPresentStatus(presentStatus);
 			if(!validpresentStatus)
@@ -190,7 +167,6 @@ private void viewAlumniDetails() {
 			alumniModel.setAlumniId(alumniId);
 			alumniModel.setEmail(email);
 			alumniModel.setPhoneNumber(phoneNumber);
-			alumniModel.setCourseId(courseId);
 			alumniModel.setGender(gender);
 			alumniModel.setPresentStatus(presentStatus);
 			alumniModel.setYearOfCompletition(yearOfCompletition);
@@ -201,6 +177,22 @@ private void viewAlumniDetails() {
 				}
 			}
 		
+	public void viewAlumniDetails() {
+		  AlumniController alumniController=new AlumniController();
+
+		  try(Scanner scanner=new Scanner(System.in);){
+			  System.out.print("Please Enter Alumni Name:");
+			  String firstName=scanner.next();
+		      alumniController.handleRetrieveAlumniDetails(firstName);
+			  
+			  
+		  }catch(Exception e) {
+			  e.printStackTrace();
+		  }
+	       
+		
+	}
+	
 	public void showRegistrationSuccess() {
 		System.out.println("Register successfully!");
 	}
@@ -213,10 +205,23 @@ private void viewAlumniDetails() {
 		System.out.println("Data entered is not valid");
 		
 	}
+public void showAlumniDetails(AlumniModel model) {
 		
+		System.out.println("\n ------- Alumni Details-------");
+		System.out.println("Alumni Id:"       +model.getAlumniId());
+		System.out.println("First Name:"      +model.getFirstName());
+		System.out.println("Last Name:"       +model.getLastName());
+		System.out.println("Phone Number:"    +model.getPhoneNumber());
+		System.out.println("Email Id:"        +model.getEmail());
+		System.out.println("Gender:"          +model.getGender());
+		System.out.println("Present Status:"  +model.getPresentStatus());
+		System.out.println("Year Of Completition:"+model.getYearOfCompletition());
 		
-		
+		alumniMenu();
+	}
 }
+
+		
 		
 	
 

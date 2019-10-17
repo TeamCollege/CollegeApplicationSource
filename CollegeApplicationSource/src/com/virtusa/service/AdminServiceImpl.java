@@ -10,13 +10,18 @@ import com.virtusa.dao.AdminDAOImpl;
 import com.virtusa.dao.ApplicantDAOImpl;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.Student;
+import com.virtusa.helper.FactoryAdminDAO;
 import com.virtusa.model.ApplicantModel;
 import com.virtusa.model.FacultyModel;
 import com.virtusa.model.StudentModel;
 
 public class AdminServiceImpl implements AdminService
 {
-	AdminDAO adminDAO = new AdminDAOImpl();
+	AdminDAO adminDAO;
+	public AdminServiceImpl()
+	{
+		this.adminDAO=FactoryAdminDAO.createAdminDAO();
+	}
 
 	@Override
 	public void approveApplicantService(int applicantNumber) 
@@ -70,7 +75,7 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public void deleteStudentService(int studentId) 
+	public void deleteStudentService(String studentId) 
 	{
 		List<Student> studentList = new ArrayList<Student>();
 		studentList.remove(studentId);
@@ -99,22 +104,48 @@ public class AdminServiceImpl implements AdminService
 		}
 		
 	}
+	@Override
+	public void viewStudentService(int studentId2)
+	{
+		try {
+			adminDAO.viewStudentDetailsDAO(studentId2);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	@Override
-	public void addFacultyService(FacultyModel facultyModel)
+	public String addFacultyService(FacultyModel facultyModel)
 	{
-		List<Faculty> facultyList = new ArrayList<Faculty>();
 		Faculty faculty = new Faculty();
-		faculty.setFacultyId(faculty.getFacultyId());
+		faculty.setFacultyId(facultyModel.getFacultyId());
 		faculty.setFirstName(facultyModel.getFirstName());
 		faculty.setLastName(facultyModel.getLastName());
 		faculty.setPhoneNumber(facultyModel.getPhoneNumber());
 		faculty.setEmailAddress(facultyModel.getEmail());
 		faculty.setDateOfBirth(facultyModel.getDateOfBirth());
-		faculty.setCourseName(facultyModel.getCourseName());
+		//faculty.setCourseName(facultyModel.getCourseName());
 		faculty.setDepartmentName(facultyModel.getDepartmentName());
 		faculty.setSalary(facultyModel.getSalary());
-		facultyList.add(faculty);
+		
+		String result = "failed";
+		try {
+			boolean stored = adminDAO.storeFacultyDetailsDAO(faculty);
+			if(stored)
+				result = "success";
+		}
+		catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			System.out.println("!ERROR[Storing data failed due to some internal issue]");
+		}
+		
+		return result;
+		
 	}
 	
 	@Override
@@ -148,6 +179,23 @@ public class AdminServiceImpl implements AdminService
 		}
 		
 	}
+	
+	
+	@Override
+	public void viewFacultyService(int facultyId2)
+	{
+		try {
+			adminDAO.viewFacultyDetailsDAO(facultyId2);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 	@Override
 	public void addEventsService(int id, String name, String date, String location)
@@ -210,10 +258,10 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public void addCourseService(int id, String name)
+	public void addDepartmentService(int id, String name)
 	{
 		try {
-			adminDAO.addCourseDAO(id, name);
+			adminDAO.addDepartmentDAO(id, name);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -225,10 +273,10 @@ public class AdminServiceImpl implements AdminService
 	}
 
 	@Override
-	public void deleteCourseService(int courseId)
+	public void deleteDepartmentService(int courseId)
 	{
 		try {
-			adminDAO.deleteCourseDAO(courseId);
+			adminDAO.deleteDepartmentDAO(courseId);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -238,6 +286,10 @@ public class AdminServiceImpl implements AdminService
 		}
 		
 	}
+
+	
+
+	
 
 	
 

@@ -3,6 +3,7 @@ package com.virtusa.dao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -71,18 +72,31 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean deleteStudentDetailsDAO(int studentId) throws ClassNotFoundException, SQLException
+	public boolean deleteStudentDetailsDAO(String studentId) throws ClassNotFoundException, SQLException
 	{
 		Connection connection=ConnectionManager.openConnection();
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("delete from students where student_id=?");
-		preparedStatement.setInt(1, studentId);
+		preparedStatement.setString(1, studentId);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0)
 			return true;
 		else    
 			return false;
 	}
+	@Override
+	public boolean viewStudentDetailsDAO(int studentId2) throws ClassNotFoundException, SQLException
+	{
+		Connection connection=ConnectionManager.openConnection();
+		PreparedStatement preparedStatement=
+				connection.prepareStatement("select * from students where student_id=?");
+		preparedStatement.setInt(1, studentId2);
+		ResultSet resultSet =  preparedStatement.executeQuery();
+		
+		
+		return false;
+	}
+	
        
 	@Override
 	public boolean storeFacultyDetailsDAO(Faculty faculty) throws ClassNotFoundException, SQLException 
@@ -90,16 +104,15 @@ public class AdminDAOImpl implements AdminDAO
 		
 		Connection connection=ConnectionManager.openConnection();
 		PreparedStatement preparedStatement=
-				connection.prepareStatement("insert into faculty values(?,?,?,?,?,?,?,?,?)");
+				connection.prepareStatement("insert into faculty values(?,?,?,?,?,?,?,?)");
 		preparedStatement.setString(1, faculty.getFacultyId());
 		preparedStatement.setString(2, faculty.getFirstName());
 		preparedStatement.setString(3, faculty.getLastName());
 		preparedStatement.setString(4, faculty.getPhoneNumber());
 		preparedStatement.setString(5, faculty.getEmailAddress());
 		preparedStatement.setDate(6, Date.valueOf( faculty.getDateOfBirth()));
-		preparedStatement.setString(7, faculty.getCourseName());
-		preparedStatement.setString(8, faculty.getDepartmentName());
-		preparedStatement.setDouble(9, faculty.getSalary());
+		preparedStatement.setString(7, faculty.getDepartmentName());
+		preparedStatement.setDouble(8, faculty.getSalary());
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0)
 			return true;
@@ -122,9 +135,6 @@ public class AdminDAOImpl implements AdminDAO
 		else
 		return false;
 	}
-	
-	
-
 	@Override
 	public boolean deleteFacultyDetailsDAO(int facultyId) throws ClassNotFoundException, SQLException
 	{
@@ -137,6 +147,17 @@ public class AdminDAOImpl implements AdminDAO
 			return true;
 		else
 			return false;
+	}
+	@Override
+	public boolean viewFacultyDetailsDAO(int facultyId2) throws ClassNotFoundException, SQLException
+	{
+		Connection connection=ConnectionManager.openConnection();
+		PreparedStatement preparedStatement=
+				connection.prepareStatement("select * from faculty where faculty_id=?");
+		preparedStatement.setInt(1, facultyId2);
+		ResultSet resultSet =  preparedStatement.executeQuery();
+		
+		return false;
 	}
 
 	@Override
@@ -212,7 +233,7 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean addCourseDAO(int id, String name) throws ClassNotFoundException, SQLException 
+	public boolean addDepartmentDAO(int id, String name) throws ClassNotFoundException, SQLException 
 	{
 		
 		Connection connection=ConnectionManager.openConnection();
@@ -229,7 +250,7 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean deleteCourseDAO(int courseId) throws ClassNotFoundException, SQLException 
+	public boolean deleteDepartmentDAO(int courseId) throws ClassNotFoundException, SQLException 
 	{
 	
 		Connection connection=ConnectionManager.openConnection();
@@ -242,6 +263,8 @@ public class AdminDAOImpl implements AdminDAO
 		else
 			return false;
 	}
+	
+	
 
 	
 
