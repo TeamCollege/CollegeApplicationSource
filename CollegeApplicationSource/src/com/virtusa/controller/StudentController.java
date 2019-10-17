@@ -1,5 +1,6 @@
 package com.virtusa.controller;
 
+import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.helper.FactoryStudentDAO;
 import com.virtusa.model.StudentModel;
 import com.virtusa.service.StudentService;
@@ -8,6 +9,7 @@ import com.virtusa.view.StudentView;
 public class StudentController {
 	private StudentService studentService;
 	StudentView studentView=new StudentView();
+	
 	
 	public StudentController() {
 		this.studentService=FactoryStudentDAO.createStudentService();
@@ -29,10 +31,7 @@ public class StudentController {
 		
 	}
 
-	public void retrieveAssignments() {
-
-		
-	}
+	
 
 	public void retrievePlacementCalender() {
 
@@ -42,6 +41,11 @@ public class StudentController {
 
 		
 	}
+	public void uploadAssignments(String path) {
+		// TODO Auto-generated method stub
+		UploadDownloadAssignments uploadAssignments=studentService.handleUploadAssignments(path);
+	}
+	
 	
 
 }

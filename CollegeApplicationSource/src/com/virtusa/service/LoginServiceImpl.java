@@ -19,7 +19,7 @@ public class LoginServiceImpl implements LoginService {
 		
 		// TODO Auto-generated method stub
 		String userValid=loginDAO.userAuth(loginModel.getUserId(),loginModel.getPassword());
-		//System.out.println(userValid);
+		System.out.println(userValid);
 		
 		return userValid;
 		

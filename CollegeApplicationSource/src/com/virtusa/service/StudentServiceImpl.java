@@ -19,6 +19,7 @@ public class StudentServiceImpl implements StudentService {
 		this.studentDAO=FactoryStudentDAO.createStudentDAO();
 	}
 //12.10.19
+	@Override
 	public StudentModel handleRetrieveClassSchedule(String departmentName) {
 		Student students=null;
 		StudentModel studentModel=new StudentModel();
@@ -40,5 +41,10 @@ public class StudentServiceImpl implements StudentService {
 	}
 	
 	return studentModel;
+	}
+	@Override
+	public void handleUploadAssignments(String path) {
+		// TODO Auto-generated method stub
+		
 	}
 }
