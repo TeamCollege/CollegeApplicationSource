@@ -27,13 +27,19 @@ public class FacultyView {
 			int option = scanner.nextInt();
 			switch(option) {
 			case 1:
+				//System.out.println("aa");
 				facultyController.viewClassSchedule(facultyModel.getDepartmentName());
 				break;
 			case 2:
 				facultyController.handleStaffMeeting(facultyModel.getFacultyId());
 				break;
-				
+			default:
+				System.out.println("!ERROR[Enter an appropriate option]");
+				facultyMenu();
 			}
+		}
+		catch(Exception e) {
+			System.out.println("!ERROR[Enter an appropriate option]");
 		}
 	}
 	

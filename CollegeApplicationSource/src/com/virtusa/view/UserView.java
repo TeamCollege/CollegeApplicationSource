@@ -19,6 +19,7 @@ public class UserView
 			switch(option) {
 			case 1: 
 				userView.displayCollegeDetails();
+				mainMenu();
 				break;
 			
 			case 2:
