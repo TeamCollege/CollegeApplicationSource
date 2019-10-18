@@ -28,10 +28,10 @@ public class UserView
 				break;
 				
 			case 3: 
-				System.out.println("abc");
+				//System.out.println("abc");
 				LoginView loginView=new LoginView();
 				loginView.loginMenu();
-				System.out.println("going in");
+				//System.out.println("going in");
 				break;
 				
 			case 4:AlumniView alumniView=new AlumniView();
