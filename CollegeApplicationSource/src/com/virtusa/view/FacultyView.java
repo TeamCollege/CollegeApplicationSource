@@ -9,13 +9,13 @@ import com.virtusa.model.FacultyModel;
 
 public class FacultyView {  
 		
-	FacultyController facultyController = new FacultyController();
+	
 
 	
 	public void facultyMenu() {
 		FacultyModel facultyModel = new FacultyModel();
-		//facultyModel.setFacultyId(facultyId);
-
+	
+		FacultyController facultyController = new FacultyController();
 		System.out.println("\t\t =====Faculty View=====");
 		System.out.println("1. View Class Schedule");
 		System.out.println("2. View Staff Meeting Details");
@@ -49,6 +49,7 @@ public class FacultyView {
 	}
 	
 	private void uploadDownloadMenu() {
+		FacultyController facultyController = new FacultyController();
 		System.out.println("=====Upload and Download Assignments=====");
 		System.out.println("1. Upload Assignment");
 		System.out.println("2. Download Assignment");
@@ -61,6 +62,7 @@ public class FacultyView {
 				String fileName=scanner.next();
 				System.out.print("File path:");
 				String path=scanner.next();
+				System.out.println("hello");
 				facultyController.handleUploadAssignments(fileName, path);
 				break;
 			case 2:
@@ -68,7 +70,7 @@ public class FacultyView {
 				break;
 			default:
 				System.out.println("!ERROR[Enter an appropriate option]");
-				facultyMenu();
+				//facultyMenu();
 			}
 		}
 		catch(Exception e) {

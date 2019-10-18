@@ -10,7 +10,9 @@ public interface StudentService {
 	//12.10.19
 	public StudentModel handleRetrieveClassSchedule(String departmentName);
 
-	public UploadDownloadAssignments handleUploadAssignments(String path);
+	public String handleUploadAssignments(String path);
+
+	//public UploadDownloadAssignments handleUploadAssignments(String path);
 
 
 

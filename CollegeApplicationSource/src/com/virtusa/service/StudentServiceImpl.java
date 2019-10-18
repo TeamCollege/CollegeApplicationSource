@@ -2,6 +2,7 @@ package com.virtusa.service;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.helper.FactoryStudentDAO;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.StudentModel;
+import com.virtusa.model.UploadDownloadAssignmentsModel;
 import com.virtusa.model.StudentModel;
 
 public class StudentServiceImpl implements StudentService {
@@ -44,14 +46,38 @@ public class StudentServiceImpl implements StudentService {
 	
 	return studentModel;
 	}
-	
-	
-	public UploadDownloadAssignments handleUploadAssignments(String path) {
+	@Override
+	public String handleUploadAssignments(String path) {
+		// TODO Auto-generated method stub
 		UploadDownloadAssignments uploadDownloadAssignments=null;
-		File file=new File(path);
-		return null;
+		UploadDownloadAssignmentsModel  uploadDownloadAssignmentsModel=new UploadDownloadAssignmentsModel();
+		try {
+			
+		}catch (ClassNotFoundException | SQLException e) {
+			
+			e.printStackTrace();
+		}
 		
 		
 		
+		
+		
+		String result = "failed";
+		try{
+			System.out.println("helloservice");
+			boolean stored = studentDAO.uploadDownloadAssignments(path);
+			if(stored)
+				result = "success";
+		}
+		catch (ClassNotFoundException | SQLException | FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("!ERROR[Upload failed due to some internal issue]");
+		}
+		
+		return result;
+		}
 	}
-}
+	
+	
+
+

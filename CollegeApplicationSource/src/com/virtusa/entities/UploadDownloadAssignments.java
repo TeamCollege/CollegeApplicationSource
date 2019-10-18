@@ -3,12 +3,15 @@ package com.virtusa.entities;
 public class UploadDownloadAssignments {
 
 	
-	 private String fileId;
+	 private int fileId;
 	 private String fileName;
-	public String getFileId() {
+	
+	 
+	 
+	public int getFileId() {
 		return fileId;
 	}
-	public void setFileId(String fileId) {
+	public void setFileId(int fileId) {
 		this.fileId = fileId;
 	}
 	public String getFileName() {
@@ -25,7 +28,7 @@ public class UploadDownloadAssignments {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((fileId == null) ? 0 : fileId.hashCode());
+		result = prime * result + fileId;
 		result = prime * result + ((fileName == null) ? 0 : fileName.hashCode());
 		return result;
 	}
@@ -38,10 +41,7 @@ public class UploadDownloadAssignments {
 		if (getClass() != obj.getClass())
 			return false;
 		UploadDownloadAssignments other = (UploadDownloadAssignments) obj;
-		if (fileId == null) {
-			if (other.fileId != null)
-				return false;
-		} else if (!fileId.equals(other.fileId))
+		if (fileId != other.fileId)
 			return false;
 		if (fileName == null) {
 			if (other.fileName != null)
@@ -51,7 +51,7 @@ public class UploadDownloadAssignments {
 		return true;
 	}
 	
-	 
+	
 	 
 	 
 	 

@@ -12,8 +12,9 @@ import com.virtusa.service.FacultyService;
 import com.virtusa.view.FacultyView;
 
 public class FacultyController {
-	FacultyView facultyView = new FacultyView();
+	
 	private FacultyService facultyService;
+	FacultyView facultyView = new FacultyView();
 	
 	public FacultyController() { 
 		this.facultyService = FactoryFacultyService.createApplicantService();

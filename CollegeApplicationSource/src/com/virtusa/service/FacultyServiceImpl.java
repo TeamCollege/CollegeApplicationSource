@@ -74,9 +74,10 @@ public class FacultyServiceImpl implements FacultyService {
 	@Override
 	public String uploadAssignments(String fileName, String path) {
 		File file=new File(path);
-		UploadDownloadAssignments uploadDownloadAssignments=null;
+		//UploadDownloadAssignments uploadDownloadAssignments=null;
 		String result = "failed";
 		try{
+			System.out.println("helloservice");
 			boolean stored = facultyDAO.uploadDownloadAssignments(path, file, fileName);
 			if(stored)
 				result = "success";
