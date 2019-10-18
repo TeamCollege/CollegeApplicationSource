@@ -3,6 +3,7 @@ package com.virtusa.controller;
 import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.helper.FactoryStudentDAO;
 import com.virtusa.model.StudentModel;
+import com.virtusa.model.UploadDownloadAssignmentsModel;
 import com.virtusa.service.StudentService;
 import com.virtusa.view.StudentView;
 
@@ -41,7 +42,7 @@ public class StudentController {
 
 		
 	}
-	public void uploadAssignments(String path) {
+	/*public void uploadAssignments(String path) {
 		// TODO Auto-generated method stub
 		String result = studentService.handleUploadAssignments(path);
 		System.out.println("upload controller");
@@ -49,10 +50,19 @@ public class StudentController {
 			studentView.uploadSuccess();
 		else
 			studentView.uploadUnsuccessful();
-	}
+	}*/
 	public void downloadAssignments() {
 		// TODO Auto-generated method stub
 		
+	}
+	public void uploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
+		// TODO Auto-generated method stub
+		String result = studentService.handleUploadAssignments(uploadDownloadAssignmentsModel);
+		System.out.println("upload controller");
+		if(result.contentEquals("success"))
+			studentView.uploadSuccess();
+		else
+			studentView.uploadUnsuccessful();
 	}
 	
 	

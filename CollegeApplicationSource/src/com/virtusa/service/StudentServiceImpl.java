@@ -49,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
 	
 	
 	
-	@Override
+/*	@Override
 	public String handleUploadAssignments(String path) {
 		// TODO Auto-generated method stub
 		UploadDownloadAssignments uploadDownloadAssignments=null;
@@ -71,7 +71,34 @@ public class StudentServiceImpl implements StudentService {
 		}
 		
 		return result;
+		}*/
+	@Override
+	public String handleUploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
+		// TODO Auto-generated method stub
+		
+		UploadDownloadAssignments uploadDownloadAssignments=new UploadDownloadAssignments(); ;
+		
+		uploadDownloadAssignments.setFileId(uploadDownloadAssignmentsModel.getFileId());
+		uploadDownloadAssignments.setFileName(uploadDownloadAssignmentsModel.getFileName());
+		uploadDownloadAssignments.setPath(uploadDownloadAssignmentsModel.getPath());
+		uploadDownloadAssignments.setFileDescription(uploadDownloadAssignmentsModel.getFileDescription());
+		
+		
+		String result = "failed";
+		try{
+			System.out.println("helloservice");
+			boolean stored = studentDAO.handleuploadDownloadAssignments(uploadDownloadAssignments);
+			System.out.println("after");
+			if(stored)
+				result = "success";
 		}
+		catch (ClassNotFoundException | SQLException | FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("!ERROR[Upload failed due to some internal issue]");
+		}
+		
+		return result;
+	}
 	}
 	
 	

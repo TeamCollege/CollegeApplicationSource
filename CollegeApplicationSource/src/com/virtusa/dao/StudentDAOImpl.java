@@ -45,6 +45,33 @@ public class StudentDAOImpl implements StudentDAO {
  }
 
 	@Override
+	public boolean handleuploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments)
+			throws ClassNotFoundException, SQLException, FileNotFoundException {
+		// TODO Auto-generated method stub
+		File file=new File(uploadDownloadAssignments.getPath());
+		System.out.println(file);
+		System.out.println(uploadDownloadAssignments.getPath());
+		System.out.println(uploadDownloadAssignments.getFileId());
+		Reader reader=new FileReader(file);
+		
+		 Connection connection=ConnectionManager.openConnection(); 
+		PreparedStatement st=
+				connection.prepareStatement("insert into FileTable values(?,?,?)");
+		System.out.println(uploadDownloadAssignments.getFileId());
+		System.out.println(uploadDownloadAssignments.getFileName());
+		st.setInt(1, uploadDownloadAssignments.getFileId());
+		st.setString(2, uploadDownloadAssignments.getFileName());
+		st.setCharacterStream(3, reader);
+		int rows=st.executeUpdate();
+		ConnectionManager.closeConnection();
+		if(rows>0)
+			return true;
+		else
+		
+		return false;
+	}
+
+	/*@Override
 	public boolean uploadDownloadAssignments(String path)
 			throws ClassNotFoundException, SQLException, FileNotFoundException {
 		// TODO Auto-generated method stub
@@ -67,12 +94,6 @@ public class StudentDAOImpl implements StudentDAO {
 			return false;
 		
 		
-	}
+	}*/
 	  
-
-	
-	 
-
-
-	
 }

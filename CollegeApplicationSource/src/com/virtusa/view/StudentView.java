@@ -48,7 +48,7 @@ public class StudentView {
 			studentMenu();
 		}
 		}catch(Exception e) {
-			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
+			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]jh");
 		}
 	}
 	
@@ -58,8 +58,8 @@ public class StudentView {
 	public void viewClassSchedule() {
 		StudentController studentController =new StudentController();
 		try(Scanner scanner=new Scanner(System.in);){
-		//System.out.println("Please Enter Department Name:");
-		//String departmentName=scanner.nextLine();
+		System.out.println("Please Enter Department Name:");
+		String departmentName=scanner.nextLine();
 		StudentModel studentModel=new StudentModel();
 		studentController.retrieveClassSchedule(studentModel.getDepartmentName());
 	}catch(Exception e) {
@@ -106,8 +106,9 @@ public class StudentView {
 			uploadDownloadAssignmentsModel.setFileName(fileName);
 			System.out.print("File path:");
 			String path=scanner.next();
+			uploadDownloadAssignmentsModel.setFileName(path);
 			//File file=new File(path);
-			studentController.uploadAssignments(path);
+			studentController.uploadAssignments(uploadDownloadAssignmentsModel);
 		}
 		
 		
@@ -118,6 +119,8 @@ public class StudentView {
 		
 			studentController.downloadAssignments();
          }
+         StudentView studentView =new StudentView();
+         studentView.studentMenu();
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
 import com.virtusa.entities.Student;
+import com.virtusa.entities.UploadDownloadAssignments;
 
 public interface StudentDAO {
 
@@ -11,6 +12,8 @@ public interface StudentDAO {
 
 	//public boolean uploadDownloadAssignments(String path);
 
-	public boolean uploadDownloadAssignments(String path) throws ClassNotFoundException, SQLException,FileNotFoundException;
+	//public boolean uploadDownloadAssignments(String path) throws ClassNotFoundException, SQLException,FileNotFoundException;
+
+	public boolean handleuploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws ClassNotFoundException, SQLException,FileNotFoundException;
 
 }
