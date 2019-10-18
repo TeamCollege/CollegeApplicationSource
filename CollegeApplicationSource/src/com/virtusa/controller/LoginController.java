@@ -28,6 +28,7 @@ public class LoginController {
 		LoginModel loginModel=new LoginModel();
 		loginModel.setUserId(userId);
 		loginModel.setPassword(password);
+		System.out.println("fgsffsd");
 		
 		try {
 			String outcome=loginService.userAuthenticationService(loginModel);
@@ -42,6 +43,7 @@ public class LoginController {
 			else if(outcome.contentEquals("FACULTY")) {
 				FacultyView facultyView=new FacultyView();
 				facultyView.facultyMenu();
+				//System.out.println("sadsfa");
 			}
 			else if(outcome.contentEquals("ALUMNI")) {
 				AlumniView alumniView=new AlumniView();

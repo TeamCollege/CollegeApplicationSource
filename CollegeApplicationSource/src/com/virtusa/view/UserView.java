@@ -48,7 +48,7 @@ public class UserView
 		}
 		catch(Exception e) {
 			System.out.println("!ERROR[Enter an appropriate option]");
-			//System.out.println("abcdef");
+			System.out.println("abcdef");
 		}
 		
 		//mainMenu();

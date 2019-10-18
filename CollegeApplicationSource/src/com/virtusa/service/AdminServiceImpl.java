@@ -31,6 +31,7 @@ public class AdminServiceImpl implements AdminService
 		Applicant applicant = new Applicant();
 		ArrayList<Applicant> applicants = new ArrayList<Applicant>();
 		applicant.getApplicantNumber();
+		System.out.println(applicant.getApplicantNumber());
 		applicant.getFirstName();
 		applicant.getLastName();
 		applicant.getEmailAddress();

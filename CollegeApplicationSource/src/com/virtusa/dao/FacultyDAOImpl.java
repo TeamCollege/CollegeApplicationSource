@@ -36,12 +36,6 @@ public class FacultyDAOImpl implements FacultyDAO {
 		case "eee":
 			resultSet = statement.executeQuery("select * from eee_schedule");
 			break;
-		case "bba":
-			resultSet = statement.executeQuery("select * from bba_schedule");
-			break;
-		case "bsc":
-			resultSet = statement.executeQuery("select * from bsc_schedule");
-			break;
 		}
 		
 		List<ClassSchedule> classScheduleList = new ArrayList<ClassSchedule>();
