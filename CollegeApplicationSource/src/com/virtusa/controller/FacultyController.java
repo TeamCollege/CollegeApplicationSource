@@ -43,7 +43,7 @@ public class FacultyController {
 		
 	}
 
-	public void handleDownloadAssignments() {
+	public void handleDownloadAssignments(int fileId) {
 		// TODO Auto-generated method stub
 		
 	}

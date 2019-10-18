@@ -77,10 +77,12 @@ public class FacultyDAOImpl implements FacultyDAO {
 
 	@Override
 	public boolean uploadDownloadAssignments(String path, File file, String fileName) throws SQLException, ClassNotFoundException, FileNotFoundException {
-		
+			System.out.println(file);
+			System.out.println(path);
 			Reader reader=new FileReader(file);
+			System.out.println(reader);
 			Connection connection=ConnectionManager.openConnection(); 
-
+			System.out.println("in dao3");
 			PreparedStatement statement=
 					connection.prepareStatement("insert into FileTable values(?,?,?)");
 			statement.setInt(1, 2);

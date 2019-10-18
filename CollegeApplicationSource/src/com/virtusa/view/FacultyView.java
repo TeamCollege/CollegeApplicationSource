@@ -70,7 +70,9 @@ public class FacultyView {
 				facultyController.handleUploadAssignments(fileName, path);
 				break;
 			case 2:
-				facultyController.handleDownloadAssignments();
+				System.out.print("File Id:");
+				int fileId=scanner.nextInt();
+				//facultyController.handleDownloadAssignments(fileId);
 				break;
 			default:
 				System.out.println("!ERROR[Enter an appropriate option]");

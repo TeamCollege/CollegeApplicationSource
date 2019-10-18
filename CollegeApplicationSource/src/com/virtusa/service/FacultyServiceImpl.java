@@ -74,17 +74,21 @@ public class FacultyServiceImpl implements FacultyService {
 	@Override
 	public String uploadAssignments(String fileName, String path) {
 		File file=new File(path);
+		UploadDownloadAssignments uploadDownloadAssignments=null;
+		//System.out.println("in service");
 		//UploadDownloadAssignments uploadDownloadAssignments=null;
 		String result = "failed";
 		try{
+			System.out.println("before");
 			System.out.println("helloservice");
 			boolean stored = facultyDAO.uploadDownloadAssignments(path, file, fileName);
+			System.out.println("after");
 			if(stored)
 				result = "success";
 		}
 		catch (ClassNotFoundException | SQLException | FileNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("!ERROR[Registration failed due to some internal issue]");
+			System.out.println("!ERROR[Upload failed due to some internal issue]");
 		}
 		
 		return result;
