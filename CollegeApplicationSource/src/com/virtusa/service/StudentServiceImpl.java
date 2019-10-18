@@ -51,12 +51,7 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		UploadDownloadAssignments uploadDownloadAssignments=null;
 		UploadDownloadAssignmentsModel  uploadDownloadAssignmentsModel=new UploadDownloadAssignmentsModel();
-		try {
-			
-		}catch (ClassNotFoundException | SQLException e) {
-			
-			e.printStackTrace();
-		}
+		
 		
 		
 		

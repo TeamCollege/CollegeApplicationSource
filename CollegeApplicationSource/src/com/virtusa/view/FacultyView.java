@@ -9,14 +9,11 @@ import com.virtusa.model.FacultyModel;
 
 public class FacultyView {  
 		
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
+
 
 	
 	public void facultyMenu() {
-		FacultyController facultyController = new FacultyController();
+
 
 		FacultyModel facultyModel = new FacultyModel();
 	
@@ -56,10 +53,7 @@ public class FacultyView {
 	
 	private void uploadDownloadMenu() {
 		FacultyController facultyController = new FacultyController();
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/TeamCollege/CollegeApplicationSource
 		System.out.println("=====Upload and Download Assignments=====");
 		System.out.println("1. Upload Assignment");
 		System.out.println("2. Download Assignment");
