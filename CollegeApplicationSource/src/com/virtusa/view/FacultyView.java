@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.virtusa.controller.FacultyController;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
+import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class FacultyView {  
 		
@@ -62,12 +63,7 @@ public class FacultyView {
 			int option = scanner.nextInt();
 			switch(option) {
 			case 1:
-				System.out.print("File Name:");
-				String fileName=scanner.next();
-				System.out.print("File path:");
-				String path=scanner.next();
-				System.out.println("hello");
-				facultyController.handleUploadAssignments(fileName, path);
+				viewUploadDownload();
 				break;
 			case 2:
 				System.out.print("File Id:");
@@ -83,6 +79,19 @@ public class FacultyView {
 			System.out.println("!ERROR[Enter an appropriate option]");
 		}
 				
+	}
+
+	private void viewUploadDownload() {
+		FacultyController facultyController = new FacultyController();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("File Name:");
+		String fileName=scanner.next();
+		System.out.print("File path:");
+		String path=scanner.next();
+		UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel = new UploadDownloadAssignmentsModel();
+		uploadDownloadAssignmentsModel.setFileName(fileName);
+		uploadDownloadAssignmentsModel.setPath(path);
+		facultyController.handleUploadAssignments(uploadDownloadAssignmentsModel);		
 	}
 
 	public void displayClassSchedule(List<ClassScheduleModel> model) {

@@ -17,6 +17,7 @@ import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
 import com.virtusa.model.StaffMeetingModel;
 import com.virtusa.model.StudentModel;
+import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class FacultyServiceImpl implements FacultyService {
 	
@@ -72,25 +73,24 @@ public class FacultyServiceImpl implements FacultyService {
 	}
 
 	@Override
-	public String uploadAssignments(String fileName, String path) {
-		File file=new File(path);
-		UploadDownloadAssignments uploadDownloadAssignments=null;
-		//System.out.println("in service");
-		//UploadDownloadAssignments uploadDownloadAssignments=null;
+	public String uploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
+		UploadDownloadAssignments uploadDownloadAssignments=new UploadDownloadAssignments();
+		uploadDownloadAssignments.setFileId(uploadDownloadAssignmentsModel.getFileId());
+		uploadDownloadAssignments.setFileName(uploadDownloadAssignmentsModel.getFileName());
+		uploadDownloadAssignments.setPath(uploadDownloadAssignmentsModel.getPath());
+		uploadDownloadAssignments.setFileDescription(uploadDownloadAssignmentsModel.getFileDescription());
 		String result = "failed";
-		try{
-			System.out.println("before");
-			System.out.println("helloservice");
-			boolean stored = facultyDAO.uploadDownloadAssignments(path, file, fileName);
-			System.out.println("after");
-			if(stored)
-				result = "success";
+		try {
+		//System.out.println("before");
+		boolean stored = facultyDAO.uploadDownloadAssignments(uploadDownloadAssignments);
+		//System.out.println("after");
+		if(stored)
+			result = "success";
 		}
 		catch (ClassNotFoundException | SQLException | FileNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("!ERROR[Upload failed due to some internal issue]");
 		}
-		
 		return result;
 		}
 		

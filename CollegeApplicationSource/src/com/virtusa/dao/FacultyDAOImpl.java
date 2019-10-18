@@ -74,31 +74,25 @@ public class FacultyDAOImpl implements FacultyDAO {
 		return faculty;
 	}
 
-
 	@Override
-	public boolean uploadDownloadAssignments(String path, File file, String fileName) throws SQLException, ClassNotFoundException, FileNotFoundException {
-			System.out.println(file);
-			System.out.println(path);
-			Reader reader=new FileReader(file);
-			System.out.println(reader);
-			Connection connection=ConnectionManager.openConnection(); 
-			System.out.println("in dao3");
-			PreparedStatement statement=
-					connection.prepareStatement("insert into FileTable values(?,?,?)");
-			statement.setInt(1, 2);
-			statement.setString(2, fileName);
-			statement.setCharacterStream(3, reader);
-			System.out.println("hellodao");
-			ConnectionManager.closeConnection();
-
-
-			int rows=statement.executeUpdate();
-			if(rows>0)
-				return true;
-			else
-				return false;
-			
-			
+	public boolean uploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws SQLException, ClassNotFoundException, FileNotFoundException {
+		File file=new File(uploadDownloadAssignments.getPath());
+		//System.out.println(file);
+		Reader reader=new FileReader(file);
+		//System.out.println(reader);
+		Connection connection=ConnectionManager.openConnection(); 
+		PreparedStatement statement=
+				connection.prepareStatement("insert into filetable values(?,?,?)");
+		statement.setInt(1, uploadDownloadAssignments.getFileId());
+		statement.setString(2, uploadDownloadAssignments.getFileName());
+		statement.setCharacterStream(3, reader);
+		ConnectionManager.closeConnection();
+		int rows=statement.executeUpdate();
+		//System.out.println("in dao");
+		if(rows>0)
+			return true;
+		else
+			return false;
 	}
 }
 

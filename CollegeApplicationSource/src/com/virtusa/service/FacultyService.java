@@ -5,6 +5,7 @@ import java.util.List;
 import com.virtusa.entities.ClassSchedule;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
+import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public interface FacultyService {
 
@@ -12,7 +13,7 @@ public interface FacultyService {
 
 	public FacultyModel handleRetrieveStaffMeeting(String facultyId);
 
-	public String uploadAssignments(String fileName, String path);
+	public String uploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel);
 
  
 }

@@ -8,6 +8,7 @@ import com.virtusa.helper.FactoryFacultyService;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
 import com.virtusa.model.StudentModel;
+import com.virtusa.model.UploadDownloadAssignmentsModel;
 import com.virtusa.service.FacultyService;
 import com.virtusa.view.FacultyView;
 
@@ -33,9 +34,9 @@ public class FacultyController {
 		
 	}
 
-	public void handleUploadAssignments(String fileName, String path) {
+	public void handleUploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
 
-		String result = facultyService.uploadAssignments(fileName, path);
+		String result = facultyService.uploadAssignments(uploadDownloadAssignmentsModel);
 		if(result.contentEquals("success"))
 			facultyView.uploadSuccess();
 		else
