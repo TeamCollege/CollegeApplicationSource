@@ -2,12 +2,16 @@ package com.virtusa.model;
 
 public class UploadDownloadAssignmentsModel {
 	
-	 private String fileId;
+	 private int fileId;
 	 private String fileName;
-	public String getFileId() {
+	
+	 
+	 
+	 
+	public int getFileId() {
 		return fileId;
 	}
-	public void setFileId(String fileId) {
+	public void setFileId(int fileId) {
 		this.fileId = fileId;
 	}
 	public String getFileName() {
@@ -24,7 +28,7 @@ public class UploadDownloadAssignmentsModel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((fileId == null) ? 0 : fileId.hashCode());
+		result = prime * result + fileId;
 		result = prime * result + ((fileName == null) ? 0 : fileName.hashCode());
 		return result;
 	}
@@ -37,10 +41,7 @@ public class UploadDownloadAssignmentsModel {
 		if (getClass() != obj.getClass())
 			return false;
 		UploadDownloadAssignmentsModel other = (UploadDownloadAssignmentsModel) obj;
-		if (fileId == null) {
-			if (other.fileId != null)
-				return false;
-		} else if (!fileId.equals(other.fileId))
+		if (fileId != other.fileId)
 			return false;
 		if (fileName == null) {
 			if (other.fileName != null)
@@ -49,7 +50,8 @@ public class UploadDownloadAssignmentsModel {
 			return false;
 		return true;
 	}
-	 
-	 
+
+	
+	
 
 }
