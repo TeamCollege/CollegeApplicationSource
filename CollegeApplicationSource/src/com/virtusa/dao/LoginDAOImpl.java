@@ -19,7 +19,7 @@ public class LoginDAOImpl implements LoginDAO {
 		String role="";
 		Connection connection=ConnectionManager.openConnection();
 		
-		String query2="select role from user_credentials where id=? and user_password=?";
+		String query2="select role from user_credentials where username=? and user_password=?";
 		PreparedStatement preparedStatement2=connection.prepareStatement(query2);
 		preparedStatement2.setString(1, userId);
 		preparedStatement2.setString(2, password);

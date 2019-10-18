@@ -19,6 +19,7 @@ public class ApplicantServiceImpl implements ApplicantService
 	@Override
 	public String storeApplicantService(ApplicantModel applicantModel) {
 		Applicant applicant = new Applicant();
+		ArrayList<Applicant> applicants = new ArrayList<Applicant>();
 		applicant.setApplicantNumber(applicantModel.getApplicantNumber());
 		applicant.setFirstName(applicantModel.getFirstName());
 		applicant.setLastName(applicantModel.getLastName());
@@ -30,6 +31,7 @@ public class ApplicantServiceImpl implements ApplicantService
 		applicant.setInterPercentage(applicantModel.getInterPercentage());
 		//applicant.setCourseName(applicantModel.getCourseName());
 		applicant.setDepartmentName(applicantModel.getDepartmentName());
+		applicants.add(applicant);
 		
 		String result = "failed";
 		try {
@@ -41,6 +43,7 @@ public class ApplicantServiceImpl implements ApplicantService
 			e.printStackTrace();
 			System.out.println("!ERROR[Registration failed due to some internal issue]");
 		}
+		
 		
 		return result;
 	}
