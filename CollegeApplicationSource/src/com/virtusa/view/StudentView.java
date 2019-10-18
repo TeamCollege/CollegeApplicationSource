@@ -112,7 +112,8 @@ public class StudentView {
 			
 			System.out.print("File Id:");
 			int fileId=scanner.nextInt();
-			
+			StudentController studentController =new StudentController();
+			//studentController.downloadAssignments()
          }
 	}
 	
@@ -125,5 +126,19 @@ public class StudentView {
 	public void viewGeneralExams() {
 		StudentController studentController =new StudentController();
 		studentController.retrieveGeneralExams();
+	}
+
+
+
+	public void uploadSuccess() {
+		// TODO Auto-generated method stub
+		System.out.println("File uploaded successfully");
+	}
+
+
+
+	public void uploadUnsuccessful() {
+		// TODO Auto-generated method stub
+		System.out.println("File upload unsuccessfully");
 	}
 }

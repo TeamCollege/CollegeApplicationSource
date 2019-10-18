@@ -88,6 +88,7 @@ public class FacultyDAOImpl implements FacultyDAO {
 			statement.setInt(1, 2);
 			statement.setString(2, fileName);
 			statement.setCharacterStream(3, reader);
+			System.out.println("hellodao");
 			ConnectionManager.closeConnection();
 
 
