@@ -5,9 +5,25 @@ public class UploadDownloadAssignments {
 	
 	 private int fileId;
 	 private String fileName;
+	 private String fileDescription;
+	 private String path;
+	 
+	 
 	
 	 
 	 
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public String getFileDescription() {
+		return fileDescription;
+	}
+	public void setFileDescription(String fileDescription) {
+		this.fileDescription = fileDescription;
+	}
 	public int getFileId() {
 		return fileId;
 	}

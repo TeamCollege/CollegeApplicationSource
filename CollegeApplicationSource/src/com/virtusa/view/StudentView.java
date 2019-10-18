@@ -7,6 +7,7 @@ import java.util.Scanner;
 import com.virtusa.controller.StudentController;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.StudentModel;
+import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class StudentView {
 	
@@ -90,6 +91,8 @@ public class StudentView {
 	
 	private void uploadDownloadAssignments() {
 		// TODO Auto-generated method stub
+		StudentController studentController =new StudentController();
+		UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel=new UploadDownloadAssignmentsModel();
 		System.out.println("=====ASSIGNMENTS=====");
 		System.out.println("1.Upload Assignment");
 		System.out.println("2.Download Assignment");
@@ -100,10 +103,10 @@ public class StudentView {
 		if(option==1) {
 			System.out.print("File Name:");
 			String fileName=scanner.next();
+			uploadDownloadAssignmentsModel.setFileName(fileName);
 			System.out.print("File path:");
 			String path=scanner.next();
 			//File file=new File(path);
-			StudentController studentController =new StudentController();
 			studentController.uploadAssignments(path);
 		}
 		
@@ -112,8 +115,8 @@ public class StudentView {
 			
 			System.out.print("File Id:");
 			int fileId=scanner.nextInt();
-			StudentController studentController =new StudentController();
-			//studentController.downloadAssignments()
+		
+			studentController.downloadAssignments();
          }
 	}
 	

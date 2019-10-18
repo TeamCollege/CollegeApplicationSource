@@ -46,17 +46,17 @@ public class StudentServiceImpl implements StudentService {
 	
 	return studentModel;
 	}
+	
+	
+	
 	@Override
 	public String handleUploadAssignments(String path) {
 		// TODO Auto-generated method stub
 		UploadDownloadAssignments uploadDownloadAssignments=null;
 		UploadDownloadAssignmentsModel  uploadDownloadAssignmentsModel=new UploadDownloadAssignmentsModel();
 		
-		
-		
-		
-		
-		
+		uploadDownloadAssignments.setFileId(uploadDownloadAssignmentsModel.getFileId());
+		uploadDownloadAssignments.setFileName(uploadDownloadAssignmentsModel.getFileName());
 		
 		String result = "failed";
 		try{

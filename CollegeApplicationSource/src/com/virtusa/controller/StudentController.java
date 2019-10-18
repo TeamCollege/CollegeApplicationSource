@@ -43,7 +43,6 @@ public class StudentController {
 	}
 	public void uploadAssignments(String path) {
 		// TODO Auto-generated method stub
-		//UploadDownloadAssignments uploadAssignments=studentService.handleUploadAssignments(path);
 		String result = studentService.handleUploadAssignments(path);
 		System.out.println("upload controller");
 		if(result.contentEquals("success"))
