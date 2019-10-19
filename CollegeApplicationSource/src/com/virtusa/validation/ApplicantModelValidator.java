@@ -25,7 +25,7 @@ public boolean validate(ApplicantModel model) {
 		if(Percentage>0.0 && Percentage<=100.0)
 			result=true;
 		return result;
-	}
+	}        
 
 	public boolean validString(String val) {
 	
