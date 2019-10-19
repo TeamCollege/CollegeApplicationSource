@@ -7,4 +7,4 @@ public interface LoginDAO {
 	String userAuth(String userId, String password)throws ClassNotFoundException,SQLException;
 
 }
-    
+      

@@ -15,5 +15,5 @@ public interface StudentDAO {
 	//public boolean uploadDownloadAssignments(String path) throws ClassNotFoundException, SQLException,FileNotFoundException;
 
 	public boolean handleuploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws ClassNotFoundException, SQLException,FileNotFoundException;
-    
+        
 }

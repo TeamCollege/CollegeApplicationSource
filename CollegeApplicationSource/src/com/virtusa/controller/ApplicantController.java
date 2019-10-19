@@ -16,7 +16,7 @@ public class ApplicantController {
 	ApplicantView applicantView=new ApplicantView();
 	public ApplicantController() {
 		this.applicantService=FactoryApplicantService.createApplicantService();
-	}    
+	}      
 
 	public void storeApplicant(ApplicantModel applicantModel) {
 		ApplicantModelValidator applicantModelValidator = new ApplicantModelValidator();

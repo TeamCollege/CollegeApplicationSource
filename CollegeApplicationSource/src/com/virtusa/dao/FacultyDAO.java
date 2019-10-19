@@ -17,4 +17,4 @@ public interface FacultyDAO {
 	public boolean uploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws SQLException, ClassNotFoundException, FileNotFoundException;	
 
 }
-     
+        

@@ -26,7 +26,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public StudentModel handleRetrieveClassSchedule(String departmentName) {
 		Student students=null;
-		StudentModel studentModel=new StudentModel();   
+		StudentModel studentModel=new StudentModel();       
 		try {
 		students=studentDAO.getClassSchedule(departmentName);
 		ClassSchedule classSchedule=students.getClassSchedule();

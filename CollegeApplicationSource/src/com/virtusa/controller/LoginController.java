@@ -21,7 +21,7 @@ public class LoginController {
 		this.loginService=
 				FactoryLoginDB.createLoginService();
 	}
-    
+       
 	public void userAuthentication(String userId, String password) throws ClassNotFoundException,SQLException  {
 		// TODO Auto-generated method stub
 		

@@ -14,7 +14,7 @@ public class ClassScheduleModel {
 		return Day;
 	}
 
-	public void setDay(String day) {   
+	public void setDay(String day) {      
 		Day = day;
 	}
 

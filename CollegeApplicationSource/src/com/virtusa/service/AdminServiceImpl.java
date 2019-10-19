@@ -63,7 +63,7 @@ public class AdminServiceImpl implements AdminService
 				{
 					System.out.println("------Applicant is Not Eligible to take Admissions and has been rejected------");
 				}
-			}   
+			}      
 			else
 			{
 				System.out.println("------Applicant Number Not Found------");

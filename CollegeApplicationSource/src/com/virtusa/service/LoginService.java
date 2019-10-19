@@ -11,4 +11,4 @@ public interface LoginService {
 	
 	public String userAuthenticationService(LoginModel loginModel)throws ClassNotFoundException,SQLException;
 }
-   
+      

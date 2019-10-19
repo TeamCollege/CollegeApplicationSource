@@ -29,7 +29,7 @@ public class StudentDAOImpl implements StudentDAO {
 	  ResultSet resultSet=statement.executeQuery();
 	  Student students=new Student();
 	  while(resultSet.next()) {
-	       
+	         
 	  //students.setDepartmentName(resultSet.getString("department_name"));
 	  ClassSchedule classSchedule=new ClassSchedule();
 	  classSchedule.setDay(resultSet.getString("day"));

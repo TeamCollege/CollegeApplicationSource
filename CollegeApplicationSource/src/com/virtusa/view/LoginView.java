@@ -14,7 +14,7 @@ public class LoginView {
 	public void loginMenu() throws ClassNotFoundException, SQLException{
 	
 		
-		try(   
+		try(       
 				InputStreamReader reader=
 				new InputStreamReader(System.in);
 					BufferedReader buffer=new BufferedReader(reader);

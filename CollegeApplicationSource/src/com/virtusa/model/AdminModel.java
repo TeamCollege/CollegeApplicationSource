@@ -5,4 +5,4 @@ public class AdminModel
 	private int adminId;
 
 }
-    
+        

@@ -10,4 +10,4 @@ public class UserException extends RuntimeException {
 	public String getMessage() {
 		return message;
 	}
-}   
+}     

@@ -19,7 +19,7 @@ public boolean validate(AlumniModel model) {
 				 && validNumber(model.getYearOfCompletition())){
 			result=true;
 		}
-		return result;   
+		return result;      
 	}
 
 public boolean validString(String val) {

@@ -26,7 +26,7 @@ public boolean validate(ApplicantModel model) {
 			result=true;
 		return result;
 	}        
-   
+      
 	public boolean validString(String val) {
 	
 		boolean result=false;

@@ -20,7 +20,7 @@ public class AlumniServiceImpl implements AlumniService {
 		this.alumniDAO=FactoryAlumniDAO.createAlumniDAO();
 		}
 	
-	@Override    
+	@Override       
 	public String registerAlumni(AlumniModel model) {
 		// TODO Auto-generated method stub 
 		

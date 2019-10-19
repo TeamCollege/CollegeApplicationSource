@@ -8,7 +8,7 @@ import com.virtusa.entities.Faculty;
 import com.virtusa.entities.Student;
 
 public interface AdminDAO 
-{     
+{        
 	public boolean storeApprovedApplicantDetailsDAO(Applicant app)throws ClassNotFoundException, SQLException;
 	public boolean storeStudentDetailsDAO(List<Student> student)throws SQLException;
 	public boolean updateStudentDetailsDAO(int id, String firstName)throws ClassNotFoundException, SQLException;

@@ -20,7 +20,7 @@ public class FacultyController {
 	public FacultyController() { 
 		this.facultyService = FactoryFacultyService.createApplicantService();
 
-	}    
+	}       
 
 	public void viewClassSchedule(String departmentName) {
 		List<ClassScheduleModel> model = facultyService.retreiveClassSchedule(departmentName);

@@ -9,7 +9,7 @@ public class FacultyModel
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String phoneNumber;   
+	private String phoneNumber;       
 	private String departmentName;
 	private LocalDate dateOfBirth;
 	private int salary;

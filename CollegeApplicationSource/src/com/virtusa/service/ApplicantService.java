@@ -12,4 +12,4 @@ public interface ApplicantService
 	public String storeApplicantService(ApplicantModel applicantModel);
 	public List<ApplicantModel> retrieveApplicants();
 }
-    
+       

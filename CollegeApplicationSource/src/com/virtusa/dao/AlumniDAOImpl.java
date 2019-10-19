@@ -19,7 +19,7 @@ import com.virtusa.integrate.ConnectionManager;
 public class AlumniDAOImpl implements AlumniDAO {
 	     
 	
-		@Override    
+		@Override       
 	public boolean registerAlumni(Alumni alumni) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		

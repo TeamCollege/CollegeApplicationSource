@@ -18,7 +18,7 @@ public class DataSource {
 		this.password=resourceBundle.getString("password");
 		
 	}
-   
+        
 	public String getDriver() {
 		return driver;
 	}

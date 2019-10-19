@@ -10,7 +10,7 @@ public interface AdminService
 	public void deleteStudentService(String studentId);
 	public void updateStudentService(int id, String firstName);
 	public void viewStudentService(int studentId2);
-	public String addFacultyService(FacultyModel facultyModel);    
+	public String addFacultyService(FacultyModel facultyModel);       
 	public void deleteFacultyService(int facultyId);
 	public void updateFacultyService(String phoneNumber, int id);
 	public void viewFacultyService(int facultyId2);

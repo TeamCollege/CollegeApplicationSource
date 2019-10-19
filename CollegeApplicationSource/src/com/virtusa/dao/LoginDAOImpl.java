@@ -14,7 +14,7 @@ public class LoginDAOImpl implements LoginDAO {
 	@Override
 	public String userAuth(String userId, String password) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub
-		    
+		      
 		
 		String role="";
 		Connection connection=ConnectionManager.openConnection();

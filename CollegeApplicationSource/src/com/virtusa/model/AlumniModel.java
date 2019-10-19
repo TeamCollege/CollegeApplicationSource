@@ -13,7 +13,7 @@ public class AlumniModel {
 	private String gender;
 	private String presentStatus;
 	private int yearOfCompletition;
-	   
+	       
 	private AlumniModel alumniModel;
 	
 	

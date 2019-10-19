@@ -14,7 +14,7 @@ import com.virtusa.model.StudentModel;
 import com.virtusa.validation.AdminModelValidator;
 
 
-   
+       
 public class AdminView 
 {
 	Scanner scan = new Scanner(System.in);

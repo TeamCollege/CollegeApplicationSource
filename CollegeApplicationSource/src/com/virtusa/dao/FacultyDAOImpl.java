@@ -33,7 +33,7 @@ public class FacultyDAOImpl implements FacultyDAO {
 		case "ece":
 			resultSet = statement.executeQuery("select * from ece_schedule");
 			break;
-		case "eee":    
+		case "eee":       
 			resultSet = statement.executeQuery("select * from eee_schedule");
 			break;
 		}

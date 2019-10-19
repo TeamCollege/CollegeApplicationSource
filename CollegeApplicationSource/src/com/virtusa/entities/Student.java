@@ -15,7 +15,7 @@ public class Student extends User
 	
 	public int getStudentId() 
 	{
-		return studentId;    
+		return studentId;        
 	}
 
 	public void setStudentId(int studentId) 

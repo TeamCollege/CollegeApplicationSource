@@ -17,7 +17,7 @@ public class AlumniController {
 	public AlumniController(){
 		this.alumniService=FactoryAlumniService.createAlumniService();
 
-		    
+		        
 	}
 
 	public void handleRegisterAlumni(AlumniModel model) {

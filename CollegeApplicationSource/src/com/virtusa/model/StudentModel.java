@@ -1,4 +1,4 @@
-   package com.virtusa.model;
+       package com.virtusa.model;
 
 import com.virtusa.entities.ClassSchedule;
 

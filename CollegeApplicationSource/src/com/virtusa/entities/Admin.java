@@ -14,5 +14,5 @@ public class Admin
 		this.adminId = adminId;
 	}
 	
-    
+       
 }

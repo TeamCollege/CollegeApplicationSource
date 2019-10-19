@@ -16,7 +16,7 @@ public class ApplicantModel {
 	private String departmentName;
 	private LocalDate dateOfBirth;
 	private String aadharNumber;
-	   
+	       
 	public String getFirstName()
 	{
 		return firstName;

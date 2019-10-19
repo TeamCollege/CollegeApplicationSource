@@ -12,4 +12,4 @@ public interface ApplicantDAO
 	public List<Applicant> viewApplicants();	
 	public ApplicantModel retrieveApplicant();
 }
-   
+     
