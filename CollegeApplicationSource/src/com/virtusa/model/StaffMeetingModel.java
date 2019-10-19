@@ -16,7 +16,7 @@ public class StaffMeetingModel {
 	}
 	public String getStaffMeetingAgenda() {
 		return staffMeetingAgenda;
-	}
+	}   
 	public void setStaffMeetingAgenda(String staffMeetingAgenda) {
 		this.staffMeetingAgenda = staffMeetingAgenda;
 	}

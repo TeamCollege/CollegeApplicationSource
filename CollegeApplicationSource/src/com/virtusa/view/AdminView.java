@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import com.virtusa.controller.AdminController;
 import com.virtusa.exception.InvalidUserChoiceException;
@@ -14,16 +14,16 @@ import com.virtusa.model.StudentModel;
 import com.virtusa.validation.AdminModelValidator;
 
 
-
+   
 public class AdminView 
 {
 	Scanner scan = new Scanner(System.in);
 	AdminModelValidator adminModelValidator = new AdminModelValidator();
-	static Logger log;
+	//static Logger log;
 	public void adminView()
 	{
-		log = Logger.getLogger(AdminView.class.getName());
-		log.info("This is AdminView");
+		//log = Logger.getLogger(AdminView.class.getName());
+	//	log.info("This is AdminView");
 
 		System.out.println("\t\t =====ADMIN VIEW=====");
 		System.out.println("1.Approve Applicant");

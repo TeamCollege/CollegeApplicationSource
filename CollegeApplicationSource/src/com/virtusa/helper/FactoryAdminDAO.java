@@ -10,5 +10,5 @@ public class FactoryAdminDAO
 		AdminDAO adminDAO = new AdminDAOImpl();
 		return adminDAO;
 	}
-
+   
 }

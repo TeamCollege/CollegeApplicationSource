@@ -11,7 +11,7 @@ public class ClassSchedule {
 	private String fourthHour;
 	public String getDay() {
 		return Day;
-	}
+	}    
 	public void setDay(String day) {
 		Day = day;
 	}

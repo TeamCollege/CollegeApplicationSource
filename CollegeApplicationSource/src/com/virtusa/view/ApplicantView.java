@@ -28,7 +28,7 @@ public class ApplicantView
 		String firstName = scanner.next();
 		boolean validFirstName=validator.validString(firstName);
 		if(!validFirstName)
-			try {
+			try {    
 			throw new ValidationException("[!ERROR:Invalid First Name]");	
 			}catch(ValidationException e) {
 				System.out.println(e.getMessage());

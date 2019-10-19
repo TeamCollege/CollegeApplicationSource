@@ -14,7 +14,7 @@ public class StudentController {
 	
 	public StudentController() {
 		this.studentService=FactoryStudentDAO.createStudentService();
-	}
+	}     
 // 12.10.19
 	public void retrieveClassSchedule(String departmentName) {
 

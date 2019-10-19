@@ -21,7 +21,7 @@ public class ApplicantDAOImpl implements ApplicantDAO
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}*/
-		
+		    
 		Connection conn=ConnectionManager.openConnection();
 		PreparedStatement preparedStatement = conn.prepareStatement("insert into application_form values(?,?,?,?,?,?,?,?,?,?)");
 		preparedStatement.setInt(1,applicant.getApplicantNumber());

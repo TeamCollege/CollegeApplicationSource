@@ -9,5 +9,5 @@ public class StudentMainView {
 		StudentView studentView=new StudentView();
 		studentView.studentMenu();
 	}
-
+       
 }

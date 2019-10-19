@@ -22,7 +22,7 @@ public class StudentView {
 		System.out.println("6.General Exams");
 		System.out.println("7.Exit");
 		System.out.println("Enter your choice:");
-		
+		   
 		
 		try(Scanner sc=new Scanner(System.in);){
 		int choice=sc.nextInt();

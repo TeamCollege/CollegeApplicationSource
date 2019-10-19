@@ -17,7 +17,7 @@ public class FacultyView {
 
 
 		FacultyModel facultyModel = new FacultyModel();
-	
+	  
 		FacultyController facultyController = new FacultyController();
 		System.out.println("\t\t =====Faculty View=====");
 		System.out.println("1. View Class Schedule");

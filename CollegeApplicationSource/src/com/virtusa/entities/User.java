@@ -13,7 +13,7 @@ public class User {
 	protected LocalDate dateOfBirth;
 	protected String emailAddress;
 	protected String phoneNumber;
-	
+	   
 	public String getUserName() {
 		return userName;
 	}

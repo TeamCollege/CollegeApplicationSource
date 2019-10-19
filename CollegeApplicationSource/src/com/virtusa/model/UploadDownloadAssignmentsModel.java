@@ -16,7 +16,7 @@ public class UploadDownloadAssignmentsModel {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	public String getFileDescription() {
+	public String getFileDescription() {    
 		return fileDescription;
 	}
 	public void setFileDescription(String fileDescription) {

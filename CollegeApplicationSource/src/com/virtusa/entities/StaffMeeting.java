@@ -11,7 +11,7 @@ public class StaffMeeting {
 	}
 	public void setStaffMeetingId(int staffMeetingId) {
 		this.staffMeetingId = staffMeetingId;
-	}
+	}   
 	public String getStaffMeetingAgenda() {
 		return staffMeetingAgenda;
 	}

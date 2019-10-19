@@ -12,7 +12,7 @@ public class Applicant extends User {
 	private String departmentName;
 	private String aadharNumber;
 	private LocalDate dateOfBirth;
-	
+	   
 	public int getApplicantNumber() {
 		return applicantNumber;
 	}

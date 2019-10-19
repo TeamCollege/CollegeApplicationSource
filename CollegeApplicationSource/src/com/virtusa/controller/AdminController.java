@@ -10,7 +10,7 @@ public class AdminController
 	private AdminService adminService;
 	public AdminController()
 	{
-		this.adminService=FactoryAdminService.createAdminService();
+		this.adminService=FactoryAdminService.createAdminService();    
 	}
 	public void approveApplicantController(int applicantNumber)
 	{   

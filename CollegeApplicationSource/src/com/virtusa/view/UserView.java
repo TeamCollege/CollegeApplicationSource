@@ -21,7 +21,7 @@ public class UserView
 				userView.displayCollegeDetails();
 				mainMenu();
 				break;
-			
+			   
 			case 2:
 				ApplicantView applicantView = new ApplicantView();
 				applicantView.applicationForm();

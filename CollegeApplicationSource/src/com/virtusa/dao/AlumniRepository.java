@@ -12,7 +12,7 @@ private static List<Alumni> alumni1=new ArrayList<Alumni>();
 	public static boolean add(Alumni alumni){
 		return alumni1.add(alumni);
 	}
-	
+	   
 	public static List<Alumni> get(){
 		return alumni1;
 	}

@@ -13,7 +13,7 @@ public class ValidationException extends Exception {
 	public String getMessage()
 	{
 		return message;
-	}
+	}   
 
 	public void setMessage(String message)
 	{

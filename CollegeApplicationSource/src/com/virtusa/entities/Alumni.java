@@ -12,7 +12,7 @@ public class Alumni extends User
 	return alumniId;
 	}
 	
-	
+	    
 	public void setAlumniId(int alumniId) {
 	this.alumniId = alumniId;
 	}

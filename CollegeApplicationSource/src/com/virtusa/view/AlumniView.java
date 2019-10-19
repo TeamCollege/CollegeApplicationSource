@@ -27,7 +27,7 @@ public class AlumniView {
 			try(Scanner sc=new Scanner(System.in);){  
 				int choice=sc.nextInt();
 				
-			
+			    
 			switch(choice) {
 			  
 			case 1:registrationForm();

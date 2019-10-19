@@ -13,7 +13,7 @@ public class Faculty extends User {
 	}
 	public void setFacultyId(String facultyId) {
 		this.facultyId = facultyId;
-	}
+	}    
 	public String getCourseName() {
 		return courseName;
 	}

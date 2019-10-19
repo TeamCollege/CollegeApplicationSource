@@ -15,3 +15,4 @@ public interface AlumniDAO {
 	public boolean registerAlumni(Alumni alumni) throws ClassNotFoundException, SQLException;
 	
 }
+    

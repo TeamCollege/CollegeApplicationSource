@@ -11,7 +11,7 @@ public class LoginModel {
 		this.userId = userId;
 	}
 	public String getPassword() {
-		return password;
+		return password;   
 	}
 	public void setPassword(String password) {
 		this.password = password;

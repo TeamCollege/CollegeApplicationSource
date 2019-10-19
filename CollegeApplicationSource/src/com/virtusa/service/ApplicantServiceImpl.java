@@ -16,7 +16,7 @@ public class ApplicantServiceImpl implements ApplicantService
 		this.applicantDAO=FactoryApplicantDAO.createApplicantDAO();
 	}
 
-	@Override
+	@Override   
 	public String storeApplicantService(ApplicantModel applicantModel) {
 		Applicant applicant = new Applicant();
 		ArrayList<Applicant> applicants = new ArrayList<Applicant>();
