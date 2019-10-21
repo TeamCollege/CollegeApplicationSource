@@ -7,7 +7,7 @@ public class FacultyMainClass {
 	public static void main(String[] args) {
 
 		FacultyView facultyView = new FacultyView();
-		facultyView.facultyMenu();
+		facultyView.facultyMenu(); 
 	}
 
 }
