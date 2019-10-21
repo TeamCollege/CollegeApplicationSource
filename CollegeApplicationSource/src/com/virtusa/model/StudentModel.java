@@ -1,13 +1,16 @@
-       package com.virtusa.model;
+package com.virtusa.model;
 
 import com.virtusa.entities.ClassSchedule;
 
-public class StudentModel extends ApplicantModel
+public class StudentModel extends ApplicantModel 
 {
 	private int studentId;
 	private String departmentName;
 	//12.10.19
 	private ClassScheduleModel classScheduleModel;
+	private ExamScheduleModel examScheduleModel;
+	private ResultsModel resultsModel;
+	private PlacementCalenderModel placementCalenderModel;
 	
 	public StudentModel() {}
 	
@@ -29,6 +32,37 @@ public class StudentModel extends ApplicantModel
 	
 
 //12.10.19
+
+	
+	public ExamScheduleModel getExamScheduleModel() {
+		return examScheduleModel;
+	}
+
+
+	public ResultsModel getResultsModel() {
+		return resultsModel;
+	}
+
+
+	public void setResultsModel(ResultsModel resultsModel) {
+		this.resultsModel = resultsModel;
+	}
+
+
+	public PlacementCalenderModel getPlacementCalenderModel() {
+		return placementCalenderModel;
+	}
+
+
+	public void setPlacementCalenderModel(PlacementCalenderModel placementCalenderModel) {
+		this.placementCalenderModel = placementCalenderModel;
+	}
+
+
+	public void setExamScheduleModel(ExamScheduleModel examScheduleModel) {
+		this.examScheduleModel = examScheduleModel;
+	}
+
 
 	public ClassScheduleModel getClassScheduleModel() {
 		return classScheduleModel;
@@ -70,6 +104,9 @@ public class StudentModel extends ApplicantModel
 			return false;
 		return true;
 	}
+
+
+	
 
 
 

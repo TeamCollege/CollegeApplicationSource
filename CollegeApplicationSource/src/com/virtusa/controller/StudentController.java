@@ -22,26 +22,31 @@ public class StudentController {
 		studentView.showClassSchedule(students);
 	}
 
-	public void retrieveExaminationSchedule() {
+	public void retrieveExaminationSchedule(String departmentName) {
+		StudentModel students=studentService.handleRetrieveExamintionSchedule(departmentName);
+		studentView.showExamSchedule(students);
 
 		
 	}
 
-	public void retrieveResults() {
-
+	public void retrieveResults(int studentId) {
+		StudentModel students=studentService.handleRetrieveResults(studentId);
+		System.out.println(students);
+		studentView.showResults(students);
 		
 	}
 
 	
 
 	public void retrievePlacementCalender() {
-
+		StudentModel students=studentService.handleRetrievePlacementCalender();
+		System.out.println("abc");
+		//System.out.println(students);
+		studentView.showPlacementCalender(students);
+		System.out.println("controller back");
 	}
 
-	public void retrieveGeneralExams() {
-
-		
-	}
+	
 	/*public void uploadAssignments(String path) {
 		// TODO Auto-generated method stub
 		String result = studentService.handleUploadAssignments(path);
@@ -55,9 +60,10 @@ public class StudentController {
 		// TODO Auto-generated method stub
 		
 	}
-	public void uploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
+	public void uploadAssignments(String path) {
 		// TODO Auto-generated method stub
-		String result = studentService.handleUploadAssignments(uploadDownloadAssignmentsModel);
+		System.out.println("going?");
+		String result = studentService.handleUploadAssignments(path);
 		System.out.println("upload controller");
 		if(result.contentEquals("success"))
 			studentView.uploadSuccess();

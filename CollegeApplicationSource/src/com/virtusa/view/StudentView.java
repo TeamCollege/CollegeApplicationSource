@@ -19,7 +19,7 @@ public class StudentView {
 		System.out.println("3.View Results");
 		System.out.println("4.Upload and Download Assignments");
 		System.out.println("5.View Placement Calender");
-		System.out.println("6.General Exams");
+	//	System.out.println("6.General Exams");
 		System.out.println("7.Exit");
 		System.out.println("Enter your choice:");
 		       
@@ -39,9 +39,9 @@ public class StudentView {
 			break;
 		case 5:viewPlacementCalender();
 			break;
-		case 6:viewGeneralExams();
-			break;
-		case 7:UserView userView=new UserView();
+	//	case 6:viewGeneralExams();
+		//	break;
+		case 6:UserView userView=new UserView();
 				userView.mainMenu();
 				break;
 		default:System.out.println("[SELECT APPROPRIATE OPTION]");
@@ -80,58 +80,100 @@ public class StudentView {
 	
 	public void viewExaminationSchedule() {
 		StudentController studentController =new StudentController();
-		studentController.retrieveExaminationSchedule();
+		try(Scanner scanner=new Scanner(System.in);){
+		System.out.println("Please Enter Department Name:");
+		String departmentName=scanner.nextLine();
+		studentController.retrieveExaminationSchedule(departmentName);
+	}catch(Exception e) {
+		e.printStackTrace();
+	}	
+	}
+	
+	public void showExamSchedule(StudentModel students) {
+		// TODO Auto-generated method stub
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%15s%15s%15s%15s\n","id","type","name","date","subject1","subject2");
+		//System.out.printf("Day","First Hour","Second Hour","Third Hour","Fourth Hour");
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%10s%10s%10s%10s\n",students.getExamScheduleModel().getExamId(),students.getExamScheduleModel().getExamType(),students.getExamScheduleModel().getExamName(),students.getExamScheduleModel().getExamDate(),students.getExamScheduleModel().getExamSubject1(),students.getExamScheduleModel().getExamSubject2());
+		StudentView studentView=new StudentView();
+		studentView.studentMenu();
+		
 	}
 	
 
 	public void viewResults() {
 		StudentController studentController =new StudentController();
-		studentController.retrieveResults();
+
+		try(Scanner scanner=new Scanner(System.in);){
+			System.out.println("Please Enter Student Id:");	
+			int studentId=scanner.nextInt();
+		studentController.retrieveResults(studentId);
+		}catch(Exception e) {
+			e.printStackTrace();
+		
+		}
 	}
+	
+	public void showResults(StudentModel students) {
+		// TODO Auto-generated method stub
+		System.out.println(students.getResultsModel().getStudentId());
+		//ExamScheduleModel examScheduleModel=new ExamScheduleModel();
+		//System.out.println(students.getExamScheduleModel().getExamType());
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%15s%15s%15s%15s%15s\n","Student Id","subject1 name","Subject1 Marks","subject2 name","Subject2 Marks","Pass/Fail");
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%10s%10s%10s%10s%10s\n",students.getResultsModel().getStudentId(),students.getResultsModel().getSubject1Name(),students.getResultsModel().getSubject1Marks(),students.getResultsModel().getSubject2Name(),students.getResultsModel().getSubject2Marks(),students.getResultsModel().getFinalresult());
+		System.out.println("\n");
+		System.out.println("\n");
+		StudentView studentView=new StudentView();
+		studentView.studentMenu();
+		}
 	
 	private void uploadDownloadAssignments() {
 		// TODO Auto-generated method stub
-		StudentController studentController =new StudentController();
-		UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel=new UploadDownloadAssignmentsModel();
-		System.out.println("=====ASSIGNMENTS=====");
 		System.out.println("1.Upload Assignment");
 		System.out.println("2.Download Assignment");
-		System.out.print("Enter Option:");
-
+		System.out.println("Enter Choice:");
 		Scanner scanner=new Scanner(System.in);
 		int option=scanner.nextInt();
-		if(option==1) {
+		
+		
+		switch(option) {
+		
+		case 1:
+			UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel=new UploadDownloadAssignmentsModel();
 			System.out.print("File Name:");
-			String fileName=scanner.next();
-			uploadDownloadAssignmentsModel.setFileName(fileName);
-			System.out.print("File path:");
-			String path=scanner.next();
-			uploadDownloadAssignmentsModel.setFileName(path);
-			//File file=new File(path);
-			studentController.uploadAssignments(uploadDownloadAssignmentsModel);
+			    String fileName=scanner.next();
+			    //uploadDownloadAssignmentsModel.setFileName(fileName);
+			    System.out.print("File path:");
+			    String path=scanner.next();
+			    //uploadDownloadAssignmentsModel.setFileName(path);
+		//File file=new File(path);
+			    StudentController studentController =new StudentController();
+			    studentController.uploadAssignments(path);
+		case 2:
 		}
-		
-		
-         if(option==2) {
-			
-			System.out.print("File Id:");
-			int fileId=scanner.nextInt();
-		
-			studentController.downloadAssignments();
-         }
-         StudentView studentView =new StudentView();
-         studentView.studentMenu();
 	}
 	
 	
 	
 	public void viewPlacementCalender() {
 		StudentController studentController =new StudentController();
-		studentController.retrievePlacementCalender();
+		System.out.println("ajd");
+		studentController.retrievePlacementCalender();;
 	}
-	public void viewGeneralExams() {
-		StudentController studentController =new StudentController();
-		studentController.retrieveGeneralExams();
+	
+	public void showPlacementCalender(StudentModel students) {
+		// TODO Auto-generated method stub
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%15s%15s%15s\n","Company Name","Date","Location","Eligibility Criteria");
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%10s%10s%10s\n",students.getPlacementCalenderModel().getComapanyName(),students.getPlacementCalenderModel().getDate(),students.getPlacementCalenderModel().getLocation(),students.getPlacementCalenderModel().getEligibilityCriteria());
+		System.out.println("\n");
+		System.out.println("\n");
+		StudentView studentView=new StudentView();
+		studentView.studentMenu();
 	}
 
 

@@ -11,14 +11,13 @@ public interface StudentService {
 	//12.10.19
 	public StudentModel handleRetrieveClassSchedule(String departmentName);
 
-	//public String handleUploadAssignments(String path);
+	public StudentModel handleRetrieveExamintionSchedule(String departmentName);
 
-	public String handleUploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel);
+	public StudentModel handleRetrieveResults(int studentId);
 
-	//public UploadDownloadAssignments handleUploadAssignments(String path);
+	public StudentModel handleRetrievePlacementCalender();
 
-
-
+	public String handleUploadAssignments(String path);
 	
 
 }     
