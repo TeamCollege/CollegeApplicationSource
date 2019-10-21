@@ -28,6 +28,7 @@ public class StudentDAOImpl implements StudentDAO {
 		  Connection	 connection=ConnectionManager.openConnection();
 			Statement statement=connection.createStatement();
 			ResultSet resultSet = null;
+			System.out.println(departmentName);
 			switch(departmentName) {
 			case "cse":
 				resultSet = statement.executeQuery("select * from cse_class_schedule");
@@ -80,7 +81,7 @@ public class StudentDAOImpl implements StudentDAO {
 				  examSchedule.setExamId(resultSet.getString("exam_id"));
 				  examSchedule.setExamType(resultSet.getString("exam_type"));
 				  examSchedule.setExamName(resultSet.getString("exam_name"));
-				 examSchedule.setExamDate(resultSet.getDate("date"));
+				 examSchedule.setExamDate(resultSet.getDate("exam_date"));
 				  examSchedule.setExamSubject1(resultSet.getString("exam_subject1"));
 				  examSchedule.setExamSubject2(resultSet.getString("exam_subject2"));
 			  
@@ -114,7 +115,7 @@ public class StudentDAOImpl implements StudentDAO {
 			  
 			  
 			  students.setResults(results);
-			  
+			  System.out.println(students);
 			  } ConnectionManager.closeConnection(); 
 			  return students;
 
@@ -137,6 +138,7 @@ public class StudentDAOImpl implements StudentDAO {
 				  placementCalender.setEligibilityCriteria(resultSet.getString("eligibility_criteria"));
 				  
 				  students.setPlacementCalender(placementCalender);
+				  System.out.println(students);
 			  }ConnectionManager.closeConnection(); 
 			  System.out.println("going from dao");
 			  return students;

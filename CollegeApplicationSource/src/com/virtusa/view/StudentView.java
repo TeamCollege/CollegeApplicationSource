@@ -20,7 +20,7 @@ public class StudentView {
 		System.out.println("4.Upload and Download Assignments");
 		System.out.println("5.View Placement Calender");
 	//	System.out.println("6.General Exams");
-		System.out.println("7.Exit");
+		System.out.println("6.Exit");
 		System.out.println("Enter your choice:");
 		       
 		
@@ -60,8 +60,8 @@ public class StudentView {
 		try(Scanner scanner=new Scanner(System.in);){
 		System.out.println("Please Enter Department Name:");
 		String departmentName=scanner.nextLine();
-		StudentModel studentModel=new StudentModel();
-		studentController.retrieveClassSchedule(studentModel.getDepartmentName());
+		//StudentModel studentModel=new StudentModel();
+		studentController.retrieveClassSchedule(departmentName);
 	}catch(Exception e) {
 		e.printStackTrace();
 	}	
@@ -72,6 +72,7 @@ public class StudentView {
 	System.out.format("%10s%15s%15s%15s%15s \n","Day", "10:00-11:00",  "11:00-12:00", "1:00-2:00", "2:00-3:00");
 	System.out.println("=====================================================================================================================");
 	System.out.format("%10s%15s%15s%15s%15s \n",students.getClassScheduleModel().getDay(),students.getClassScheduleModel().getFirstHour(),students.getClassScheduleModel().getSecondHour(),students.getClassScheduleModel().getThirdHour(),students.getClassScheduleModel().getFourthHour());
+	//System.out.println("\n\t\t"+students.getClassScheduleModel().getDay()+"\t\t\t" +students.getClassScheduleModel().getFirstHour()+ "\t\t\t" +students.getClassScheduleModel().getSecondHour()+ "\t\t\t" +students.getClassScheduleModel().getThirdHour()+ "\t\t\t" + students.getClassScheduleModel().getFourthHour());
 	System.out.println("----------------------------------------------------------------------------------------------------------------------");
 	System.out.println("\n");
 	StudentView studentView=new StudentView();
@@ -161,7 +162,7 @@ public class StudentView {
 	public void viewPlacementCalender() {
 		StudentController studentController =new StudentController();
 		System.out.println("ajd");
-		studentController.retrievePlacementCalender();;
+		studentController.retrievePlacementCalender();
 	}
 	
 	public void showPlacementCalender(StudentModel students) {
@@ -169,7 +170,10 @@ public class StudentView {
 		System.out.println("=====================================================================================================================");
 		System.out.format("%10s%15s%15s%15s\n","Company Name","Date","Location","Eligibility Criteria");
 		System.out.println("=====================================================================================================================");
-		System.out.format("%10s%10s%10s%10s\n",students.getPlacementCalenderModel().getComapanyName(),students.getPlacementCalenderModel().getDate(),students.getPlacementCalenderModel().getLocation(),students.getPlacementCalenderModel().getEligibilityCriteria());
+		System.out.println(students.getPlacementCalenderModel().getComapanyName());
+		//System.out.format("%10s%10s%10s%15s \n",students.getPlacementCalenderModel().getComapanyName(),students.getPlacementCalenderModel().getDate(),students.getPlacementCalenderModel().getLocation(),students.getPlacementCalenderModel().getEligibilityCriteria());
+		System.out.println("\n\t\t"+students.getPlacementCalenderModel().getComapanyName()+ "\t\t\t" +students.getPlacementCalenderModel().getDate()+ "\t\t\t" +students.getPlacementCalenderModel().getLocation()+ "\t\t\t" +students.getPlacementCalenderModel().getEligibilityCriteria());
+		
 		System.out.println("\n");
 		System.out.println("\n");
 		StudentView studentView=new StudentView();

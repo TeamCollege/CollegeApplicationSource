@@ -41,7 +41,7 @@ public class StudentController {
 	public void retrievePlacementCalender() {
 		StudentModel students=studentService.handleRetrievePlacementCalender();
 		System.out.println("abc");
-		//System.out.println(students);
+		System.out.println(students);
 		studentView.showPlacementCalender(students);
 		System.out.println("controller back");
 	}

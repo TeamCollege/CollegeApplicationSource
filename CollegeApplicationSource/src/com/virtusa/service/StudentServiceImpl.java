@@ -120,7 +120,7 @@ public class StudentServiceImpl implements StudentService {
 		placementCalenderModel.setDate(placementCalender.getDate());
 		placementCalenderModel.setLocation(placementCalender.getLocation());
 		placementCalenderModel.setEligibilityCriteria(placementCalender.getEligibilityCriteria());
-		
+		System.out.println(placementCalender.getEligibilityCriteria());
 	}catch (ClassNotFoundException | SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
