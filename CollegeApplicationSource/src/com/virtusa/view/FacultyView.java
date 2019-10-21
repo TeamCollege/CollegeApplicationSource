@@ -9,9 +9,6 @@ import com.virtusa.model.FacultyModel;
 import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class FacultyView {  
-		
-
-
 	
 	public void facultyMenu() {
 
@@ -39,7 +36,7 @@ public class FacultyView {
 				facultyController.viewClassSchedule(departmentName);
 				break;
 			case 2:
-				facultyController.handleStaffMeeting(facultyModel.getFacultyId());
+				facultyController.handleStaffMeeting();
 				break;
 			case 4: 
 				uploadDownloadMenu();
@@ -97,8 +94,13 @@ public class FacultyView {
 	}
 
 	public void displayClassSchedule(List<ClassScheduleModel> model) {
+		System.out.println("=====================================================================================================================================================");
+		System.out.format("%10s%15s%25s%45s%50s\n","Day","First Hour","Second Hour","Third Hour","Fourth_Hour");
+		System.out.println("=====================================================================================================================================================");
 		for(ClassScheduleModel classSchedule:model) {
-			System.out.println(classSchedule.getDay()+" "+classSchedule.getFirstHour()+" "+classSchedule.getSecondHour()+" "+classSchedule.getThirdHour()+" "+classSchedule.getFourthHour());
+			//System.out.format("%9s%12d%45s%30s%55s\n",classSchedule.getDay(), classSchedule.getFirstHour(), classSchedule.getSecondHour(), classSchedule.getThirdHour(), classSchedule.getFourthHour());
+
+			System.out.println(""+classSchedule.getDay()+"\t\t "+classSchedule.getFirstHour()+"\t\t\t "+classSchedule.getSecondHour()+"\t\t\t\t\t "+classSchedule.getThirdHour()+"\t\t\t\t\t\t "+classSchedule.getFourthHour());
 		}
 		
 	}

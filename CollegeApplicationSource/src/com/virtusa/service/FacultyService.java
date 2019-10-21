@@ -11,7 +11,7 @@ public interface FacultyService {
 
 	public List<ClassScheduleModel> retreiveClassSchedule(String departmentName);
 
-	public FacultyModel handleRetrieveStaffMeeting(String facultyId);
+	public FacultyModel handleRetrieveStaffMeeting();
 
 	public String uploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel);
 

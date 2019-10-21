@@ -27,9 +27,9 @@ public class FacultyController {
 		facultyView.displayClassSchedule(model);
 	}
 
-	public void handleStaffMeeting(String facultyId) {
+	public void handleStaffMeeting() {
 
-		FacultyModel staffMeeting=facultyService.handleRetrieveStaffMeeting(facultyId);
+		FacultyModel staffMeeting=facultyService.handleRetrieveStaffMeeting();
 		facultyView.showStaffMeetingDetails(staffMeeting);
 		
 	}

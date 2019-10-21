@@ -28,6 +28,8 @@ public class FacultyServiceImpl implements FacultyService {
  
 	@Override      
 	public List<ClassScheduleModel> retreiveClassSchedule(String departmentName) {
+		System.out.println("in service");
+
 		List<ClassScheduleModel> classScheduleModelList = new ArrayList<>();
 			try {
 				List<ClassSchedule> classScheduleList = facultyDAO.viewCLassSchedule(departmentName);
@@ -39,7 +41,6 @@ public class FacultyServiceImpl implements FacultyService {
 					classScheduleModel.setThirdHour(classSchedule.getThirdHour());
 					classScheduleModel.setFourthHour(classSchedule.getFourthHour());
 					classScheduleModelList.add(classScheduleModel);
-					//System.out.println("sda");
 				}
 				
 			} catch (ClassNotFoundException | SQLException e) {
@@ -50,15 +51,15 @@ public class FacultyServiceImpl implements FacultyService {
 	}
 
 	@Override
-	public FacultyModel handleRetrieveStaffMeeting(String facultyId) {
+	public FacultyModel handleRetrieveStaffMeeting() {
 		Faculty faculty=null;
 		FacultyModel facultyModel=new FacultyModel();
 		try {
-			faculty = facultyDAO.getStaffMeetingDetails(facultyId);
+			faculty = facultyDAO.getStaffMeetingDetails();
 			StaffMeeting staffMeeting=faculty.getStaffMeeting();
 			StaffMeetingModel staffMeetingModel=new StaffMeetingModel();
 			
-			staffMeetingModel.setFacultyId(facultyId);
+			staffMeetingModel.setFacultyId(staffMeeting.getFacultyId());
 			staffMeetingModel.setStaffMeetingId(staffMeeting.getStaffMeetingId());
 			staffMeetingModel.setStaffMeetingAgenda(staffMeeting.getStaffMeetingAgenda());
 			staffMeetingModel.setLocation(staffMeeting.getLocation());

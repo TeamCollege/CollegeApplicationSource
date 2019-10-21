@@ -53,13 +53,12 @@ public class FacultyDAOImpl implements FacultyDAO {
 	}
 
 	@Override
-	public Faculty getStaffMeetingDetails(String facultyId) throws ClassNotFoundException, SQLException {
-		
+	public Faculty getStaffMeetingDetails() throws ClassNotFoundException, SQLException {
+		Faculty faculty = new Faculty();
 		Connection connection=ConnectionManager.openConnection(); 
 		PreparedStatement statement=connection.prepareStatement("select * from staff_meeting_details where faculty_Id=?");
-		statement.setString(1, facultyId);
+		statement.setString(1, faculty.getFacultyId());
 		ResultSet resultSet=statement.executeQuery();
-		Faculty faculty = new Faculty();
 		while(resultSet.next()) {
 			StaffMeeting staffMeeting = new StaffMeeting();
 			//staffMeeting.setFacultyId(resultSet.getString("faculty_id"));

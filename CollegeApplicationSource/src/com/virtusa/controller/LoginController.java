@@ -28,7 +28,7 @@ public class LoginController {
 		LoginModel loginModel=new LoginModel();
 		loginModel.setUserId(userId);
 		loginModel.setPassword(password);
-		System.out.println("fgsffsd");
+		System.out.println("in controller");
 		
 		try {
 			String outcome=loginService.userAuthenticationService(loginModel);

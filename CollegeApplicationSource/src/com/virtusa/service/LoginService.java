@@ -8,6 +8,8 @@ import com.virtusa.model.LoginModel;
 
 public interface LoginService {
 
+	//String userAuthenticationService(LoginModel loginModel);
+
 	
 	public String userAuthenticationService(LoginModel loginModel)throws ClassNotFoundException,SQLException;
 }
