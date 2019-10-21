@@ -1,8 +1,10 @@
 package com.virtusa.view;
 
 import java.io.File;
-import java.util.List;
+
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
 
 import com.virtusa.controller.StudentController;
 import com.virtusa.model.ClassScheduleModel;
@@ -11,8 +13,13 @@ import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class StudentView {
 	
+	Logger log = Logger.getLogger(AdminView.class.getName());
 	
 	public void studentMenu() {
+		
+		log.info("This is Student View");
+		
+		
 		System.out.println("\t\t ======================STUDENT VIEW=======================");
 		System.out.println("1.View Class Schedule");
 		System.out.println("2.View Examination Schedule");
@@ -171,8 +178,8 @@ public class StudentView {
 		System.out.format("%10s%15s%15s%15s\n","Company Name","Date","Location","Eligibility Criteria");
 		System.out.println("=====================================================================================================================");
 		System.out.println(students.getPlacementCalenderModel().getComapanyName());
-		//System.out.format("%10s%10s%10s%15s \n",students.getPlacementCalenderModel().getComapanyName(),students.getPlacementCalenderModel().getDate(),students.getPlacementCalenderModel().getLocation(),students.getPlacementCalenderModel().getEligibilityCriteria());
-		System.out.println("\n\t\t"+students.getPlacementCalenderModel().getComapanyName()+ "\t\t\t" +students.getPlacementCalenderModel().getDate()+ "\t\t\t" +students.getPlacementCalenderModel().getLocation()+ "\t\t\t" +students.getPlacementCalenderModel().getEligibilityCriteria());
+		System.out.format("%10s%10s%10s%15s \n",students.getPlacementCalenderModel().getComapanyName(),students.getPlacementCalenderModel().getDate(),students.getPlacementCalenderModel().getLocation(),students.getPlacementCalenderModel().getEligibilityCriteria());
+		//System.out.println("\n\t\t"+students.getPlacementCalenderModel().getComapanyName()+ "\t\t\t" +students.getPlacementCalenderModel().getDate()+ "\t\t\t" +students.getPlacementCalenderModel().getLocation()+ "\t\t\t" +students.getPlacementCalenderModel().getEligibilityCriteria());
 		
 		System.out.println("\n");
 		System.out.println("\n");
@@ -191,6 +198,7 @@ public class StudentView {
 
 	public void uploadUnsuccessful() {
 		// TODO Auto-generated method stub
-		System.out.println("File upload unsuccessfully");
+		System.out.println("File upload unsuccessful");
 	}
-}
+	}
+
