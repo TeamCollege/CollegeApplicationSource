@@ -34,7 +34,9 @@ public class FacultyView {
 			switch(option) {
 			case 1:
 				//System.out.println(facultyModel.getDepartmentName());
-				facultyController.viewClassSchedule(facultyModel.getDepartmentName());
+				System.out.println("Enter department name(cse/ece/eee): ");
+				String departmentName = scanner.next().toLowerCase();
+				facultyController.viewClassSchedule(departmentName);
 				break;
 			case 2:
 				facultyController.handleStaffMeeting(facultyModel.getFacultyId());

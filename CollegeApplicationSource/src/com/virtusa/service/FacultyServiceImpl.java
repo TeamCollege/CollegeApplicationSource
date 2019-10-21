@@ -39,7 +39,7 @@ public class FacultyServiceImpl implements FacultyService {
 					classScheduleModel.setThirdHour(classSchedule.getThirdHour());
 					classScheduleModel.setFourthHour(classSchedule.getFourthHour());
 					classScheduleModelList.add(classScheduleModel);
-					System.out.println("sda");
+					//System.out.println("sda");
 				}
 				
 			} catch (ClassNotFoundException | SQLException e) {

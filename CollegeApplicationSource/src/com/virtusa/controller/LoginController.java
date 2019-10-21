@@ -32,6 +32,7 @@ public class LoginController {
 		
 		try {
 			String outcome=loginService.userAuthenticationService(loginModel);
+			System.out.println(outcome);
 			if(outcome.contentEquals("ADMIN")){
 				AdminView adminView=new AdminView();
 				adminView.adminView();
