@@ -9,10 +9,16 @@ import java.util.List;
 
 import com.virtusa.dao.StudentDAO;
 import com.virtusa.entities.ClassSchedule;
+import com.virtusa.entities.ExamSchedule;
+import com.virtusa.entities.PlacementCalender;
+import com.virtusa.entities.Results;
 import com.virtusa.entities.Student;
 import com.virtusa.entities.UploadDownloadAssignments;
 import com.virtusa.helper.FactoryStudentDAO;
 import com.virtusa.model.ClassScheduleModel;
+import com.virtusa.model.ExamScheduleModel;
+import com.virtusa.model.PlacementCalenderModel;
+import com.virtusa.model.ResultsModel;
 import com.virtusa.model.StudentModel;
 import com.virtusa.model.UploadDownloadAssignmentsModel;
 import com.virtusa.model.StudentModel;
@@ -47,6 +53,83 @@ public class StudentServiceImpl implements StudentService {
 	return studentModel;
 	}
 	
+	@Override
+	public StudentModel handleRetrieveExamintionSchedule(String departmentName) {
+		// TODO Auto-generated method stub
+		Student students=null;
+		StudentModel studentModel=new StudentModel();
+		try {
+		students=studentDAO.getExaminationSchedule(departmentName);
+		ExamSchedule examSchedule=students.getExamSchedule();
+		ExamScheduleModel examScheduleModel=new ExamScheduleModel();
+		examScheduleModel.setExamId(examSchedule.getExamId());
+		examScheduleModel.setExamType(examSchedule.getExamType());
+		examScheduleModel.setExamName(examSchedule.getExamName());
+		examScheduleModel.setExamDate(examSchedule.getExamDate());
+		examScheduleModel.setExamSubject1(examSchedule.getExamSubject1());
+		examScheduleModel.setExamSubject2(examSchedule.getExamSubject2());
+	
+		studentModel.setExamScheduleModel(examScheduleModel);
+		
+	} catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	
+	}
+		return studentModel;
+}
+	
+	@Override
+	public StudentModel handleRetrieveResults(int studentId) {
+		// TODO Auto-generated method stub
+		Student students=null;
+		StudentModel studentModel=new StudentModel();
+		try {
+		students=studentDAO.getResults(studentId);
+		Results results=students.getResults();
+		ResultsModel resultsModel=new ResultsModel();
+		resultsModel.setStudentId(results.getStudentId());
+		resultsModel.setSubject1Name(results.getSubject1Name());
+		resultsModel.setSubject1Marks(results.getSubject1Marks());
+		resultsModel.setSubject2Marks(results.getSubject2Marks());
+		resultsModel.setSubject2Name(results.getSubject2Name());
+		resultsModel.setFinalresult(results.getFinalresult());
+		
+		studentModel.setResultsModel(resultsModel);
+		
+		
+	}catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	
+	}
+		return studentModel;
+}
+	
+	@Override
+	public StudentModel handleRetrievePlacementCalender() {
+		// TODO Auto-generated method stub
+		Student students=null;
+		StudentModel studentModel=new StudentModel();
+		try {
+		students=studentDAO.getPlacementCalender();
+		PlacementCalender placementCalender=students.getPlacementCalender();
+		PlacementCalenderModel placementCalenderModel=new PlacementCalenderModel();
+		System.out.println("jdb");
+		placementCalenderModel.setComapanyName(placementCalender.getComapanyName());
+		placementCalenderModel.setDate(placementCalender.getDate());
+		placementCalenderModel.setLocation(placementCalender.getLocation());
+		placementCalenderModel.setEligibilityCriteria(placementCalender.getEligibilityCriteria());
+		
+	}catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	
+	}
+		System.out.println("coming");
+		return studentModel;
+}
+	
 	
 	
 /*	@Override
@@ -73,21 +156,20 @@ public class StudentServiceImpl implements StudentService {
 		return result;
 		}*/
 	@Override
-	public String handleUploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
+	public String handleUploadAssignments(String path)  {
 		// TODO Auto-generated method stub
-		
 		UploadDownloadAssignments uploadDownloadAssignments=new UploadDownloadAssignments(); ;
-		
-		uploadDownloadAssignments.setFileId(uploadDownloadAssignmentsModel.getFileId());
-		uploadDownloadAssignments.setFileName(uploadDownloadAssignmentsModel.getFileName());
-		uploadDownloadAssignments.setPath(uploadDownloadAssignmentsModel.getPath());
-		uploadDownloadAssignments.setFileDescription(uploadDownloadAssignmentsModel.getFileDescription());
-		
+		UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel=new UploadDownloadAssignmentsModel();
+		uploadDownloadAssignmentsModel.setFileId(uploadDownloadAssignments.getFileId());
+		uploadDownloadAssignmentsModel.setFileName(uploadDownloadAssignments.getFileName());
+		uploadDownloadAssignmentsModel.setPath(uploadDownloadAssignments.getPath());
+		uploadDownloadAssignmentsModel.setFileDescription(uploadDownloadAssignments.getFileDescription());
+		System.out.println("going service?");
 		
 		String result = "failed";
 		try{
 			System.out.println("helloservice");
-			boolean stored = studentDAO.handleuploadDownloadAssignments(uploadDownloadAssignments);
+			boolean stored = studentDAO.handleRetrieveUploadAssignments(path);
 			System.out.println("after");
 			if(stored)
 				result = "success";
@@ -100,7 +182,7 @@ public class StudentServiceImpl implements StudentService {
 		return result;
 	}
 	}
-	
+
 	
 
 

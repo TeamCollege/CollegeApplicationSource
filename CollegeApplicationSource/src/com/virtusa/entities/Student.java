@@ -9,13 +9,15 @@ public class Student extends User
 	private String departmentName;
 //12.10.19
 	private ClassSchedule classSchedule;
-	//private ExamSchedule examSchedule;
+	private ExamSchedule examSchedule;
+	private Results results;
+	private PlacementCalender placementCalender;
 	
 	public Student() {}
 	
 	public int getStudentId() 
 	{
-		return studentId;        
+		return studentId;
 	}
 
 	public void setStudentId(int studentId) 
@@ -55,15 +57,21 @@ public class Student extends User
 		this.departmentName = departmentName;
 	}
 
+	
+
+	public ExamSchedule getExamSchedule() {
+		return examSchedule;
+	}
+
+	public void setExamSchedule(ExamSchedule examSchedule) {
+		this.examSchedule = examSchedule;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", dateOfBirth=" + dateOfBirth + ", emailAddress=" + emailAddress + ", phoneNumber=" + phoneNumber
-				+ ", getStudentId()=" + getStudentId() + ", getUserName()=" + getUserName() + ", getPassword()="
-				+ getPassword() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
-				+ ", getDateOfBirth()=" + getDateOfBirth() + ", getEmailAddress()=" + getEmailAddress()
-				+ ", getPhoneNumber()=" + getPhoneNumber() + ", toString()=" + super.toString() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + "]";
+		return "Student [studentId=" + studentId + ", tenthPercentage=" + tenthPercentage + ", interPercentage="
+				+ interPercentage + ", courseName=" + courseName + ", departmentName=" + departmentName
+				+ ", classSchedule=" + classSchedule + "]";
 	}
 
 	public ClassSchedule getClassSchedule() {
@@ -72,6 +80,22 @@ public class Student extends User
 
 	public void setClassSchedule(ClassSchedule classSchedule) {
 		this.classSchedule = classSchedule;
+	}
+
+	public Results getResults() {
+		return results;
+	}
+
+	public void setResults(Results results) {
+		this.results = results;
+	}
+
+	public PlacementCalender getPlacementCalender() {
+		return placementCalender;
+	}
+
+	public void setPlacementCalender(PlacementCalender placementCalender) {
+		this.placementCalender = placementCalender;
 	}
 
 	

@@ -10,10 +10,11 @@ public interface StudentDAO {
 
 	public Student getClassSchedule(String departmentName)throws ClassNotFoundException, SQLException;
 
-	//public boolean uploadDownloadAssignments(String path);
+	public Student getExaminationSchedule(String departmentName)throws ClassNotFoundException, SQLException;
 
-	//public boolean uploadDownloadAssignments(String path) throws ClassNotFoundException, SQLException,FileNotFoundException;
+	public Student getResults(int studentId)throws ClassNotFoundException, SQLException;
 
-	public boolean handleuploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws ClassNotFoundException, SQLException,FileNotFoundException;
-        
+	public Student getPlacementCalender()throws ClassNotFoundException, SQLException;
+
+	public boolean handleRetrieveUploadAssignments(String path)throws ClassNotFoundException, SQLException, FileNotFoundException ;
 }
