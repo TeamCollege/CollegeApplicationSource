@@ -69,7 +69,7 @@ public class FacultyServiceImpl implements FacultyService {
 			facultyModel.setStaffMeetingModel(staffMeetingModel);
 		}
 		catch (ClassNotFoundException | SQLException e) {
-			
+			 
 			e.printStackTrace();
 		}		
 		return facultyModel;

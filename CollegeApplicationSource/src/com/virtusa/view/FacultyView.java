@@ -130,7 +130,7 @@ public class FacultyView {
 		facultyController.retrieveExaminationSchedule(departmentName);
 	}catch(Exception e) {
 		e.printStackTrace();
-	}			
+	}			 
 	}
 	
 	public void showExamSchedule(FacultyModel faculty) {

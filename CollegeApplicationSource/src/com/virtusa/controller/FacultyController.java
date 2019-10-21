@@ -31,7 +31,7 @@ public class FacultyController {
 
 		FacultyModel staffMeeting=facultyService.handleRetrieveStaffMeeting();
 		facultyView.showStaffMeetingDetails(staffMeeting);
-		
+		 
 	}
 
 	public void handleUploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {

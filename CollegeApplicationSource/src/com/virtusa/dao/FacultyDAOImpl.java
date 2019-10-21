@@ -29,7 +29,7 @@ public class FacultyDAOImpl implements FacultyDAO {
 		ResultSet resultSet = null;
 		switch(departmentName) {
 		case "cse":
-			resultSet = statement.executeQuery("select * from cse_schedule");
+			resultSet = statement.executeQuery("select * from cse_schedule"); 
 			break;
 		case "ece":
 			resultSet = statement.executeQuery("select * from ece_schedule");

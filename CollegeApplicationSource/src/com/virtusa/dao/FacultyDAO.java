@@ -19,4 +19,4 @@ public interface FacultyDAO {
 	public Faculty getExaminationSchedule(String departmentName) throws SQLException, ClassNotFoundException;	
 
 }
-        
+ 
