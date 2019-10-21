@@ -15,5 +15,7 @@ public interface FacultyService {
 
 	public String uploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel);
 
+	public FacultyModel handleRetrieveExamintionSchedule(String departmentName);
+
  
 }

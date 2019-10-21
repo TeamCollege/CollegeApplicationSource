@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.virtusa.controller.FacultyController;
+import com.virtusa.controller.StudentController;
 import com.virtusa.model.ClassScheduleModel;
 import com.virtusa.model.FacultyModel;
+import com.virtusa.model.StudentModel;
 import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class FacultyView {  
@@ -21,7 +23,7 @@ public class FacultyView {
 		System.out.println("2. View Staff Meeting Details");
 		System.out.println("3. View Events");
 		System.out.println("4. Upload and Download Assignments");
-		System.out.println("5. View Exam Scheduler");
+		System.out.println("5. View Exam Schedule");
 		System.out.println("6. Alumni Search");
 		System.out.println("7. Logout");
 		System.out.println("Enter your choice:");
@@ -41,6 +43,9 @@ public class FacultyView {
 			case 4: 
 				uploadDownloadMenu();
 				break;
+			case 5:
+				viewExaminationSchedule();
+				break;
 			default:
 				System.out.println("!ERROR[Enter an appropriate option]");
 				facultyMenu();
@@ -51,6 +56,7 @@ public class FacultyView {
 		}
 	}
 	
+
 	private void uploadDownloadMenu() {
 		FacultyController facultyController = new FacultyController();
 
@@ -114,6 +120,29 @@ public class FacultyView {
 		StudentView studentView=new StudentView();
 		studentView.studentMenu();
 
+	}
+	
+	private void viewExaminationSchedule() {
+		FacultyController facultyController =new FacultyController();
+		try(Scanner scanner=new Scanner(System.in);){
+		System.out.println("Please Enter Department Name:");
+		String departmentName=scanner.nextLine();
+		facultyController.retrieveExaminationSchedule(departmentName);
+	}catch(Exception e) {
+		e.printStackTrace();
+	}			
+	}
+	
+	public void showExamSchedule(FacultyModel faculty) {
+		// TODO Auto-generated method stub
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%15s%15s%15s%15s\n","id","type","name","date","subject1","subject2");
+		//System.out.printf("Day","First Hour","Second Hour","Third Hour","Fourth Hour");
+		System.out.println("=====================================================================================================================");
+		System.out.format("%10s%15s%15s%15s%15s\n",faculty.getExamScheduleModel().getExamId(),faculty.getExamScheduleModel().getExamType(),faculty.getExamScheduleModel().getExamName(),faculty.getExamScheduleModel().getExamDate(),faculty.getExamScheduleModel().getExamSubject1(),faculty.getExamScheduleModel().getExamSubject2());
+		FacultyView facultyView=new FacultyView();
+		facultyView.facultyMenu();
+		
 	}
 
 	public void uploadSuccess() {

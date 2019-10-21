@@ -14,6 +14,7 @@ public class FacultyModel
 	private LocalDate dateOfBirth;
 	private int salary;
 	private StaffMeetingModel staffMeetingModel;
+	private ExamScheduleModel examScheduleModel;
 	
 	public String getFacultyId() {
 		return facultyId;
@@ -70,6 +71,13 @@ public class FacultyModel
 	}
 	public void setStaffMeetingModel(StaffMeetingModel staffMeetingModel) {
 		this.staffMeetingModel = staffMeetingModel;
+	}
+	
+	public ExamScheduleModel getExamScheduleModel() {
+		return examScheduleModel;
+	}
+	public void setExamScheduleModel(ExamScheduleModel examScheduleModel) {
+		this.examScheduleModel = examScheduleModel;
 	}
 	@Override
 	public String toString() {

@@ -49,4 +49,10 @@ public class FacultyController {
 		
 	}
 	
+	public void retrieveExaminationSchedule(String departmentName) {
+		FacultyModel faculty=facultyService.handleRetrieveExamintionSchedule(departmentName);
+		facultyView.showExamSchedule(faculty);
+		
+	}
+	
 }

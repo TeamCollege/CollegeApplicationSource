@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.virtusa.entities.ClassSchedule;
+import com.virtusa.entities.ExamSchedule;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.StaffMeeting;
 import com.virtusa.entities.Student;
@@ -92,6 +93,41 @@ public class FacultyDAOImpl implements FacultyDAO {
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public Faculty getExaminationSchedule(String departmentName) throws SQLException, ClassNotFoundException {
+		Connection	 connection=ConnectionManager.openConnection();
+		Statement statement=connection.createStatement();
+		ResultSet resultSet = null;
+		switch(departmentName) {
+		case "cse":
+			resultSet = statement.executeQuery("select * from cse_exam_schedule");
+			break;
+		case "ece":
+			resultSet = statement.executeQuery("select * from ece_exam_schedule");
+			break;
+		case "eee":       
+			resultSet = statement.executeQuery("select * from eee_exam_schedule");
+			break;
+		}
+		Faculty faculty=new Faculty();
+		  while(resultSet.next()) {
+		  
+		 // students.setDepartmentName(resultSet.getString("department_name"));
+			  ExamSchedule examSchedule=new ExamSchedule();
+			  examSchedule.setExamId(resultSet.getString("exam_id"));
+			  examSchedule.setExamType(resultSet.getString("exam_type"));
+			  examSchedule.setExamName(resultSet.getString("exam_name"));
+			  examSchedule.setExamDate(resultSet.getDate("exam_date"));
+			  examSchedule.setExamSubject1(resultSet.getString("exam_subject1"));
+			  examSchedule.setExamSubject2(resultSet.getString("exam_subject2"));
+		  
+		  
+		  faculty.setExamSchedule(examSchedule);
+		  
+		  } ConnectionManager.closeConnection(); 
+		  return faculty;	  
 	}
 }
 

@@ -14,7 +14,9 @@ public interface FacultyDAO {
 
 	public Faculty getStaffMeetingDetails() throws ClassNotFoundException, SQLException;
 
-	public boolean uploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws SQLException, ClassNotFoundException, FileNotFoundException;	
+	public boolean uploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws SQLException, ClassNotFoundException, FileNotFoundException;
+
+	public Faculty getExaminationSchedule(String departmentName) throws SQLException, ClassNotFoundException;	
 
 }
         
