@@ -25,11 +25,11 @@ public class FacultyView {
 		System.out.println("\t\t =====Faculty View=====");
 		System.out.println("1. View Class Schedule");
 		System.out.println("2. View Staff Meeting Details");
-		System.out.println("3. View Events");
-		System.out.println("4. Upload and Download Assignments");
-		System.out.println("5. View Exam Schedule");
-		System.out.println("6. Alumni Search");
-		System.out.println("7. Logout");
+		//System.out.println("3. View Events");
+		System.out.println("3. Upload and Download Assignments");
+		System.out.println("4. View Exam Schedule");
+		//System.out.println("5. Alumni Search");
+		System.out.println("5. Logout");
 		System.out.println("Enter your choice:");
 		
 		try(Scanner scanner = new Scanner(System.in);){
@@ -42,17 +42,22 @@ public class FacultyView {
 				facultyController.viewClassSchedule(departmentName);
 				break;
 			case 2:
-				facultyController.handleStaffMeeting();
+				System.out.println("Enter department name(cse/ece/eee): ");
+				String departmentName1 = scanner.next().toLowerCase();
+				facultyController.handleStaffMeeting(departmentName1);
 				break;
-			case 4: 
+			case 3: 
 				uploadDownloadMenu();
 				break;
-			case 5:
+			case 4:
 				viewExaminationSchedule();
 				break;
+			case 5:
+				System.exit(0);
 			default:
 				System.out.println("!ERROR[Enter an appropriate option]");
 				facultyMenu();
+
 			}
 		}
 		catch(Exception e) {
@@ -103,7 +108,9 @@ public class FacultyView {
 		UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel = new UploadDownloadAssignmentsModel();
 		uploadDownloadAssignmentsModel.setFileName(fileName);
 		uploadDownloadAssignmentsModel.setPath(path);
-		facultyController.handleUploadAssignments(uploadDownloadAssignmentsModel);		
+		facultyController.handleUploadAssignments(uploadDownloadAssignmentsModel);	
+		FacultyView facultyView = new FacultyView();
+		facultyView.facultyMenu();
 	}
 
 	public void displayClassSchedule(List<ClassScheduleModel> model) {
@@ -116,6 +123,8 @@ public class FacultyView {
 
 			System.out.println(""+classSchedule.getDay()+"\t\t "+classSchedule.getFirstHour()+"\t\t\t "+classSchedule.getSecondHour()+"\t\t\t\t\t "+classSchedule.getThirdHour()+"\t\t\t\t\t\t "+classSchedule.getFourthHour());
 		}
+		FacultyView facultyView = new FacultyView();
+		facultyView.facultyMenu();
 		
 	}
 
@@ -125,9 +134,8 @@ public class FacultyView {
 		System.out.format("%10s%15s%25s%45s\n","Faculty ID","Staff Meeting ID","Staff Meeting Agenda","Location");
 		System.out.println("=====================================================================================================================");
 		System.out.format("%9s%12d%45s%30s\n",staffMeeting.getStaffMeetingModel().getFacultyId(),staffMeeting.getStaffMeetingModel().getStaffMeetingId(), staffMeeting.getStaffMeetingModel().getStaffMeetingAgenda(),staffMeeting.getStaffMeetingModel().getLocation());
-		StudentView studentView=new StudentView();
-		studentView.studentMenu();
-
+		FacultyView facultyView = new FacultyView();
+		facultyView.facultyMenu();
 	}
 	
 	private void viewExaminationSchedule() {
@@ -157,11 +165,15 @@ public class FacultyView {
 	public void uploadSuccess() {
 		log.info("---Upload Successful---");
 		System.out.println("File uploaded successfully");
+		FacultyView facultyView = new FacultyView();
+		facultyView.facultyMenu();
 	}
 
 	public void uploadUnsuccessful() {
 		log.info("---Upload Unsuccessful---");
 		System.out.println("File upload unsuccessful");
+		FacultyView facultyView = new FacultyView();
+		facultyView.facultyMenu();
 		
 	}
 

@@ -31,7 +31,7 @@ public class UserView
 				//System.out.println("abc");
 				LoginView loginView=new LoginView();
 				loginView.loginMenu();
-				System.out.println("going in");
+				//System.out.println("going in");
 				break;
 				
 			case 4:AlumniView alumniView=new AlumniView();

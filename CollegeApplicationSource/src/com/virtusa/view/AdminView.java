@@ -104,8 +104,36 @@ public class AdminView
 			switch(choice)
 			{
 			
-			case 1 :adminController.addStudentController(studentModel);
-					break;
+			case 1 :System.out.println("Enter StudentId:");
+            int id=scan.nextInt();
+            System.out.println("Enter First Name:");
+            String firstName1=scan.next();
+            System.out.println("Enter Last Name:");
+            String lastName=scan.next();
+            System.out.println("Enter EmailId:");
+            String emailId=scan.next();
+            System.out.println("Enter Phone Number:");
+            String number=scan.next();
+            System.out.println("Enter 10th percentage:");
+            double tenth = scan.nextDouble();
+            System.out.println("Enter 12th percentage:");
+            double twelth = scan.nextDouble();
+            System.out.println("Enter Department Name:");
+            String departmentName=scan.next();
+            System.out.println("Enter Date of Birth:");
+            String DOB=scan.next();
+           
+            studentModel.setStudentId(id);
+            studentModel.setFirstName(firstName1);
+            studentModel.setLastName(lastName);
+            studentModel.setEmail(emailId);
+            studentModel.setPhoneNumber(number);
+            studentModel.setTenthPercentage(tenth);
+            studentModel.setInterPercentage(twelth);
+            studentModel.setDepartmentName(departmentName);
+            //studentModel.setDateOfBirth(DOB);
+                   adminController.addStudentController(studentModel);
+                   break;
 					
 			case 2 :String passIdString="";
 					boolean validStudentId=false;

@@ -27,9 +27,9 @@ public class FacultyController {
 		facultyView.displayClassSchedule(model);
 	}
 
-	public void handleStaffMeeting() {
+	public void handleStaffMeeting(String departmentName1) {
 
-		FacultyModel staffMeeting=facultyService.handleRetrieveStaffMeeting();
+		FacultyModel staffMeeting=facultyService.handleRetrieveStaffMeeting(departmentName1);
 		facultyView.showStaffMeetingDetails(staffMeeting);
 		 
 	}
@@ -45,7 +45,6 @@ public class FacultyController {
 	}
 
 	public void handleDownloadAssignments(int fileId) {
-		// TODO Auto-generated method stub
 		
 	}
 	

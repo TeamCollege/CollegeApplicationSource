@@ -30,7 +30,7 @@ public class FacultyServiceImpl implements FacultyService {
  
 	@Override      
 	public List<ClassScheduleModel> retreiveClassSchedule(String departmentName) {
-		System.out.println("in service");
+		//System.out.println("in service");
 
 		List<ClassScheduleModel> classScheduleModelList = new ArrayList<>();
 			try {
@@ -53,11 +53,11 @@ public class FacultyServiceImpl implements FacultyService {
 	}
 
 	@Override
-	public FacultyModel handleRetrieveStaffMeeting() {
+	public FacultyModel handleRetrieveStaffMeeting(String departmentName1) {
 		Faculty faculty=null;
 		FacultyModel facultyModel=new FacultyModel();
 		try {
-			faculty = facultyDAO.getStaffMeetingDetails();
+			faculty = facultyDAO.getStaffMeetingDetails(departmentName1);
 			StaffMeeting staffMeeting=faculty.getStaffMeeting();
 			StaffMeetingModel staffMeetingModel=new StaffMeetingModel();
 			

@@ -28,11 +28,11 @@ public class LoginController {
 		LoginModel loginModel=new LoginModel();
 		loginModel.setUserId(userId);
 		loginModel.setPassword(password);
-		System.out.println("in controller");
+		//System.out.println("in controller");
 		
 		try {
 			String outcome=loginService.userAuthenticationService(loginModel);
-			System.out.println(outcome);
+			//System.out.println(outcome);
 			if(outcome.contentEquals("ADMIN")){
 				AdminView adminView=new AdminView();
 				adminView.adminView();

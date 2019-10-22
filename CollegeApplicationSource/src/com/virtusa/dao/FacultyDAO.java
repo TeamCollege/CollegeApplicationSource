@@ -12,11 +12,11 @@ import com.virtusa.entities.UploadDownloadAssignments;
 public interface FacultyDAO {
 	public List<ClassSchedule> viewCLassSchedule(String departmentName) throws ClassNotFoundException, SQLException;
 
-	public Faculty getStaffMeetingDetails() throws ClassNotFoundException, SQLException;
-
 	public boolean uploadDownloadAssignments(UploadDownloadAssignments uploadDownloadAssignments) throws SQLException, ClassNotFoundException, FileNotFoundException;
 
-	public Faculty getExaminationSchedule(String departmentName) throws SQLException, ClassNotFoundException;	
+	public Faculty getExaminationSchedule(String departmentName) throws SQLException, ClassNotFoundException;
+
+	public Faculty getStaffMeetingDetails(String departmentName1) throws ClassNotFoundException, SQLException;	
 
 }
  

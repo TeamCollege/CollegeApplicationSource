@@ -22,7 +22,7 @@ public class LoginDAOImpl implements LoginDAO {
 		PreparedStatement preparedStatement2=connection.prepareStatement(query2);
 		preparedStatement2.setString(1, userId);
 		preparedStatement2.setString(2, password);
-		System.out.println("In DAO");
+		//System.out.println("In DAO");
 		ResultSet rs2 = preparedStatement2.executeQuery();
 		while(rs2.next()) 
 		role=rs2.getString("role");
