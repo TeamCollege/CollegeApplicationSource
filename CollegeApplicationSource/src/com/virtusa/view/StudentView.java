@@ -48,7 +48,7 @@ public class StudentView {
 			studentMenu();
 		}
 		}catch(Exception e) {
-			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]jh");
+			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
 		}
 	}
 	

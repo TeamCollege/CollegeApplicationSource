@@ -2,6 +2,7 @@ package com.virtusa.view;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import com.virtusa.controller.FacultyController;
 import com.virtusa.controller.StudentController;
@@ -12,8 +13,11 @@ import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class FacultyView {  
 	
+	Logger log = Logger.getLogger(FacultyView.class.getName());
+	
 	public void facultyMenu() {
-
+		
+		log.info("This is Faculty Menu ");
 
 		FacultyModel facultyModel = new FacultyModel();
 	     
@@ -58,6 +62,8 @@ public class FacultyView {
 	
 
 	private void uploadDownloadMenu() {
+		
+		log.info("---Upload Download Menu---");
 		FacultyController facultyController = new FacultyController();
 
 		System.out.println("=====Upload and Download Assignments=====");
@@ -87,6 +93,7 @@ public class FacultyView {
 	}
 
 	private void viewUploadDownload() {
+		log.info("--- View Upload Download");
 		FacultyController facultyController = new FacultyController();
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("File Name:");
@@ -100,6 +107,7 @@ public class FacultyView {
 	}
 
 	public void displayClassSchedule(List<ClassScheduleModel> model) {
+		log.info("---Display Class Schedule---");
 		System.out.println("=====================================================================================================================================================");
 		System.out.format("%10s%15s%25s%45s%50s\n","Day","First Hour","Second Hour","Third Hour","Fourth_Hour");
 		System.out.println("=====================================================================================================================================================");
@@ -112,7 +120,7 @@ public class FacultyView {
 	}
 
 	public void showStaffMeetingDetails(FacultyModel staffMeeting) {
-
+		log.info("---Staff Meeting Details---");
 		System.out.println("=====================================================================================================================");
 		System.out.format("%10s%15s%25s%45s\n","Faculty ID","Staff Meeting ID","Staff Meeting Agenda","Location");
 		System.out.println("=====================================================================================================================");
@@ -123,6 +131,7 @@ public class FacultyView {
 	}
 	
 	private void viewExaminationSchedule() {
+		log.info("---View Examination Schedule---");
 		FacultyController facultyController =new FacultyController();
 		try(Scanner scanner=new Scanner(System.in);){
 		System.out.println("Please Enter Department Name:");
@@ -134,7 +143,7 @@ public class FacultyView {
 	}
 	
 	public void showExamSchedule(FacultyModel faculty) {
-		// TODO Auto-generated method stub
+		log.info("---Show Examination Schedule---");		
 		System.out.println("=====================================================================================================================");
 		System.out.format("%10s%15s%15s%15s%15s\n","id","type","name","date","subject1","subject2");
 		//System.out.printf("Day","First Hour","Second Hour","Third Hour","Fourth Hour");
@@ -146,10 +155,12 @@ public class FacultyView {
 	}
 
 	public void uploadSuccess() {
+		log.info("---Upload Successful---");
 		System.out.println("File uploaded successfully");
 	}
 
 	public void uploadUnsuccessful() {
+		log.info("---Upload Unsuccessful---");
 		System.out.println("File upload unsuccessful");
 		
 	}
