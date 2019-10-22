@@ -57,7 +57,7 @@ public class StudentView {
 		}catch(Exception e) {
 			System.out.println("!ERROR[SELECT APPROPRIATE OPTION]");
 		}
-	}
+	} 
 	
 	
 
