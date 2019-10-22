@@ -52,7 +52,7 @@ public class FacultyDAOImpl implements FacultyDAO {
 		ConnectionManager.closeConnection();
 		return classScheduleList;
 	}
-
+  
 	@Override
 	public Faculty getStaffMeetingDetails(String departmentName1) throws ClassNotFoundException, SQLException {
 		Faculty faculty = new Faculty();

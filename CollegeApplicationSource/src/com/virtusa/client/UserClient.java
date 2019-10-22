@@ -8,8 +8,7 @@ public class UserClient {
 	}
 
 	public static void main(String[] args) {
-		//AdminView adminView = new AdminView();
-		//adminView.adminView();
+	
 		UserView.mainMenu();
 }
 
